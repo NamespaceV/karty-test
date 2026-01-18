@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cy51d1dp7rgwx"]
+
+[ext_resource type="Texture2D" uid="uid://b80h16q5ksnlg" path="res://3td-party/cards/Poker-cards-1_2.png" id="1_gykrs"]
+[ext_resource type="Script" uid="uid://d18pq18dnaa5f" path="res://Nodes/Card/card.gd" id="2_2s8pd"]
+
+[node name="CardSprite" type="Sprite2D"]
+texture = ExtResource("1_gykrs")
+region_enabled = true
+region_rect = Rect2(0, 0, 48, 64)
+script = ExtResource("2_2s8pd")
+suit = 1
