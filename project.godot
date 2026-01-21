@@ -14,3 +14,11 @@ config/name="Karty test"
 run/main_scene="uid://dxa5ccd40isk5"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Console="*res://addons/console/console.gd"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/console/plugin.cfg")
