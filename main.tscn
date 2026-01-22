@@ -1,12 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dxa5ccd40isk5"]
+[gd_scene load_steps=3 format=3 uid="uid://dxa5ccd40isk5"]
 
 [ext_resource type="Script" uid="uid://p2goto8d7ooy" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="AudioStream" uid="uid://chm0g811w5wnr" path="res://audio/Bluezone_BC0300_alien_interface_sci_fi_texture_003.wav" id="2_0xm2m"]
 
 [node name="Scene" type="Node2D"]
 script = ExtResource("1_ig7tw")
-
-[node name="FmodBankLoader" type="FmodBankLoader" parent="."]
-bank_paths = ["res:///Master.strings.bank", "res:///Master.bank", "res:///Test.bank"]
 
 [node name="Cards" type="Node2D" parent="."]
 
@@ -25,6 +23,6 @@ offset_bottom = 186.0
 text = "Play sound
 "
 
-[node name="FmodEventEmitter2D" type="FmodEventEmitter2D" parent="."]
-event_name = "event:/Test"
-event_guid = "{a2505848-2901-44b3-ae57-a043910d69b7}"
+[node name="Sound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(205, 510)
+stream = ExtResource("2_0xm2m")

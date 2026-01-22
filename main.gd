@@ -20,4 +20,4 @@ func shuffle():
 		$Cards.add_child(card)
 
 func play_sound():
-	$FmodEventEmitter2D.play()
+	$Sound.play()
