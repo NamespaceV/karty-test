@@ -22,4 +22,4 @@ FmodManager="*res://addons/fmod/FmodManager.gd"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/console/plugin.cfg", "res://addons/fmod/plugin.cfg")
+enabled=PackedStringArray("res://addons/console/plugin.cfg", "res://addons/fmod/plugin.cfg", "res://addons/publish/plugin.cfg")
