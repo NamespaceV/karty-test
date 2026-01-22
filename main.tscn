@@ -5,6 +5,9 @@
 [node name="Scene" type="Node2D"]
 script = ExtResource("1_ig7tw")
 
+[node name="FmodBankLoader" type="FmodBankLoader" parent="."]
+bank_paths = ["res:///Master.strings.bank", "res:///Master.bank", "res:///Test.bank"]
+
 [node name="Cards" type="Node2D" parent="."]
 
 [node name="ShuffleButton" type="Button" parent="."]
@@ -14,4 +17,14 @@ offset_right = 102.0
 offset_bottom = 46.0
 text = "Shuffle"
 
-[connection signal="pressed" from="ShuffleButton" to="." method="_on_shuffle_button_pressed"]
+[node name="PlaySound" type="Button" parent="."]
+offset_left = 45.0
+offset_top = 72.0
+offset_right = 108.0
+offset_bottom = 103.0
+text = "Play sound
+"
+
+[node name="FmodEventEmitter2D" type="FmodEventEmitter2D" parent="."]
+event_name = "event:/Test"
+event_guid = "{a2505848-2901-44b3-ae57-a043910d69b7}"
