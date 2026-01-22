@@ -15,7 +15,8 @@ func shuffle():
 		var card = card_scene.instantiate() as Card
 		card.suit = randi_range(Card.Suit.heart, Card.Suit.club)
 		card.value = randi_range(2, Card.ACE)
-		card.position = Vector2(100*(i+1), 100)
+		card.position = Vector2(175*(i+1), 300)
+		card.scale = Vector2(1,1)*2
 		$Cards.add_child(card)
 
 func play_sound():

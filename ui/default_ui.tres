@@ -1,0 +1,36 @@
+[gd_resource type="Theme" format=3 uid="uid://ck5oxthg1s6bc"]
+
+[resource]
+Button/font_sizes/font_size = 48
+CheckBox/font_sizes/font_size = 48
+CheckButton/font_sizes/font_size = 48
+CodeEdit/font_sizes/font_size = 48
+ColorPickerButton/font_sizes/font_size = 48
+FoldableContainer/font_sizes/font_size = 48
+GraphFrameTitleLabel/font_sizes/font_size = 48
+GraphNodeTitleLabel/font_sizes/font_size = 48
+HeaderLarge/font_sizes/font_size = 48
+HeaderMedium/font_sizes/font_size = 48
+HeaderSmall/font_sizes/font_size = 48
+ItemList/font_sizes/font_size = 48
+Label/font_sizes/font_size = 48
+LineEdit/font_sizes/font_size = 48
+LinkButton/font_sizes/font_size = 48
+MenuBar/font_sizes/font_size = 48
+MenuButton/font_sizes/font_size = 48
+OptionButton/font_sizes/font_size = 48
+PopupMenu/font_sizes/font_separator_size = 48
+PopupMenu/font_sizes/font_size = 48
+ProgressBar/font_sizes/font_size = 48
+RichTextLabel/font_sizes/bold_font_size = 48
+RichTextLabel/font_sizes/bold_italics_font_size = 48
+RichTextLabel/font_sizes/italics_font_size = 48
+RichTextLabel/font_sizes/mono_font_size = 48
+RichTextLabel/font_sizes/normal_font_size = 48
+TabBar/font_sizes/font_size = 48
+TabContainer/font_sizes/font_size = 48
+TextEdit/font_sizes/font_size = 48
+TooltipLabel/font_sizes/font_size = 48
+Tree/font_sizes/font_size = 48
+Tree/font_sizes/title_button_font_size = 48
+Window/font_sizes/title_font_size = 48
