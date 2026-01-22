@@ -20,6 +20,14 @@ config/icon="res://icon.svg"
 Console="*res://addons/console/console.gd"
 FmodManager="*res://addons/fmod/FmodManager.gd"
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/window_width_override=960
+window/size/window_height_override=540
+window/stretch/mode="viewport"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/console/plugin.cfg", "res://addons/fmod/plugin.cfg", "res://addons/publish/plugin.cfg")
