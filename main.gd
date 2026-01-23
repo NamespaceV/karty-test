@@ -1,10 +1,13 @@
 extends Node2D
 
 var card_scene = load("res://Nodes/Card/card.tscn") as PackedScene
+@onready var bubble_sound: AudioStreamPlayer2D = $fish_button/bubble_sound
+@onready var bubble_particles: CPUParticles2D = $fish_button/bubble_particles
 
 func _ready() -> void:
 	$ShuffleButton.pressed.connect(shuffle)
 	$PlaySound.pressed.connect(play_sound)
+	bubble_particles.emitting = false
 	shuffle()
 
 func shuffle():
@@ -21,3 +24,13 @@ func shuffle():
 
 func play_sound():
 	$Sound.play()
+
+
+func _on_fish_button_pressed() -> void:
+	bubble_particles.show()
+	bubble_particles.emitting = true
+	bubble_sound.play()
+
+
+func _on_bubble_sound_finished() -> void:
+	bubble_particles.emitting = false

@@ -1,7 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://dxa5ccd40isk5"]
+[gd_scene load_steps=8 format=3 uid="uid://dxa5ccd40isk5"]
 
 [ext_resource type="Script" uid="uid://p2goto8d7ooy" path="res://main.gd" id="1_ig7tw"]
 [ext_resource type="AudioStream" uid="uid://chm0g811w5wnr" path="res://audio/Bluezone_BC0300_alien_interface_sci_fi_texture_003.wav" id="2_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://dqraeps4h3bci" path="res://textures/feed1.png" id="3_lquwl"]
+[ext_resource type="Texture2D" uid="uid://csemj2qqly2v3" path="res://textures/feed3.png" id="4_7mycd"]
+[ext_resource type="Texture2D" uid="uid://q4ofoxyo2t4v" path="res://textures/feed2.png" id="5_272bh"]
+[ext_resource type="AudioStream" uid="uid://b8x2jmo13hhi3" path="res://audio/Bubbles Sound Effect.mp3" id="6_272bh"]
+[ext_resource type="Texture2D" uid="uid://gf11aic5mr75" path="res://textures/bubble.png" id="7_5vw27"]
 
 [node name="Scene" type="Node2D"]
 script = ExtResource("1_ig7tw")
@@ -26,3 +31,42 @@ text = "Play sound
 [node name="Sound" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(205, 510)
 stream = ExtResource("2_0xm2m")
+
+[node name="fish_button" type="TextureButton" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 737.0
+offset_top = 366.0
+offset_right = 1249.0
+offset_bottom = 878.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5944897, 0.5944897)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("3_lquwl")
+texture_pressed = ExtResource("4_7mycd")
+texture_hover = ExtResource("5_272bh")
+
+[node name="bubble_sound" type="AudioStreamPlayer2D" parent="fish_button"]
+stream = ExtResource("6_272bh")
+
+[node name="bubble_particles" type="CPUParticles2D" parent="fish_button"]
+visible = false
+z_index = -1
+position = Vector2(368.38318, 1199.3479)
+amount = 50
+texture = ExtResource("7_5vw27")
+lifetime = 2.0
+emission_shape = 3
+emission_rect_extents = Vector2(1800, 1)
+gravity = Vector2(0, -490)
+radial_accel_max = 41.24
+scale_amount_min = 0.1
+scale_amount_max = 0.2
+
+[connection signal="pressed" from="fish_button" to="." method="_on_fish_button_pressed"]
+[connection signal="finished" from="fish_button/bubble_sound" to="." method="_on_bubble_sound_finished"]
