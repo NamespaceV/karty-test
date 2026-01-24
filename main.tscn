@@ -1,12 +1,25 @@
-[gd_scene load_steps=8 format=3 uid="uid://dxa5ccd40isk5"]
+[gd_scene load_steps=14 format=3 uid="uid://dxa5ccd40isk5"]
 
 [ext_resource type="Script" uid="uid://p2goto8d7ooy" path="res://main.gd" id="1_ig7tw"]
-[ext_resource type="AudioStream" uid="uid://chm0g811w5wnr" path="res://audio/Bluezone_BC0300_alien_interface_sci_fi_texture_003.wav" id="2_0xm2m"]
+[ext_resource type="AudioStream" uid="uid://04ej65e3urvr" path="res://audio/Deal.wav" id="2_efxa6"]
+[ext_resource type="AudioStream" uid="uid://rewllv2eiyn5" path="res://audio/Shuffle.wav" id="3_dg77c"]
 [ext_resource type="Texture2D" uid="uid://dqraeps4h3bci" path="res://textures/feed1.png" id="3_lquwl"]
 [ext_resource type="Texture2D" uid="uid://csemj2qqly2v3" path="res://textures/feed3.png" id="4_7mycd"]
 [ext_resource type="Texture2D" uid="uid://q4ofoxyo2t4v" path="res://textures/feed2.png" id="5_272bh"]
 [ext_resource type="AudioStream" uid="uid://b8x2jmo13hhi3" path="res://audio/Bubbles Sound Effect.mp3" id="6_272bh"]
 [ext_resource type="Texture2D" uid="uid://gf11aic5mr75" path="res://textures/bubble.png" id="7_5vw27"]
+[ext_resource type="AudioStream" uid="uid://bpvf7cnqm2s2b" path="res://audio/Crowd.ogg" id="8_5vw27"]
+[ext_resource type="AudioStream" uid="uid://bjfdlv8dshw6b" path="res://audio/Music/molten-flesh-210451.mp3" id="9_efxa6"]
+[ext_resource type="AudioStream" uid="uid://ckccxcs1isbhr" path="res://audio/Music/neo-soul-night-210447.mp3" id="10_dg77c"]
+[ext_resource type="AudioStream" uid="uid://byn656562kbx7" path="res://audio/Music/unexpected-connection-strategy-risk-407229.mp3" id="11_ycdy4"]
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_w48qg"]
+shuffle = true
+fade_time = 0.5
+stream_count = 3
+stream_0 = ExtResource("9_efxa6")
+stream_1 = ExtResource("10_dg77c")
+stream_2 = ExtResource("11_ycdy4")
 
 [node name="Scene" type="Node2D"]
 script = ExtResource("1_ig7tw")
@@ -18,19 +31,23 @@ offset_left = 39.0
 offset_top = 15.0
 offset_right = 102.0
 offset_bottom = 46.0
-text = "Shuffle"
+text = "Deal"
+
+[node name="Deal" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(39, 15)
+stream = ExtResource("2_efxa6")
 
 [node name="PlaySound" type="Button" parent="."]
 offset_left = 47.0
 offset_top = 111.0
 offset_right = 308.0
 offset_bottom = 186.0
-text = "Play sound
+text = "Shuffle
 "
 
-[node name="Sound" type="AudioStreamPlayer2D" parent="."]
+[node name="Shuffle" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(205, 510)
-stream = ExtResource("2_0xm2m")
+stream = ExtResource("3_dg77c")
 
 [node name="fish_button" type="TextureButton" parent="."]
 anchors_preset = 8
@@ -53,6 +70,8 @@ texture_hover = ExtResource("5_272bh")
 
 [node name="bubble_sound" type="AudioStreamPlayer2D" parent="fish_button"]
 stream = ExtResource("6_272bh")
+volume_db = -13.126
+attenuation = 1.866066
 
 [node name="bubble_particles" type="CPUParticles2D" parent="fish_button"]
 visible = false
@@ -67,6 +86,17 @@ gravity = Vector2(0, -490)
 radial_accel_max = 41.24
 scale_amount_min = 0.1
 scale_amount_max = 0.2
+
+[node name="Crowd" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_5vw27")
+volume_db = -18.128
+autoplay = true
+parameters/looping = true
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamPlaylist_w48qg")
+volume_db = -23.223
+autoplay = true
 
 [connection signal="pressed" from="fish_button" to="." method="_on_fish_button_pressed"]
 [connection signal="finished" from="fish_button/bubble_sound" to="." method="_on_bubble_sound_finished"]

@@ -21,9 +21,10 @@ func shuffle():
 		card.position = Vector2(175*(i+1), 300)
 		card.scale = Vector2(1,1)*2
 		$Cards.add_child(card)
+	$Deal.play()
 
 func play_sound():
-	$Sound.play()
+	$Shuffle.play()
 
 
 func _on_fish_button_pressed() -> void:
