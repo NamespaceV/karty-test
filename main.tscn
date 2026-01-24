@@ -26,7 +26,7 @@ script = ExtResource("1_ig7tw")
 
 [node name="Cards" type="Node2D" parent="."]
 
-[node name="ShuffleButton" type="Button" parent="."]
+[node name="DealButton" type="Button" parent="."]
 offset_left = 39.0
 offset_top = 15.0
 offset_right = 102.0
@@ -37,7 +37,7 @@ text = "Deal"
 position = Vector2(39, 15)
 stream = ExtResource("2_efxa6")
 
-[node name="PlaySound" type="Button" parent="."]
+[node name="ShuffleButton" type="Button" parent="."]
 offset_left = 47.0
 offset_top = 111.0
 offset_right = 308.0

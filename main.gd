@@ -5,13 +5,13 @@ var card_scene = load("res://Nodes/Card/card.tscn") as PackedScene
 @onready var bubble_particles: CPUParticles2D = $fish_button/bubble_particles
 
 func _ready() -> void:
+	$DealButton.pressed.connect(deal)
 	$ShuffleButton.pressed.connect(shuffle)
-	$PlaySound.pressed.connect(play_sound)
 	bubble_particles.emitting = false
-	shuffle()
+	deal()
 
-func shuffle():
-	print_debug("shuffle")
+func deal():
+	print_debug("deal")
 	for c in $Cards.get_children():
 		c.queue_free()
 	for i in 10:
@@ -23,7 +23,7 @@ func shuffle():
 		$Cards.add_child(card)
 	$Deal.play()
 
-func play_sound():
+func shuffle():
 	$Shuffle.play()
 
 
