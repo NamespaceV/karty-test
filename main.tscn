@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dxa5ccd40isk5"]
+[gd_scene format=3 uid="uid://dxa5ccd40isk5"]
 
 [ext_resource type="Script" uid="uid://p2goto8d7ooy" path="res://main.gd" id="1_ig7tw"]
 [ext_resource type="AudioStream" uid="uid://04ej65e3urvr" path="res://audio/Deal.wav" id="2_efxa6"]
@@ -22,40 +22,40 @@ stream_0 = ExtResource("9_efxa6")
 stream_1 = ExtResource("10_dg77c")
 stream_2 = ExtResource("11_ycdy4")
 
-[node name="Scene" type="Node2D"]
+[node name="Scene" type="Node2D" unique_id=1460920190]
 script = ExtResource("1_ig7tw")
 
-[node name="WorldAudioManager" type="Node" parent="."]
+[node name="WorldAudioManager" type="Node" parent="." unique_id=430556068]
 script = ExtResource("2_ycdy4")
 
-[node name="Music" type="AudioStreamPlayer" parent="WorldAudioManager"]
+[node name="Music" type="AudioStreamPlayer" parent="WorldAudioManager" unique_id=874279367]
 stream = SubResource("AudioStreamPlaylist_w48qg")
 volume_db = -23.223
 autoplay = true
 bus = &"Music"
 
-[node name="Crowd" type="AudioStreamPlayer" parent="WorldAudioManager"]
+[node name="Crowd" type="AudioStreamPlayer" parent="WorldAudioManager" unique_id=1144958476]
 stream = ExtResource("8_5vw27")
 volume_db = -18.128
 autoplay = true
 bus = &"Ambience"
 parameters/looping = true
 
-[node name="Cards" type="Node2D" parent="."]
+[node name="Cards" type="Node2D" parent="." unique_id=400100176]
 
-[node name="DealButton" type="Button" parent="."]
+[node name="DealButton" type="Button" parent="." unique_id=457972803]
 offset_left = 39.0
 offset_top = 15.0
 offset_right = 102.0
 offset_bottom = 46.0
 text = "Deal"
 
-[node name="Deal" type="AudioStreamPlayer2D" parent="."]
+[node name="Deal" type="AudioStreamPlayer2D" parent="." unique_id=505518935]
 position = Vector2(39, 15)
 stream = ExtResource("2_efxa6")
 bus = &"SFX"
 
-[node name="ShuffleButton" type="Button" parent="."]
+[node name="ShuffleButton" type="Button" parent="." unique_id=1722765340]
 offset_left = 47.0
 offset_top = 111.0
 offset_right = 308.0
@@ -63,12 +63,12 @@ offset_bottom = 186.0
 text = "Shuffle
 "
 
-[node name="Shuffle" type="AudioStreamPlayer2D" parent="."]
+[node name="Shuffle" type="AudioStreamPlayer2D" parent="." unique_id=1896805299]
 position = Vector2(205, 510)
 stream = ExtResource("3_dg77c")
 bus = &"SFX"
 
-[node name="fish_button" type="TextureButton" parent="."]
+[node name="fish_button" type="TextureButton" parent="." unique_id=837561661]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -87,13 +87,13 @@ texture_normal = ExtResource("3_lquwl")
 texture_pressed = ExtResource("4_7mycd")
 texture_hover = ExtResource("5_272bh")
 
-[node name="bubble_sound" type="AudioStreamPlayer2D" parent="fish_button"]
+[node name="bubble_sound" type="AudioStreamPlayer2D" parent="fish_button" unique_id=1750037993]
 stream = ExtResource("6_272bh")
 volume_db = -13.126
 attenuation = 1.866066
 bus = &"SFX"
 
-[node name="bubble_particles" type="CPUParticles2D" parent="fish_button"]
+[node name="bubble_particles" type="CPUParticles2D" parent="fish_button" unique_id=341572927]
 visible = false
 z_index = -1
 position = Vector2(368.38318, 1199.3479)

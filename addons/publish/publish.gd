@@ -19,7 +19,7 @@ func _enter_tree():
 func _exit_tree():
 	remove_tool_menu_item(ACTION_NAME)
 
-const godot_exe = "Godot_v4.5.1-stable_win64.exe"
+const godot_exe = "Godot_v4.6-stable_win64.exe"
 const itch_project = "namespacev/test-p2026"
 
 func build_and_publish():

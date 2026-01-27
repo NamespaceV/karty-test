@@ -9,6 +9,11 @@ func _ready() -> void:
 	$ShuffleButton.pressed.connect(shuffle)
 	bubble_particles.emitting = false
 	deal()
+	Console.add_command("version", version)
+
+
+func version():
+	Console.print_info("version 0.1.1")
 
 func deal():
 	print_debug("deal")

@@ -8,16 +8,20 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="Karty test"
 run/main_scene="uid://dxa5ccd40isk5"
-config/features=PackedStringArray("4.5", "Forward Plus")
+config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-Console="*res://addons/console/console.gd"
+Console="*uid://ouiu5xh1cs8n"
 
 [display]
 
