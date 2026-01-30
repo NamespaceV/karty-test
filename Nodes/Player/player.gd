@@ -2,8 +2,10 @@ class_name Player
 extends CharacterBody2D
 
 @export var speed : float = 400.0
+var hasMask:bool = true
 
 var bulletScene : PackedScene = load("res://Nodes/Player/Bullet/bullet.tscn")
+var maskScene : PackedScene = load("res://Nodes/Player/Mask/Mask.tscn")
 
 func _process(_delta: float) -> void:
 	var i = Input.get_vector("left", "right", "up", "down")
@@ -20,4 +22,16 @@ func _process(_delta: float) -> void:
 		get_parent().add_child(bullet, true)
 
 func take_damage():
-	GAME.reset_game()
+	if not hasMask:
+		GAME.reset_game()
+	hasMask = false
+	$AnimationPlayer.play("no_mask")
+
+	var mask : Node2D = maskScene.instantiate()
+	var offset = Vector2(300, 0).rotated(randf() * TAU)
+	mask.global_position = self.global_position + offset
+	get_parent().add_child(mask, true)
+
+func wear_mask():
+	hasMask = true
+	$AnimationPlayer.play("RESET")
