@@ -1,42 +1,19 @@
 [gd_scene format=3 uid="uid://xp40g7j114lm"]
 
 [ext_resource type="Script" uid="uid://b8r8sjet1cj4j" path="res://Nodes/Boss/boss.gd" id="1_sk461"]
+[ext_resource type="Texture2D" uid="uid://dv8wevea1jqws" path="res://textures/boss1.png" id="2_aolxj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ycdy4"]
-size = Vector2(100, 150)
+size = Vector2(78, 154)
 
 [node name="boss" type="AnimatableBody2D" unique_id=40194971]
 script = ExtResource("1_sk461")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=635883827]
+position = Vector2(-2, -2)
 shape = SubResource("RectangleShape2D_ycdy4")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1279674766]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -50.0
-offset_top = -75.5
-offset_right = 50.0
-offset_bottom = 75.5
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(1, 0, 0.016666412, 1)
-
-[node name="Label" type="Label" parent="ColorRect" unique_id=1650682652]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -14.0
-offset_top = -8.0
-offset_right = 108.0
-offset_bottom = 59.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.24089183, 0.24089183)
-text = "BOSS"
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=78773292]
+position = Vector2(-1.9999999, 0)
+scale = Vector2(0.43301252, 0.43301252)
+texture = ExtResource("2_aolxj")
