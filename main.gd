@@ -5,25 +5,36 @@ extends Node2D
 @onready var laser_1: Marker2D = $laser1
 var laser_offset = Vector2(250,0)
 var laser_ind_array: Array
+var marker_original_position: Vector2
+var random_laser_position: Vector2
+var rng = RandomNumberGenerator.new()
+var random_pos_x
 
 func _ready() -> void:
+	rng.randomize()
+	marker_original_position = laser_1.global_position
 	pattern1()
 
+func _process(delta: float) -> void:
+	random_pos_x = rng.randi_range(-300, 300)
+	
 func pattern1():
 	$AnimationPlayer.play("boss_move_1")
 	while true:
 		await get_tree().create_timer(10).timeout
 		laser_show()
+		
 
 
 func laser_show():
+	random_laser_position = Vector2(random_pos_x, 0) + marker_original_position
 	laser_ind_array = []
 	#spawn indykatorów
 	var k = 0
 	for child in 6:
 		if k <=6:
 			var indicator_spawn = laser_ind.instantiate()
-			indicator_spawn.global_position = laser_1.global_position + laser_offset * k
+			indicator_spawn.global_position = random_laser_position + laser_offset * k
 			add_child(indicator_spawn)
 			laser_ind_array.append(indicator_spawn)
 			print(laser_ind_array)
@@ -34,7 +45,7 @@ func laser_show():
 	for child in 6:
 		if n <=6:
 			var laser_spawn = laser.instantiate()
-			laser_spawn.global_position = laser_1.global_position + laser_offset * n
+			laser_spawn.global_position = random_laser_position + laser_offset * n
 			add_child(laser_spawn)
 			n += 1
 	
