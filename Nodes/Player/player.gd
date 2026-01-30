@@ -26,7 +26,9 @@ func take_damage():
 		GAME.reset_game()
 	hasMask = false
 	$AnimationPlayer.play("no_mask")
+	call_deferred("spawn_mask")
 
+func spawn_mask():
 	var mask : Node2D = maskScene.instantiate()
 	var offset = Vector2(300, 0).rotated(randf() * TAU)
 	mask.global_position = self.global_position + offset
