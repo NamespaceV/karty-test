@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dxa5ccd40isk5"]
 
 [ext_resource type="Script" uid="uid://p2goto8d7ooy" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://cho732lpla0kc" path="res://Nodes/Boss/Laser/aoe.tscn" id="2_82xsv"]
 [ext_resource type="AudioStream" uid="uid://04ej65e3urvr" path="res://audio/Deal.wav" id="2_efxa6"]
 [ext_resource type="Script" uid="uid://gcpmgnm51wki" path="res://world_audio_manager.gd" id="2_ycdy4"]
 [ext_resource type="AudioStream" uid="uid://rewllv2eiyn5" path="res://audio/Shuffle.wav" id="3_dg77c"]
@@ -71,6 +72,7 @@ bg_color = Color(0.6, 0.024000013, 0.024000013, 1)
 
 [node name="Scene" type="Node2D" unique_id=1460920190]
 script = ExtResource("1_ig7tw")
+aoe = ExtResource("2_82xsv")
 laser = ExtResource("16_2cqfq")
 laser_ind = ExtResource("3_yaehf")
 

@@ -1,5 +1,6 @@
 extends Node2D
 
+@export var aoe: PackedScene
 @export var laser: PackedScene
 @export var laser_ind: PackedScene
 @onready var laser_1: Marker2D = $laserBase
@@ -20,7 +21,7 @@ func _process(_delta: float) -> void:
 func pattern1():
 	$AnimationPlayer.play("boss_move_1")
 	while true:
-		[laser_show1, laser_show2].pick_random().call()
+		[laser_show1, laser_show2, aoe_show, aoe_show2].pick_random().call()
 		await get_tree().create_timer(5).timeout
 
 
@@ -41,6 +42,30 @@ func laser_show2():
 		random_laser_position += Vector2(0,-350)
 		await get_tree().create_timer(0.2).timeout
 
+func aoe_show():
+	var spawn_pos = marker_original_position
+	for i in 10:
+		var randv = Vector2(rng.randf_range(-100, 100), rng.randf_range(-100, 100))
+		spawnAoe(spawn_pos + randv)
+		spawn_pos += Vector2(350,-350)
+
+func aoe_show2():
+	var spawn_pos = marker_original_position + Vector2(350 * 5, 0)
+	for i in 10:
+		var randv = Vector2(rng.randf_range(-100, 100), rng.randf_range(-100, 100))
+		spawnAoe(spawn_pos + randv)
+		spawn_pos += Vector2(-350,-350)
+
+func spawnAoe(pos:Vector2):
+	var indicator_spawn = laser_ind.instantiate()
+	indicator_spawn.global_position = pos
+	add_child(indicator_spawn)
+	await get_tree().create_timer(1).timeout
+	var laser_spawn = aoe.instantiate() as Node2D
+	laser_spawn.global_position = pos
+	add_child(laser_spawn)
+	await get_tree().create_timer(1).timeout
+	indicator_spawn.queue_free()
 
 func spawnLaser(pos:Vector2, dir:Vector2):
 	var indicator_spawn = laser_ind.instantiate()
