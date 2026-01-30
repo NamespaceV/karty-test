@@ -15,6 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://byn656562kbx7" path="res://audio/Music/unexpected-connection-strategy-risk-407229.mp3" id="11_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://xp40g7j114lm" path="res://scenes/boss.tscn" id="14_w48qg"]
 [ext_resource type="PackedScene" uid="uid://bpml58shwj1wq" path="res://Nodes/Player/player.tscn" id="15_vivmo"]
+[ext_resource type="PackedScene" uid="uid://b7a73wqytukva" path="res://scenes/laser.tscn" id="16_2cqfq"]
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_w48qg"]
 shuffle = true
@@ -26,6 +27,7 @@ stream_2 = ExtResource("11_ycdy4")
 
 [node name="Scene" type="Node2D" unique_id=1460920190]
 script = ExtResource("1_ig7tw")
+laser = ExtResource("16_2cqfq")
 
 [node name="fish_cards" type="Node2D" parent="." unique_id=860529671]
 visible = false
@@ -117,6 +119,9 @@ position = Vector2(928, 164)
 
 [node name="Player" parent="." unique_id=239836141 instance=ExtResource("15_vivmo")]
 position = Vector2(976, 872)
+
+[node name="laser1" type="Marker2D" parent="." unique_id=794296642]
+position = Vector2(285, 1068)
 
 [connection signal="pressed" from="fish_cards/fish_button" to="." method="_on_fish_button_pressed"]
 [connection signal="finished" from="fish_cards/fish_button/bubble_sound" to="." method="_on_bubble_sound_finished"]
