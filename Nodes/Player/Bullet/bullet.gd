@@ -16,5 +16,9 @@ func _process(delta: float) -> void:
 		var hit = collision.get_collider()
 		print("hit %s" % [hit])
 		queue_free()
+		var boss = hit as Boss
+		if boss:
+			boss.take_damage(1)
+
 	if !$VisibleOnScreenNotifier2D.is_on_screen():
 		queue_free()

@@ -13,9 +13,9 @@
 [ext_resource type="AudioStream" uid="uid://bjfdlv8dshw6b" path="res://audio/Music/molten-flesh-210451.mp3" id="9_efxa6"]
 [ext_resource type="AudioStream" uid="uid://ckccxcs1isbhr" path="res://audio/Music/neo-soul-night-210447.mp3" id="10_dg77c"]
 [ext_resource type="AudioStream" uid="uid://byn656562kbx7" path="res://audio/Music/unexpected-connection-strategy-risk-407229.mp3" id="11_ycdy4"]
-[ext_resource type="PackedScene" uid="uid://xp40g7j114lm" path="res://scenes/boss.tscn" id="14_w48qg"]
+[ext_resource type="PackedScene" uid="uid://xp40g7j114lm" path="res://Nodes/Boss/boss.tscn" id="14_w48qg"]
 [ext_resource type="PackedScene" uid="uid://bpml58shwj1wq" path="res://Nodes/Player/player.tscn" id="15_vivmo"]
-[ext_resource type="PackedScene" uid="uid://b7a73wqytukva" path="res://scenes/laser.tscn" id="16_2cqfq"]
+[ext_resource type="PackedScene" uid="uid://b7a73wqytukva" path="res://Nodes/Boss/Laser/laser.tscn" id="16_2cqfq"]
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_w48qg"]
 shuffle = true
@@ -62,6 +62,9 @@ _data = {
 &"RESET": SubResource("Animation_2cqfq"),
 &"boss_move_1": SubResource("Animation_yaehf")
 }
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2cqfq"]
+bg_color = Color(0.6, 0.024000013, 0.024000013, 1)
 
 [node name="Scene" type="Node2D" unique_id=1460920190]
 script = ExtResource("1_ig7tw")
@@ -152,8 +155,9 @@ autoplay = true
 bus = &"Ambience"
 parameters/looping = true
 
-[node name="boss" parent="." unique_id=1371564772 instance=ExtResource("14_w48qg")]
+[node name="boss" parent="." unique_id=1371564772 node_paths=PackedStringArray("hpBar") instance=ExtResource("14_w48qg")]
 position = Vector2(928, 164)
+hpBar = NodePath("../BossHp")
 
 [node name="Player" parent="." unique_id=239836141 instance=ExtResource("15_vivmo")]
 position = Vector2(976, 872)
@@ -163,6 +167,13 @@ position = Vector2(285, 1068)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2047969869]
 libraries/ = SubResource("AnimationLibrary_074og")
+
+[node name="BossHp" type="ProgressBar" parent="." unique_id=1946581873]
+offset_right = 1919.0
+offset_bottom = 71.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_2cqfq")
+value = 60.0
+show_percentage = false
 
 [connection signal="pressed" from="fish_cards/fish_button" to="." method="_on_fish_button_pressed"]
 [connection signal="finished" from="fish_cards/fish_button/bubble_sound" to="." method="_on_bubble_sound_finished"]

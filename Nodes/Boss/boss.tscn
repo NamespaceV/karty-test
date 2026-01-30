@@ -1,9 +1,12 @@
 [gd_scene format=3 uid="uid://xp40g7j114lm"]
 
+[ext_resource type="Script" uid="uid://b8r8sjet1cj4j" path="res://Nodes/Boss/boss.gd" id="1_sk461"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ycdy4"]
 size = Vector2(100, 150)
 
 [node name="boss" type="AnimatableBody2D" unique_id=40194971]
+script = ExtResource("1_sk461")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=635883827]
 shape = SubResource("RectangleShape2D_ycdy4")
