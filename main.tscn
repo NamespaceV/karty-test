@@ -13,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://bjfdlv8dshw6b" path="res://audio/Music/molten-flesh-210451.mp3" id="9_efxa6"]
 [ext_resource type="AudioStream" uid="uid://ckccxcs1isbhr" path="res://audio/Music/neo-soul-night-210447.mp3" id="10_dg77c"]
 [ext_resource type="AudioStream" uid="uid://byn656562kbx7" path="res://audio/Music/unexpected-connection-strategy-risk-407229.mp3" id="11_ycdy4"]
+[ext_resource type="PackedScene" uid="uid://xp40g7j114lm" path="res://scenes/boss.tscn" id="14_w48qg"]
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_w48qg"]
 shuffle = true
@@ -25,37 +26,24 @@ stream_2 = ExtResource("11_ycdy4")
 [node name="Scene" type="Node2D" unique_id=1460920190]
 script = ExtResource("1_ig7tw")
 
-[node name="WorldAudioManager" type="Node" parent="." unique_id=430556068]
-script = ExtResource("2_ycdy4")
+[node name="fish_cards" type="Node2D" parent="." unique_id=860529671]
+visible = false
 
-[node name="Music" type="AudioStreamPlayer" parent="WorldAudioManager" unique_id=874279367]
-stream = SubResource("AudioStreamPlaylist_w48qg")
-volume_db = -23.223
-autoplay = true
-bus = &"Music"
+[node name="Cards" type="Node2D" parent="fish_cards" unique_id=400100176]
 
-[node name="Crowd" type="AudioStreamPlayer" parent="WorldAudioManager" unique_id=1144958476]
-stream = ExtResource("8_5vw27")
-volume_db = -18.128
-autoplay = true
-bus = &"Ambience"
-parameters/looping = true
-
-[node name="Cards" type="Node2D" parent="." unique_id=400100176]
-
-[node name="DealButton" type="Button" parent="." unique_id=457972803]
+[node name="DealButton" type="Button" parent="fish_cards" unique_id=457972803]
 offset_left = 39.0
 offset_top = 15.0
-offset_right = 102.0
-offset_bottom = 46.0
+offset_right = 151.0
+offset_bottom = 90.0
 text = "Deal"
 
-[node name="Deal" type="AudioStreamPlayer2D" parent="." unique_id=505518935]
+[node name="Deal" type="AudioStreamPlayer2D" parent="fish_cards" unique_id=505518935]
 position = Vector2(39, 15)
 stream = ExtResource("2_efxa6")
 bus = &"SFX"
 
-[node name="ShuffleButton" type="Button" parent="." unique_id=1722765340]
+[node name="ShuffleButton" type="Button" parent="fish_cards" unique_id=1722765340]
 offset_left = 47.0
 offset_top = 111.0
 offset_right = 308.0
@@ -63,21 +51,21 @@ offset_bottom = 186.0
 text = "Shuffle
 "
 
-[node name="Shuffle" type="AudioStreamPlayer2D" parent="." unique_id=1896805299]
+[node name="Shuffle" type="AudioStreamPlayer2D" parent="fish_cards" unique_id=1896805299]
 position = Vector2(205, 510)
 stream = ExtResource("3_dg77c")
 bus = &"SFX"
 
-[node name="fish_button" type="TextureButton" parent="." unique_id=837561661]
+[node name="fish_button" type="TextureButton" parent="fish_cards" unique_id=837561661]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 737.0
-offset_top = 366.0
-offset_right = 1249.0
-offset_bottom = 878.0
+offset_left = -223.0
+offset_top = -174.0
+offset_right = 289.0
+offset_bottom = 338.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5944897, 0.5944897)
@@ -87,13 +75,13 @@ texture_normal = ExtResource("3_lquwl")
 texture_pressed = ExtResource("4_7mycd")
 texture_hover = ExtResource("5_272bh")
 
-[node name="bubble_sound" type="AudioStreamPlayer2D" parent="fish_button" unique_id=1750037993]
+[node name="bubble_sound" type="AudioStreamPlayer2D" parent="fish_cards/fish_button" unique_id=1750037993]
 stream = ExtResource("6_272bh")
 volume_db = -13.126
 attenuation = 1.866066
 bus = &"SFX"
 
-[node name="bubble_particles" type="CPUParticles2D" parent="fish_button" unique_id=341572927]
+[node name="bubble_particles" type="CPUParticles2D" parent="fish_cards/fish_button" unique_id=341572927]
 visible = false
 z_index = -1
 position = Vector2(368.38318, 1199.3479)
@@ -107,5 +95,24 @@ radial_accel_max = 41.24
 scale_amount_min = 0.1
 scale_amount_max = 0.2
 
-[connection signal="pressed" from="fish_button" to="." method="_on_fish_button_pressed"]
-[connection signal="finished" from="fish_button/bubble_sound" to="." method="_on_bubble_sound_finished"]
+[node name="WorldAudioManager" type="Node" parent="fish_cards" unique_id=430556068]
+script = ExtResource("2_ycdy4")
+
+[node name="Music" type="AudioStreamPlayer" parent="fish_cards/WorldAudioManager" unique_id=874279367]
+stream = SubResource("AudioStreamPlaylist_w48qg")
+volume_db = -23.223
+autoplay = true
+bus = &"Music"
+
+[node name="Crowd" type="AudioStreamPlayer" parent="fish_cards/WorldAudioManager" unique_id=1144958476]
+stream = ExtResource("8_5vw27")
+volume_db = -18.128
+autoplay = true
+bus = &"Ambience"
+parameters/looping = true
+
+[node name="boss" parent="." unique_id=1371564772 instance=ExtResource("14_w48qg")]
+position = Vector2(928, 164)
+
+[connection signal="pressed" from="fish_cards/fish_button" to="." method="_on_fish_button_pressed"]
+[connection signal="finished" from="fish_cards/fish_button/bubble_sound" to="." method="_on_bubble_sound_finished"]
