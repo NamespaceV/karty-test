@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://w4t0ukuuisvw"]
+
+[ext_resource type="Texture2D" uid="uid://cbw78tqnfiies" path="res://icon.svg" id="1_phcm6"]
+[ext_resource type="Script" uid="uid://bp60aseid0iy4" path="res://Nodes/Player/Bullet/bullet.gd" id="1_u5u0j"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u5u0j"]
+
+[node name="Bullet" type="AnimatableBody2D" unique_id=2053156613]
+collision_layer = 2
+script = ExtResource("1_u5u0j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=25940597]
+shape = SubResource("CircleShape2D_u5u0j")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1934032516]
+modulate = Color(0.13883331, 0.49, 0, 1)
+scale = Vector2(0.140625, 0.140625)
+texture = ExtResource("1_phcm6")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=2009304247]
