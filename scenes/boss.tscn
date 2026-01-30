@@ -3,7 +3,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ycdy4"]
 size = Vector2(100, 150)
 
-[node name="boss" type="CharacterBody2D" unique_id=1371564772]
+[node name="boss" type="AnimatableBody2D" unique_id=40194971]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=635883827]
 shape = SubResource("RectangleShape2D_ycdy4")
