@@ -70,7 +70,7 @@ func aoe_show():
 		spawn_pos += Vector2(350,-350)
 
 func aoe_show2():
-	var spawn_pos = marker_original_position + Vector2(350 * 5, 0)
+	var spawn_pos = marker_original_position + Vector2(350 * 3, 0)
 	for i in 10:
 		var randv = Vector2(rng.randf_range(-100, 100), rng.randf_range(-100, 100))
 		spawnAoe(spawn_pos + randv)
