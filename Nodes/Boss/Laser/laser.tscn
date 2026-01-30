@@ -25,6 +25,7 @@ color = Color(0, 0.7833333, 1, 1)
 
 [node name="laser_area" type="Area2D" parent="." unique_id=137990365]
 position = Vector2(0, 499)
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="laser_area" unique_id=621500635]
 position = Vector2(0, 800)

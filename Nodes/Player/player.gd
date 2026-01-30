@@ -1,3 +1,4 @@
+class_name Player
 extends CharacterBody2D
 
 @export var speed : float = 400.0
@@ -17,3 +18,6 @@ func _process(_delta: float) -> void:
 		bullet.global_position = self.global_position
 		bullet.set_direction(dir)
 		get_parent().add_child(bullet, true)
+
+func take_damage():
+	GAME.reset_game()

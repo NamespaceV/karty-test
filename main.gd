@@ -11,8 +11,9 @@ func _ready() -> void:
 func pattern1():
 	$AnimationPlayer.play("boss_move_1")
 	while true:
-		laser_show()
 		await get_tree().create_timer(5).timeout
+		laser_show()
+
 
 func laser_show():
 	var n = 0
