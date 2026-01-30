@@ -13,9 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://q4ofoxyo2t4v" path="res://textures/fish/feed2.png" id="5_272bh"]
 [ext_resource type="AudioStream" uid="uid://b8x2jmo13hhi3" path="res://audio/Bubbles Sound Effect.mp3" id="6_272bh"]
 [ext_resource type="Texture2D" uid="uid://gf11aic5mr75" path="res://textures/fish/bubble.png" id="7_5vw27"]
+[ext_resource type="AudioStream" uid="uid://drkobhh4bwamu" path="res://audio/Music/Waltz2.mp3" id="7_cegan"]
 [ext_resource type="AudioStream" uid="uid://bpvf7cnqm2s2b" path="res://audio/Crowd.ogg" id="8_5vw27"]
 [ext_resource type="PackedScene" uid="uid://xp40g7j114lm" path="res://Nodes/Boss/boss.tscn" id="14_w48qg"]
-[ext_resource type="AudioStream" uid="uid://rpq72rny0dql" path="res://audio/Music/Waltz.wav" id="15_cegan"]
 [ext_resource type="PackedScene" uid="uid://bpml58shwj1wq" path="res://Nodes/Player/player.tscn" id="15_vivmo"]
 [ext_resource type="PackedScene" uid="uid://b7a73wqytukva" path="res://Nodes/Boss/Laser/laser.tscn" id="16_2cqfq"]
 [ext_resource type="Script" uid="uid://1ocmk2pskud1" path="res://camera_2d.gd" id="18_074og"]
@@ -67,6 +67,20 @@ minion = ExtResource("2_getpj")
 aoe = ExtResource("2_82xsv")
 laser = ExtResource("16_2cqfq")
 laser_ind = ExtResource("3_yaehf")
+
+[node name="WorldAudioManager" type="Node" parent="." unique_id=430556068]
+script = ExtResource("2_ycdy4")
+
+[node name="Music" type="AudioStreamPlayer" parent="WorldAudioManager" unique_id=874279367]
+stream = ExtResource("7_cegan")
+autoplay = true
+bus = &"Music"
+
+[node name="Crowd" type="AudioStreamPlayer" parent="WorldAudioManager" unique_id=1144958476]
+stream = ExtResource("8_5vw27")
+volume_db = -18.128
+bus = &"Ambience"
+parameters/looping = true
 
 [node name="Bg" type="Sprite2D" parent="." unique_id=864595188]
 position = Vector2(892.9999, 483)
@@ -141,20 +155,6 @@ gravity = Vector2(0, -490)
 radial_accel_max = 41.24
 scale_amount_min = 0.1
 scale_amount_max = 0.2
-
-[node name="WorldAudioManager" type="Node" parent="fish_cards" unique_id=430556068]
-script = ExtResource("2_ycdy4")
-
-[node name="Music" type="AudioStreamPlayer" parent="fish_cards/WorldAudioManager" unique_id=874279367]
-stream = ExtResource("15_cegan")
-autoplay = true
-bus = &"Music"
-
-[node name="Crowd" type="AudioStreamPlayer" parent="fish_cards/WorldAudioManager" unique_id=1144958476]
-stream = ExtResource("8_5vw27")
-volume_db = -18.128
-bus = &"Ambience"
-parameters/looping = true
 
 [node name="boss" parent="." unique_id=1371564772 node_paths=PackedStringArray("hpBar") instance=ExtResource("14_w48qg")]
 position = Vector2(1584, 532)
