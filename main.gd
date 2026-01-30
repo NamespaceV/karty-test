@@ -2,11 +2,10 @@ extends Node2D
 
 @export var laser: PackedScene
 @export var laser_ind: PackedScene
-@onready var laser_1: Marker2D = $laser1
+@onready var laser_1: Marker2D = $laserBase
 var laser_offset = Vector2(350,0)
 var laser_ind_array: Array
 var marker_original_position: Vector2
-var random_laser_position: Vector2
 var rng = RandomNumberGenerator.new()
 var random_pos_x
 
@@ -15,45 +14,45 @@ func _ready() -> void:
 	marker_original_position = laser_1.global_position
 	pattern1()
 
-func _process(delta: float) -> void:
-	random_pos_x = rng.randi_range(-300, 300)
+func _process(_delta: float) -> void:
+	pass
 
 func pattern1():
 	$AnimationPlayer.play("boss_move_1")
 	while true:
-		await get_tree().create_timer(10).timeout
-		laser_show()
+		[laser_show1, laser_show2].pick_random().call()
+		await get_tree().create_timer(5).timeout
 
 
+func laser_show1():
+	var random_laser_position = marker_original_position
+	random_laser_position.x +=  rng.randi_range(-300, 300)
+	for i in 6:
+		spawnLaser(random_laser_position, Vector2(0,-1))
+		random_laser_position += laser_offset
+		await get_tree().create_timer(0.2).timeout
 
-func laser_show():
-	random_laser_position = Vector2(random_pos_x, 0) + marker_original_position
-	laser_ind_array = []
-	#spawn indykatorów
-	var k = 0
-	for child in 6:
-		if k <=6:
-			var indicator_spawn = laser_ind.instantiate()
-			indicator_spawn.global_position = random_laser_position + laser_offset * k
-			add_child(indicator_spawn)
-			laser_ind_array.append(indicator_spawn)
-			print(laser_ind_array)
-			k += 1
+
+func laser_show2():
+	var random_laser_position = marker_original_position
+	random_laser_position.y +=  rng.randi_range(-300, 300)
+	for i in 6:
+		spawnLaser(random_laser_position, Vector2(1,0))
+		random_laser_position += Vector2(0,-350)
+		await get_tree().create_timer(0.2).timeout
+
+
+func spawnLaser(pos:Vector2, dir:Vector2):
+	var indicator_spawn = laser_ind.instantiate()
+	indicator_spawn.global_position = pos
+	add_child(indicator_spawn)
 	await get_tree().create_timer(1).timeout
-	#spawn laserów
-	var n = 0
-	for child in 6:
-		if n <=6:
-			var laser_spawn = laser.instantiate()
-			laser_spawn.global_position = random_laser_position + laser_offset * n
-			add_child(laser_spawn)
-			n += 1
-
+	var laser_spawn = laser.instantiate() as Node2D
+	laser_spawn.global_position = pos
+	laser_spawn.look_at(pos+dir)
+	add_child(laser_spawn)
 	await get_tree().create_timer(2.6).timeout
-	#despawn indykatorów
-	for child in laser_ind_array:
-		child.queue_free()
-
+	indicator_spawn.queue_free()
 
 
 

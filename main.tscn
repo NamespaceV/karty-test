@@ -175,7 +175,7 @@ script = ExtResource("18_074og")
 [node name="Player" parent="." unique_id=239836141 instance=ExtResource("15_vivmo")]
 position = Vector2(976, 872)
 
-[node name="laser1" type="Marker2D" parent="." unique_id=794296642]
+[node name="laserBase" type="Marker2D" parent="." unique_id=794296642]
 position = Vector2(285, 1068)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2047969869]
