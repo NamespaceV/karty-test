@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://xp40g7j114lm" path="res://Nodes/Boss/boss.tscn" id="14_w48qg"]
 [ext_resource type="PackedScene" uid="uid://bpml58shwj1wq" path="res://Nodes/Player/player.tscn" id="15_vivmo"]
 [ext_resource type="PackedScene" uid="uid://b7a73wqytukva" path="res://Nodes/Boss/Laser/laser.tscn" id="16_2cqfq"]
+[ext_resource type="Script" uid="uid://1ocmk2pskud1" path="res://camera_2d.gd" id="18_074og"]
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_w48qg"]
 shuffle = true
@@ -163,6 +164,9 @@ hpBar = NodePath("../BossHp")
 
 [node name="Player" parent="." unique_id=239836141 instance=ExtResource("15_vivmo")]
 position = Vector2(976, 872)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=855566418]
+script = ExtResource("18_074og")
 
 [node name="laser1" type="Marker2D" parent="." unique_id=794296642]
 position = Vector2(285, 1068)
