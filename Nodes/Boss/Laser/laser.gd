@@ -8,4 +8,14 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	$".".position.y -= 100
+	$".".position.y -= 1000 * delta
+
+
+func _on_laser_area_body_entered(body: Node2D) -> void:
+	print("halo")
+	if body.is_in_group("hero"):
+		print("bang")
+
+
+func _on_laser_area_body_exited(body: Node2D) -> void:
+	pass # Replace with function body.
