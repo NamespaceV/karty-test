@@ -1,5 +1,6 @@
 extends Node2D
 
+@export var minion: PackedScene
 @export var aoe: PackedScene
 @export var laser: PackedScene
 @export var laser_ind: PackedScene
@@ -9,6 +10,14 @@ var laser_ind_array: Array
 var marker_original_position: Vector2
 var rng = RandomNumberGenerator.new()
 var random_pos_x
+
+var effects = [
+	laser_show1,
+	laser_show2,
+	aoe_show,
+	aoe_show2,
+	spawn_minions
+]
 
 func _ready() -> void:
 	rng.randomize()
@@ -21,9 +30,20 @@ func _process(_delta: float) -> void:
 func pattern1():
 	$AnimationPlayer.play("boss_move_1")
 	while true:
-		[laser_show1, laser_show2, aoe_show, aoe_show2].pick_random().call()
-		await get_tree().create_timer(5).timeout
+		effects.shuffle()
+		for e in effects:
+			e.call()
+			await get_tree().create_timer(5).timeout
 
+func spawn_minions():
+	for i in 2:
+		spawn_minion(GAME.boss.position)
+		await get_tree().create_timer(0.5).timeout
+
+func spawn_minion(pos:Vector2):
+	var m = minion.instantiate()
+	m.global_position = pos
+	add_child(m)
 
 func laser_show1():
 	var random_laser_position = marker_original_position
