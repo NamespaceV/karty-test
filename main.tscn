@@ -14,21 +14,11 @@
 [ext_resource type="AudioStream" uid="uid://b8x2jmo13hhi3" path="res://audio/Bubbles Sound Effect.mp3" id="6_272bh"]
 [ext_resource type="Texture2D" uid="uid://gf11aic5mr75" path="res://textures/fish/bubble.png" id="7_5vw27"]
 [ext_resource type="AudioStream" uid="uid://bpvf7cnqm2s2b" path="res://audio/Crowd.ogg" id="8_5vw27"]
-[ext_resource type="AudioStream" uid="uid://bjfdlv8dshw6b" path="res://audio/Music/molten-flesh-210451.mp3" id="9_efxa6"]
-[ext_resource type="AudioStream" uid="uid://ckccxcs1isbhr" path="res://audio/Music/neo-soul-night-210447.mp3" id="10_dg77c"]
-[ext_resource type="AudioStream" uid="uid://byn656562kbx7" path="res://audio/Music/unexpected-connection-strategy-risk-407229.mp3" id="11_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://xp40g7j114lm" path="res://Nodes/Boss/boss.tscn" id="14_w48qg"]
+[ext_resource type="AudioStream" uid="uid://rpq72rny0dql" path="res://audio/Music/Waltz.wav" id="15_cegan"]
 [ext_resource type="PackedScene" uid="uid://bpml58shwj1wq" path="res://Nodes/Player/player.tscn" id="15_vivmo"]
 [ext_resource type="PackedScene" uid="uid://b7a73wqytukva" path="res://Nodes/Boss/Laser/laser.tscn" id="16_2cqfq"]
 [ext_resource type="Script" uid="uid://1ocmk2pskud1" path="res://camera_2d.gd" id="18_074og"]
-
-[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_w48qg"]
-shuffle = true
-fade_time = 0.5
-stream_count = 3
-stream_0 = ExtResource("9_efxa6")
-stream_1 = ExtResource("10_dg77c")
-stream_2 = ExtResource("11_ycdy4")
 
 [sub_resource type="Animation" id="Animation_2cqfq"]
 length = 0.001
@@ -156,15 +146,13 @@ scale_amount_max = 0.2
 script = ExtResource("2_ycdy4")
 
 [node name="Music" type="AudioStreamPlayer" parent="fish_cards/WorldAudioManager" unique_id=874279367]
-stream = SubResource("AudioStreamPlaylist_w48qg")
-volume_db = -23.223
+stream = ExtResource("15_cegan")
 autoplay = true
 bus = &"Music"
 
 [node name="Crowd" type="AudioStreamPlayer" parent="fish_cards/WorldAudioManager" unique_id=1144958476]
 stream = ExtResource("8_5vw27")
 volume_db = -18.128
-autoplay = true
 bus = &"Ambience"
 parameters/looping = true
 
