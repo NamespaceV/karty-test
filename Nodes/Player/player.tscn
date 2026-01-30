@@ -58,7 +58,7 @@ texture = ExtResource("2_lkjqq")
 libraries/ = SubResource("AnimationLibrary_sldgk")
 
 [node name="ability_1_timer" type="Timer" parent="." unique_id=1186711983]
-wait_time = 0.35
+wait_time = 0.175
 
 [node name="ability_2_timer" type="Timer" parent="." unique_id=1282442292]
 wait_time = 0.3
