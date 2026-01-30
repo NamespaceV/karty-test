@@ -11,3 +11,5 @@ func _ready() -> void:
 
 func take_damage(value : int):
 	hpBar.value -= value
+	if hpBar.value <= 0:
+		GAME.boss_defeated()

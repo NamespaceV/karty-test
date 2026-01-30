@@ -7,5 +7,6 @@ func _on_laser_area_body_entered(body: Node2D) -> void:
 		var p = body as Player
 		p.take_damage()
 
+
 func _ready() -> void:
-	$AnimationPlayer.animation_finished.connect(func done(name): queue_free())
+	$AnimationPlayer.animation_finished.connect(func done(_name): queue_free())
