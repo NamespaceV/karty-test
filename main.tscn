@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dqraeps4h3bci" path="res://textures/fish/feed1.png" id="3_lquwl"]
 [ext_resource type="PackedScene" uid="uid://d05380phvgsek" path="res://Nodes/Boss/Laser/laser_indicator.tscn" id="3_yaehf"]
 [ext_resource type="Texture2D" uid="uid://csemj2qqly2v3" path="res://textures/fish/feed3.png" id="4_7mycd"]
+[ext_resource type="Texture2D" uid="uid://cjftg5rxollan" path="res://bg.png" id="4_cegan"]
 [ext_resource type="Texture2D" uid="uid://q4ofoxyo2t4v" path="res://textures/fish/feed2.png" id="5_272bh"]
 [ext_resource type="AudioStream" uid="uid://b8x2jmo13hhi3" path="res://audio/Bubbles Sound Effect.mp3" id="6_272bh"]
 [ext_resource type="Texture2D" uid="uid://gf11aic5mr75" path="res://textures/fish/bubble.png" id="7_5vw27"]
@@ -72,6 +73,11 @@ bg_color = Color(0.6, 0.024000013, 0.024000013, 1)
 script = ExtResource("1_ig7tw")
 laser = ExtResource("16_2cqfq")
 laser_ind = ExtResource("3_yaehf")
+
+[node name="Bg" type="Sprite2D" parent="." unique_id=864595188]
+position = Vector2(1038, 702)
+scale = Vector2(4.5121984, 4.8609114)
+texture = ExtResource("4_cegan")
 
 [node name="fish_cards" type="Node2D" parent="." unique_id=860529671]
 visible = false
@@ -160,13 +166,14 @@ parameters/looping = true
 
 [node name="boss" parent="." unique_id=1371564772 node_paths=PackedStringArray("hpBar") instance=ExtResource("14_w48qg")]
 position = Vector2(928, 164)
-hpBar = NodePath("../BossHp")
+hpBar = NodePath("../CanvasLayer/BossHp")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=855566418]
+position = Vector2(962, 541)
+script = ExtResource("18_074og")
 
 [node name="Player" parent="." unique_id=239836141 instance=ExtResource("15_vivmo")]
 position = Vector2(976, 872)
-
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=855566418]
-script = ExtResource("18_074og")
 
 [node name="laser1" type="Marker2D" parent="." unique_id=794296642]
 position = Vector2(285, 1068)
@@ -174,7 +181,9 @@ position = Vector2(285, 1068)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2047969869]
 libraries/ = SubResource("AnimationLibrary_074og")
 
-[node name="BossHp" type="ProgressBar" parent="." unique_id=1946581873]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1911533937]
+
+[node name="BossHp" type="ProgressBar" parent="CanvasLayer" unique_id=1946581873]
 offset_right = 1919.0
 offset_bottom = 71.0
 theme_override_styles/fill = SubResource("StyleBoxFlat_2cqfq")

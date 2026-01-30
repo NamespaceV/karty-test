@@ -6,6 +6,8 @@ extends AnimatableBody2D
 func _ready() -> void:
 	hpBar.max_value = 300
 	hpBar.value = 300
+	GAME.boss = self
+
 
 func take_damage(value : int):
 	hpBar.value -= value

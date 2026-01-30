@@ -17,13 +17,13 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	random_pos_x = rng.randi_range(-300, 300)
-	
+
 func pattern1():
 	$AnimationPlayer.play("boss_move_1")
 	while true:
 		await get_tree().create_timer(10).timeout
 		laser_show()
-		
+
 
 
 func laser_show():
@@ -48,14 +48,14 @@ func laser_show():
 			laser_spawn.global_position = random_laser_position + laser_offset * n
 			add_child(laser_spawn)
 			n += 1
-	
+
 	await get_tree().create_timer(2.6).timeout
 	#despawn indykatorów
 	for child in laser_ind_array:
 		child.queue_free()
-	
-	
-	
-	
+
+
+
+
 func version():
 	Console.print_info("version 0.1.1")

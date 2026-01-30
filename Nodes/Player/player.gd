@@ -7,6 +7,9 @@ var hasMask:bool = true
 var bulletScene : PackedScene = load("res://Nodes/Player/Bullet/bullet.tscn")
 var maskScene : PackedScene = load("res://Nodes/Player/Mask/Mask.tscn")
 
+func _ready() -> void:
+	GAME.player = self
+
 func _process(_delta: float) -> void:
 	var i = Input.get_vector("left", "right", "up", "down")
 	velocity = i * speed
