@@ -31,14 +31,14 @@ func laser_show():
 	await get_tree().create_timer(1).timeout
 	#spawn laserów
 	var n = 0
-	for child in 10:
+	for child in 6:
 		if n <=6:
 			var laser_spawn = laser.instantiate()
 			laser_spawn.global_position = laser_1.global_position + laser_offset * n
 			add_child(laser_spawn)
 			n += 1
 	
-	await get_tree().create_timer(2.5).timeout
+	await get_tree().create_timer(2.6).timeout
 	#despawn indykatorów
 	for child in laser_ind_array:
 		child.queue_free()
