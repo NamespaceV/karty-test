@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://gcpmgnm51wki" path="res://world_audio_manager.gd" id="2_ycdy4"]
 [ext_resource type="AudioStream" uid="uid://rewllv2eiyn5" path="res://audio/Shuffle.wav" id="3_dg77c"]
 [ext_resource type="Texture2D" uid="uid://dqraeps4h3bci" path="res://textures/fish/feed1.png" id="3_lquwl"]
+[ext_resource type="PackedScene" uid="uid://d05380phvgsek" path="res://Nodes/Boss/Laser/laser_indicator.tscn" id="3_yaehf"]
 [ext_resource type="Texture2D" uid="uid://csemj2qqly2v3" path="res://textures/fish/feed3.png" id="4_7mycd"]
 [ext_resource type="Texture2D" uid="uid://q4ofoxyo2t4v" path="res://textures/fish/feed2.png" id="5_272bh"]
 [ext_resource type="AudioStream" uid="uid://b8x2jmo13hhi3" path="res://audio/Bubbles Sound Effect.mp3" id="6_272bh"]
@@ -69,6 +70,7 @@ bg_color = Color(0.6, 0.024000013, 0.024000013, 1)
 [node name="Scene" type="Node2D" unique_id=1460920190]
 script = ExtResource("1_ig7tw")
 laser = ExtResource("16_2cqfq")
+laser_ind = ExtResource("3_yaehf")
 
 [node name="fish_cards" type="Node2D" parent="." unique_id=860529671]
 visible = false
