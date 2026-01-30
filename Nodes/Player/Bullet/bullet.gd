@@ -1,6 +1,6 @@
 extends AnimatableBody2D
 
-var speed = 500.0
+var speed = 1000.0
 
 func _ready() -> void:
 	sync_to_physics = false

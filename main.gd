@@ -12,7 +12,7 @@ func pattern1():
 	$AnimationPlayer.play("boss_move_1")
 	while true:
 		laser_show()
-		await get_tree().create_timer(2).timeout
+		await get_tree().create_timer(5).timeout
 
 func laser_show():
 	var n = 0
