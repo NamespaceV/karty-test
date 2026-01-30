@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://d05380phvgsek"]
+
+[sub_resource type="Curve" id="Curve_437ws"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.72315437, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="laser_indicator" type="CPUParticles2D" unique_id=23937709]
+amount = 96
+emission_shape = 1
+emission_sphere_radius = 50.39
+gravity = Vector2(0, -400)
+scale_amount_min = 1.15
+scale_amount_max = 17.74
+scale_amount_curve = SubResource("Curve_437ws")
+color = Color(0, 0.8833332, 1, 1)
