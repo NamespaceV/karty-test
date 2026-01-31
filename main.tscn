@@ -7,9 +7,7 @@
 [ext_resource type="Script" uid="uid://gcpmgnm51wki" path="res://world_audio_manager.gd" id="2_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://d05380phvgsek" path="res://Nodes/Boss/Laser/laser_indicator.tscn" id="3_yaehf"]
 [ext_resource type="Texture2D" uid="uid://cjftg5rxollan" path="res://bg.png" id="4_cegan"]
-[ext_resource type="AudioStream" uid="uid://b4fsoxhgnj3p0" path="res://audio/Music/Waltz Breakdown.wav" id="8_ycdy4"]
 [ext_resource type="AudioStream" uid="uid://cxmbdjovic1u6" path="res://audio/Music/Waltz Intro.wav" id="11_efxa6"]
-[ext_resource type="AudioStream" uid="uid://utfjgof2pnj2" path="res://audio/Music/Waltz End.wav" id="13_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://xp40g7j114lm" path="res://Nodes/Boss/boss.tscn" id="14_w48qg"]
 [ext_resource type="PackedScene" uid="uid://bpml58shwj1wq" path="res://Nodes/Player/player.tscn" id="15_vivmo"]
 [ext_resource type="PackedScene" uid="uid://b7a73wqytukva" path="res://Nodes/Boss/Laser/laser.tscn" id="16_2cqfq"]
@@ -21,10 +19,8 @@ clip_0/name = &"boss_intro"
 clip_0/stream = ExtResource("11_efxa6")
 clip_0/auto_advance = 0
 clip_1/name = &"boss_music"
-clip_1/stream = ExtResource("8_ycdy4")
 clip_1/auto_advance = 0
 clip_2/name = &"boss_music_end"
-clip_2/stream = ExtResource("13_ycdy4")
 clip_2/auto_advance = 0
 _transitions = {
 Vector2i(0, 1): {
@@ -151,7 +147,8 @@ stream = SubResource("AudioStreamInteractive_ycdy4")
 autoplay = true
 
 [node name="Bg" type="Sprite2D" parent="." unique_id=864595188]
-position = Vector2(892.9999, 483)
+z_index = -1
+position = Vector2(893, 483)
 scale = Vector2(3.4804256, 3.7494006)
 texture = ExtResource("4_cegan")
 

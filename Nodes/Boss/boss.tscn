@@ -32,3 +32,14 @@ stream = SubResource("AudioStreamInteractive_vkx6u")
 max_distance = 4096.0
 attenuation = 1.3660403
 bus = &"SFX"
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1893327666]
+z_index = -1
+position = Vector2(3, 144)
+amount = 249
+emission_shape = 1
+emission_sphere_radius = 123.45
+gravity = Vector2(0, -100)
+radial_accel_max = 81.99
+scale_amount_max = 9.9
+color = Color(1, 0, 0, 1)
