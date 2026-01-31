@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://p2goto8d7ooy" path="res://main.gd" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://cho732lpla0kc" path="res://Nodes/Boss/Aoe/aoe.tscn" id="2_82xsv"]
 [ext_resource type="PackedScene" uid="uid://d2ax1g2nquiex" path="res://Nodes/Boss/Minion/minion.tscn" id="2_getpj"]
+[ext_resource type="PackedScene" uid="uid://564yql88lgec" path="res://Nodes/Boss/Orb/orb.tscn" id="2_w48qg"]
 [ext_resource type="Script" uid="uid://gcpmgnm51wki" path="res://world_audio_manager.gd" id="2_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://d05380phvgsek" path="res://Nodes/Boss/Laser/laser_indicator.tscn" id="3_yaehf"]
 [ext_resource type="Texture2D" uid="uid://cjftg5rxollan" path="res://bg.png" id="4_cegan"]
@@ -135,6 +136,7 @@ bg_color = Color(0.6, 0.024000013, 0.024000013, 1)
 
 [node name="Scene" type="Node2D" unique_id=1460920190]
 script = ExtResource("1_ig7tw")
+orb = ExtResource("2_w48qg")
 minion = ExtResource("2_getpj")
 aoe = ExtResource("2_82xsv")
 laser = ExtResource("16_2cqfq")

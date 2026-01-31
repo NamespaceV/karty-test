@@ -21,7 +21,7 @@ const HEAVY_ATTACK_SPEED = 2400
 const HEAVY_ATTACK_DELAY = 0.3
 const HEAVY_ATTACK_DURATION = 0.2
 
-
+var invulnerable_time = 0
 
 var hasMask:bool = true
 
@@ -36,6 +36,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	ability1_cooldown -= delta
 	shoot_cooldown -= delta
+	invulnerable_time -= delta
 
 	if heavy_attack_on:
 		heavy_attack_time += delta
@@ -75,9 +76,14 @@ func _process(delta: float) -> void:
 		heavy_attack_direction = (mouse_pos - global_position).normalized()
 
 	move_and_slide()
+	$Sprite2D.flip_h = velocity.x < 0
+
 
 
 func take_damage():
+	if invulnerable_time > 0:
+		return
+	invulnerable_time = 0.1
 	if not hasMask:
 		GAME.reset_game()
 		return

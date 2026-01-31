@@ -11,6 +11,7 @@ func _ready() -> void:
 	hpBar.max_value = 10
 	hpBar.value = 10
 	GAME.boss = self
+	boss_audiostream.finished.connect(func(): update_boss_audio("none"))
 
 func take_damage(value : int):
 	if is_dead:

@@ -19,6 +19,9 @@ func _process(delta: float) -> void:
 		var boss = hit as Boss
 		if boss:
 			boss.take_damage(1)
+		var minion = hit as Minon
+		if minion:
+			minion.take_dmage(1)
 
 	if !$VisibleOnScreenNotifier2D.is_on_screen():
 		queue_free()

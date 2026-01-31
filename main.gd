@@ -6,6 +6,7 @@ extends Node2D
 
 @onready var musicManager = $WorldAudioManager
 
+@export var orb: PackedScene
 @export var minion: PackedScene
 @export var aoe: PackedScene
 @export var laser: PackedScene
@@ -17,18 +18,19 @@ var marker_original_position: Vector2
 var rng = RandomNumberGenerator.new()
 
 var effects = [
-	boss_pizza,
-	laser_show1,
+	#boss_pizza,
+	#laser_show1,
 	#laser_show2,
 	#aoe_show,
 	#aoe_show2,
-	#spawn_minions
+	spawn_orbs,
+	spawn_minions,
 ]
 
 func _ready() -> void:
 	rng.randomize()
 	marker_original_position = laser_1.global_position
-	await $AnimationPlayer.animation_finished
+	#await $AnimationPlayer.animation_finished
 	if $boss.is_dead:
 		boss_killed()
 		return
@@ -65,12 +67,23 @@ func pattern1():
 
 
 func spawn_minions():
-	for i in 2:
+	for i in 5:
 		spawn_minion(GAME.boss.position)
-		await get_tree().create_timer(0.5).timeout
+		await get_tree().create_timer(0.1).timeout
 
 func spawn_minion(pos:Vector2):
 	var m = minion.instantiate()
+	m.global_position = pos
+	add_child(m, true)
+
+
+func spawn_orbs():
+	for i in 2:
+		spawn_orb(GAME.boss.position)
+		await get_tree().create_timer(0.5).timeout
+
+func spawn_orb(pos:Vector2):
+	var m = orb.instantiate()
 	m.global_position = pos
 	add_child(m)
 
