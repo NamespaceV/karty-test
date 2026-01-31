@@ -64,11 +64,15 @@ func beat_test():
 
 func pattern1():
 	$AnimationPlayer.play("boss_move_1")
+	var wait = 0
 	while not $boss.is_dead:
 		effects.shuffle()
 		for e in effects:
 			e.call()
-			await get_tree().create_timer(5).timeout
+			wait += 2 if not GAME.boss.phase2 else 1
+			if wait >= 2:
+				await get_tree().create_timer(5).timeout
+				wait = 0
 			await musicManager.beatSync()
 			if $boss.is_dead:
 				return

@@ -6,6 +6,7 @@ extends AnimatableBody2D
 
 signal boss_starts_dying()
 var is_dead = false
+var phase2 = false
 
 var boss_hp = MAX_HP
 const MAX_HP = 100
@@ -26,6 +27,7 @@ func take_damage(value : int):
 		update_boss_audio1("boss_dmg")
 		if boss_hp < MAX_HP/2:
 			$Sprite2D.texture = load("res://Nodes/Boss/boss2.png")
+			phase2 = true
 
 func update_boss_audio1(audio_name: String):
 	if audio_name == "none":
