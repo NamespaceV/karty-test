@@ -4,52 +4,61 @@
 
 [node name="Settings Menu" type="Control" unique_id=1617850467]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
 script = ExtResource("1_ufg0w")
 
-[node name="master_soundbar" type="HScrollBar" parent="." unique_id=1749537691]
+[node name="Panel" type="Panel" parent="." unique_id=1967072696]
 layout_mode = 0
-offset_left = 52.0
-offset_top = 50.0
-offset_right = 463.0
-offset_bottom = 119.0
+offset_left = 177.0
+offset_top = 83.0
+offset_right = 700.0
+offset_bottom = 474.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=771297789]
+layout_mode = 0
+offset_left = 214.0
+offset_top = 90.0
+offset_right = 650.0
+offset_bottom = 442.0
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1642710451]
+layout_mode = 2
+text = "Master Volume"
+
+[node name="master_soundbar" type="HScrollBar" parent="VBoxContainer" unique_id=1749537691]
+layout_mode = 2
 min_value = -20.0
 max_value = 0.0
 page = 2.0
 value = -5.0
 
-[node name="music_soundbar" type="HScrollBar" parent="master_soundbar" unique_id=176569029]
-layout_mode = 1
-anchors_preset = -1
-offset_left = 25.0
-offset_top = 97.0
-offset_right = 367.0
-offset_bottom = 147.0
+[node name="Label2" type="Label" parent="VBoxContainer" unique_id=920266736]
+layout_mode = 2
+text = "Music"
+
+[node name="music_soundbar" type="HScrollBar" parent="VBoxContainer" unique_id=176569029]
+layout_mode = 2
 min_value = -40.0
 max_value = 5.0
 page = 2.0
 value = -10.0
 
-[node name="sfx_soundbar" type="HScrollBar" parent="master_soundbar" unique_id=2144428998]
-layout_mode = 0
-offset_left = 34.0
-offset_top = 179.0
-offset_right = 367.0
-offset_bottom = 239.0
+[node name="Label3" type="Label" parent="VBoxContainer" unique_id=1807376355]
+layout_mode = 2
+text = "Sfx"
+
+[node name="sfx_soundbar" type="HScrollBar" parent="VBoxContainer" unique_id=2144428998]
+layout_mode = 2
 min_value = -15.0
 max_value = 10.0
 page = 2.0
 
-[node name="ambience_soundbar" type="HScrollBar" parent="master_soundbar" unique_id=854057443]
-layout_mode = 0
-offset_left = 25.0
-offset_top = 267.0
-offset_right = 383.0
-offset_bottom = 324.0
+[node name="Label4" type="Label" parent="VBoxContainer" unique_id=558302612]
+layout_mode = 2
+text = "Ambient"
+
+[node name="ambience_soundbar" type="HScrollBar" parent="VBoxContainer" unique_id=854057443]
+layout_mode = 2
 min_value = -25.0
 max_value = 10.0
 page = 2.0
