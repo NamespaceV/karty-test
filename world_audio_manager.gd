@@ -21,7 +21,7 @@ func playBGM(name:String):
 
 func beatSync(full = true):
 	var pos = bg_music_player.get_playback_position()
-	pos -= 1.0 / 3
+	pos -= 0.1
 	var time_span = (3.0 if full else 1.0) /3
 
 	var offBeat = time_span - fmod(pos, time_span)
