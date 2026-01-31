@@ -19,10 +19,15 @@ run/main_scene="uid://dxa5ccd40isk5"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://klifure4ko51"
+
 [autoload]
 
 Console="*uid://ouiu5xh1cs8n"
 GAME="*uid://cfxeqnehq4hsq"
+AudioGlobal="*uid://e2j8gyw610u8"
 
 [display]
 

@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://b8r8sjet1cj4j" path="res://Nodes/Boss/boss.gd" id="1_sk461"]
 [ext_resource type="Texture2D" uid="uid://dv8wevea1jqws" path="res://textures/boss1.png" id="2_aolxj"]
-[ext_resource type="AudioStream" uid="uid://op46bc6q11o" path="res://audio/boss_dmg.ogg" id="3_38q2p"]
-[ext_resource type="AudioStream" uid="uid://c2rwnt6eda6yi" path="res://audio/boss_death.ogg" id="4_vkx6u"]
+[ext_resource type="AudioStream" uid="uid://dqfebyaw34ai5" path="res://audio/boss_dmg.ogg" id="3_38q2p"]
+[ext_resource type="AudioStream" uid="uid://3cl1drelfn7e" path="res://audio/boss_death.ogg" id="4_vkx6u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ycdy4"]
 size = Vector2(150, 300)
@@ -33,6 +33,7 @@ texture = ExtResource("2_aolxj")
 
 [node name="BossAudio" type="AudioStreamPlayer2D" parent="." unique_id=2134418482]
 stream = SubResource("AudioStreamInteractive_vkx6u")
+volume_db = -5.111
 max_distance = 4096.0
 attenuation = 1.3660403
 bus = &"SFX"

@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://opyclkwhldgm"]
+
+[ext_resource type="Script" uid="uid://kv66xokh4rw4" path="res://settings_menu.gd" id="1_ufg0w"]
+
+[node name="Settings Menu" type="Control" unique_id=1617850467]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ufg0w")
+
+[node name="master_soundbar" type="HScrollBar" parent="." unique_id=1749537691]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 50.0
+offset_right = 463.0
+offset_bottom = 119.0
+min_value = -20.0
+max_value = 0.0
+page = 2.0
+value = -5.0
+
+[node name="music_soundbar" type="HScrollBar" parent="master_soundbar" unique_id=176569029]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 25.0
+offset_top = 97.0
+offset_right = 367.0
+offset_bottom = 147.0
+min_value = -40.0
+max_value = 5.0
+page = 2.0
+value = -10.0
+
+[node name="sfx_soundbar" type="HScrollBar" parent="master_soundbar" unique_id=2144428998]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 179.0
+offset_right = 367.0
+offset_bottom = 239.0
+min_value = -25.0
+max_value = 10.0
+page = 2.0
+
+[node name="ambience_soundbar" type="HScrollBar" parent="master_soundbar" unique_id=854057443]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 267.0
+offset_right = 383.0
+offset_bottom = 324.0
+min_value = -25.0
+max_value = 10.0
+page = 2.0

@@ -8,8 +8,8 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
+func _process(delta):
+	update_volume()
 
 func playBGM(name:String):
 	#if name == "boss_intro":
@@ -31,3 +31,14 @@ func beatSync(full = true):
 	var offBeat = time_span - fmod(pos, time_span)
 	await get_tree().create_timer(offBeat).timeout
 	print ("beat sync %f -> %f"%[pos, bg_music_player.get_playback_position()])
+
+func update_volume():
+	var master_bus = AudioServer.get_bus_index("Master")
+	var music_bus = AudioServer.get_bus_index("Music")
+	var sfx_bus = AudioServer.get_bus_index("SFX")
+	var ambience_bus = AudioServer.get_bus_index("Ambience")
+	
+	AudioServer.set_bus_volume_db(master_bus, AudioGlobal.master_volume)
+	AudioServer.set_bus_volume_db(music_bus, AudioGlobal.music_volume)
+	AudioServer.set_bus_volume_db(sfx_bus, AudioGlobal.sfx_volume)
+	AudioServer.set_bus_volume_db(ambience_bus, AudioGlobal.ambience_volume)
