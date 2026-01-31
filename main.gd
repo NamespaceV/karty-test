@@ -14,9 +14,6 @@ var laser_offset = Vector2(350,0)
 var laser_ind_array: Array
 var marker_original_position: Vector2
 var rng = RandomNumberGenerator.new()
-var random_pos_x
-var boss_pos: Vector2
-var hero_pos: Vector2
 
 var effects = [
 	boss_pizza,
@@ -32,9 +29,6 @@ func _ready() -> void:
 	marker_original_position = laser_1.global_position
 	pattern1()
 
-func _physics_process(delta: float) -> void:
-	hero_pos = player.global_position
-	boss_pos = boss.global_position
 
 func pattern1():
 	$AnimationPlayer.play("boss_move_1")
@@ -110,21 +104,22 @@ func spawnLaser(pos:Vector2, dir:Vector2):
 
 
 func boss_pizza():
-	$AnimationPlayer.stop()
+	$AnimationPlayer.pause()
 	#var random_laser_position = marker_original_position
 	#random_laser_position.x +=  rng.randi_range(-300, 300)
 	for i in 6:
-		var dir = hero_pos - boss_pos
+		var boss_pos = GAME.boss.global_position
+		var dir = GAME.player.global_position - boss_pos
 		var angle = rad_to_deg(dir.angle())
 		var spread = 10.0
 		print(angle)
-		var offset = (i - 3) * spread 
+		var offset = (i - 3) * spread
 		var laser_angle = deg_to_rad(angle + offset)
 		var laser_dir = Vector2(cos(laser_angle), sin(laser_angle))
 		spawnLaser(boss_pos, laser_dir)
 		#random_laser_position += laser_offset
 	await get_tree().create_timer(1).timeout
-	$AnimationPlayer.play("boss_move_1")
+	$AnimationPlayer.play()
 
 func version():
 	Console.print_info("version 0.1.1")
