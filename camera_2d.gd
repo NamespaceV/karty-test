@@ -18,6 +18,10 @@ func _process(delta: float) -> void:
 	mean_pos = (hero_pos + mouse_pos)/2
 	var r = bg.get_rect()
 	r.position += bg.position
+	var cam_size = get_viewport_rect().size / zoom
+	r.position += cam_size/2
+	r.size -= cam_size
+
 	var goal_pos = clampToRect(mean_pos, r)
 	$".".global_position = lerp(global_position, goal_pos, 8*delta)
 

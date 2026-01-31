@@ -6,10 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://564yql88lgec" path="res://Nodes/Boss/Orb/orb.tscn" id="2_w48qg"]
 [ext_resource type="Script" uid="uid://gcpmgnm51wki" path="res://world_audio_manager.gd" id="2_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://d05380phvgsek" path="res://Nodes/Boss/Laser/laser_indicator.tscn" id="3_yaehf"]
-[ext_resource type="Texture2D" uid="uid://cjftg5rxollan" path="res://bg.png" id="4_cegan"]
 [ext_resource type="AudioStream" uid="uid://br18jifda2p5x" path="res://audio/Music/boss_intro.ogg" id="8_vivmo"]
 [ext_resource type="AudioStream" uid="uid://hotf1xd3v8e7" path="res://audio/Music/boss_breakdown.ogg" id="9_w48qg"]
 [ext_resource type="AudioStream" uid="uid://cevqpm4m6rlrk" path="res://audio/Music/boss_end.ogg" id="10_vivmo"]
+[ext_resource type="Texture2D" uid="uid://ch30su1d2s0rc" path="res://bg2.png" id="11_2cqfq"]
+[ext_resource type="Texture2D" uid="uid://nwils47i6ctw" path="res://bg2_top.png" id="12_cegan"]
 [ext_resource type="PackedScene" uid="uid://xp40g7j114lm" path="res://Nodes/Boss/boss.tscn" id="14_w48qg"]
 [ext_resource type="Script" uid="uid://b6ff6hfk02l45" path="res://hud.gd" id="15_2cqfq"]
 [ext_resource type="PackedScene" uid="uid://bpml58shwj1wq" path="res://Nodes/Player/player.tscn" id="15_vivmo"]
@@ -173,8 +174,11 @@ bus = &"Ambience"
 [node name="Bg" type="Sprite2D" parent="." unique_id=864595188]
 z_index = -1
 position = Vector2(893, 483)
-scale = Vector2(3.5, 3.5)
-texture = ExtResource("4_cegan")
+texture = ExtResource("11_2cqfq")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bg" unique_id=398415877]
+z_index = 10
+texture = ExtResource("12_cegan")
 
 [node name="boss" parent="." unique_id=1371564772 instance=ExtResource("14_w48qg")]
 position = Vector2(1584, 532)
@@ -225,7 +229,6 @@ offset_bottom = 7.0
 [node name="BossAttacks" type="AudioStreamPlayer2D" parent="." unique_id=1553785430]
 stream = SubResource("AudioStreamInteractive_2cqfq")
 volume_db = 18.129
-bus = &"Fire Reverb"
 
 [node name="BossIndicators" type="AudioStreamPlayer2D" parent="." unique_id=1359627442]
 stream = SubResource("AudioStreamInteractive_074og")

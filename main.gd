@@ -197,7 +197,7 @@ func update_attack_audio(audio_name: String):
 		attack_audiostream.play()
 	else:
 		attack_audiostream.play()
-		
+
 func update_indicator_audio(audio_name: String):
 	if audio_name == "none":
 		indicator_audiostream.stop()

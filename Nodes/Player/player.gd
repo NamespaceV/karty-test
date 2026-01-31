@@ -27,6 +27,8 @@ const HEAVY_ATTACK_SPEED = 2400
 const HEAVY_ATTACK_DELAY = 0.3
 const HEAVY_ATTACK_DURATION = 0.2
 
+const INVULNERABLE_AFTER_LOSING_MASK = 0.1
+
 var invulnerable_time = 0
 
 var hasMask:bool = true
@@ -100,7 +102,7 @@ func _process(delta: float) -> void:
 func take_damage():
 	if invulnerable_time > 0:
 		return
-	invulnerable_time = 0.1
+	invulnerable_time = INVULNERABLE_AFTER_LOSING_MASK
 	if not hasMask:
 		GAME.reset_game()
 		return

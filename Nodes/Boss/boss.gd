@@ -33,7 +33,7 @@ func update_boss_audio1(audio_name: String):
 		boss_audiostream1.play()
 	else:
 		boss_audiostream1.play()
-		
+
 func update_boss_audio2(audio_name: String):
 	if audio_name == "none":
 		boss_audiostream2.stop()
