@@ -4,6 +4,8 @@ extends Node2D
 @onready var player: Player = $Player
 
 @onready var musicManager = $WorldAudioManager
+@export var indicator_audiostream: AudioStreamPlayer2D
+@export var attack_audiostream: AudioStreamPlayer2D
 
 @export var orb: PackedScene
 @export var minion: PackedScene
@@ -124,6 +126,7 @@ func laser_show2():
 	for i in 6:
 		spawnLaser(random_laser_position, Vector2(-1,0))
 		random_laser_position += Vector2(0,-350)
+		update_indicator_audio("f_indicator")
 		await get_tree().create_timer(0.2).timeout
 
 func aoe_show():
@@ -156,6 +159,7 @@ func spawnLaser(pos:Vector2, dir:Vector2):
 	indicator_spawn.global_position = pos
 	add_child(indicator_spawn)
 	await get_tree().create_timer(1).timeout
+	update_attack_audio("f_spell")
 	var laser_spawn = laser.instantiate() as Node2D
 	laser_spawn.global_position = pos
 	laser_spawn.look_at(pos+dir)
@@ -179,10 +183,29 @@ func boss_pizza():
 		var offset = (i - 3) * spread
 		var laser_angle = deg_to_rad(angle + offset)
 		var laser_dir = Vector2(cos(laser_angle), sin(laser_angle))
+		GAME.boss.update_boss_audio2("f_indicator")
 		spawnLaser(boss_pos, laser_dir)
 		#random_laser_position += laser_offset
 	await get_tree().create_timer(1).timeout
 	$AnimationPlayer.play()
+
+func update_attack_audio(audio_name: String):
+	if audio_name == "none":
+		attack_audiostream.stop()
+	elif audio_name != attack_audiostream["parameters/switch_to_clip"]:
+		attack_audiostream["parameters/switch_to_clip"] = audio_name
+		attack_audiostream.play()
+	else:
+		attack_audiostream.play()
+		
+func update_indicator_audio(audio_name: String):
+	if audio_name == "none":
+		indicator_audiostream.stop()
+	elif audio_name != indicator_audiostream["parameters/switch_to_clip"]:
+		indicator_audiostream["parameters/switch_to_clip"] = audio_name
+		indicator_audiostream.play()
+	else:
+		indicator_audiostream.play()
 
 func version():
 	Console.print_info("version 0.1.1")

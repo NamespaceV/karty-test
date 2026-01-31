@@ -11,11 +11,13 @@
 [ext_resource type="AudioStream" uid="uid://hotf1xd3v8e7" path="res://audio/Music/boss_breakdown.ogg" id="9_w48qg"]
 [ext_resource type="AudioStream" uid="uid://cevqpm4m6rlrk" path="res://audio/Music/boss_end.ogg" id="10_vivmo"]
 [ext_resource type="PackedScene" uid="uid://xp40g7j114lm" path="res://Nodes/Boss/boss.tscn" id="14_w48qg"]
-[ext_resource type="Script" path="res://hud.gd" id="15_2cqfq"]
+[ext_resource type="Script" uid="uid://b6ff6hfk02l45" path="res://hud.gd" id="15_2cqfq"]
 [ext_resource type="PackedScene" uid="uid://bpml58shwj1wq" path="res://Nodes/Player/player.tscn" id="15_vivmo"]
 [ext_resource type="PackedScene" uid="uid://b7a73wqytukva" path="res://Nodes/Boss/Laser/laser.tscn" id="16_2cqfq"]
 [ext_resource type="PackedScene" uid="uid://opyclkwhldgm" path="res://settings_menu.tscn" id="16_yaehf"]
+[ext_resource type="AudioStream" uid="uid://pi02skty551a" path="res://audio/fire_indicator.ogg" id="17_yaehf"]
 [ext_resource type="Script" uid="uid://1ocmk2pskud1" path="res://camera_2d.gd" id="18_074og"]
+[ext_resource type="AudioStream" uid="uid://bn6r220nhfivw" path="res://audio/fire_spell.ogg" id="18_cegan"]
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_ycdy4"]
 clip_count = 3
@@ -133,8 +135,22 @@ bg_color = Color(0.6, 0.024000013, 0.024000013, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yaehf"]
 bg_color = Color(0.29, 0.29, 0.29, 0.6509804)
 
-[node name="Scene" type="Node2D" unique_id=1460920190]
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_2cqfq"]
+clip_count = 1
+clip_0/name = &"f_spell"
+clip_0/stream = ExtResource("18_cegan")
+clip_0/auto_advance = 0
+
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_074og"]
+clip_count = 1
+clip_0/name = &"f_indicator"
+clip_0/stream = ExtResource("17_yaehf")
+clip_0/auto_advance = 0
+
+[node name="Scene" type="Node2D" unique_id=1460920190 node_paths=PackedStringArray("indicator_audiostream", "attack_audiostream")]
 script = ExtResource("1_ig7tw")
+indicator_audiostream = NodePath("BossIndicators")
+attack_audiostream = NodePath("BossAttacks")
 orb = ExtResource("2_w48qg")
 minion = ExtResource("2_getpj")
 aoe = ExtResource("2_82xsv")
@@ -205,3 +221,11 @@ offset_left = 15.0
 offset_top = 7.0
 offset_right = 15.0
 offset_bottom = 7.0
+
+[node name="BossAttacks" type="AudioStreamPlayer2D" parent="." unique_id=1553785430]
+stream = SubResource("AudioStreamInteractive_2cqfq")
+volume_db = 18.129
+bus = &"Fire Reverb"
+
+[node name="BossIndicators" type="AudioStreamPlayer2D" parent="." unique_id=1359627442]
+stream = SubResource("AudioStreamInteractive_074og")
