@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/Waltz2.mp3-f82a87a14151f67658a7eb64076f55a1.m
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0
