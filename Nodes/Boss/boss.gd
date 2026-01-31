@@ -13,7 +13,7 @@ const MAX_HP = 100
 
 func _ready() -> void:
 	GAME.boss = self
-	#boss_audiostream1.finished.connect(func(): update_boss_audio1("none"))
+	boss_audiostream1.finished.connect(func(): update_boss_audio2("cloth"))
 
 func take_damage(value : int):
 	if is_dead:

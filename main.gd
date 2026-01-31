@@ -43,8 +43,11 @@ func _ready() -> void:
 		boss_killed()
 		return
 	$AnimationPlayer.play("boss_move_1")
+	GAME.boss.update_boss_audio2("f_indicator")
+	await get_tree().create_timer(0.33).timeout
 	musicManager.playBGM("boss1")
 	$boss.boss_starts_dying.connect(boss_killed)
+	await get_tree().create_timer(1).timeout
 	pattern1()
 	#beat_test()
 
