@@ -3,19 +3,25 @@ extends CharacterBody2D
 
 @export var speed : float = BASE_SPEED
 @onready var ability_1_timer: Timer = $ability_1_timer
-@onready var ability_2_timer: Timer = $ability_2_timer
 
 const BASE_SPEED = 600.0
 var ability1_on: bool
 var ability1_cooldown = 0.0
 const ABILITY_1_CD = 0.75
 const ABILITY_1_SPEED = 2400
+var dash_direction = Vector2(0,0)
 
 const SHOOT_CD = 0.1
 var shoot_cooldown = 0.0
 
-var ability2_on: bool
-var dash_direction: Vector2 = Vector2.ZERO
+var heavy_attack_on: bool
+var heavy_attack_direction: Vector2 = Vector2.ZERO
+var heavy_attack_time = 0.0
+const HEAVY_ATTACK_SPEED = 2400
+const HEAVY_ATTACK_DELAY = 0.3
+const HEAVY_ATTACK_DURATION = 0.2
+
+
 
 var hasMask:bool = true
 
@@ -24,26 +30,26 @@ var maskScene : PackedScene = load("res://Nodes/Player/Mask/Mask.tscn")
 
 func _ready() -> void:
 	ability1_on = false
-	ability2_on = false
+	heavy_attack_on = false
 	GAME.player = self
 
 func _process(delta: float) -> void:
 	ability1_cooldown -= delta
 	shoot_cooldown -= delta
 
-	if ability2_on == false:
-		var i = Input.get_vector("left", "right", "up", "down")
-		velocity = i.normalized() * speed
-	else:
-		velocity = Vector2.ZERO
-		await get_tree().create_timer(0.3).timeout
-		velocity = dash_direction * 1000
-
-
-	if ability1_on:
+	if heavy_attack_on:
+		heavy_attack_time += delta
+		velocity = Vector2.ZERO if heavy_attack_time < HEAVY_ATTACK_DELAY else \
+			heavy_attack_direction * HEAVY_ATTACK_SPEED
+		if heavy_attack_time > HEAVY_ATTACK_DELAY+HEAVY_ATTACK_DURATION:
+			heavy_attack_on = false
+	elif ability1_on:
 		speed = ABILITY_1_SPEED
+		velocity = dash_direction * speed
 	else:
 		speed = BASE_SPEED
+		var i = Input.get_vector("left", "right", "up", "down")
+		velocity = i.normalized() * speed
 
 	if Input.is_action_pressed("atack") && shoot_cooldown < 0:
 		shoot_cooldown = SHOOT_CD
@@ -60,14 +66,15 @@ func _process(delta: float) -> void:
 		ability1_cooldown = ABILITY_1_CD
 		$ability_1_timer.start()
 		ability1_on = true
-	if Input.is_action_just_pressed("ability2"):
-		ability_2_timer.start()
+		dash_direction = velocity.normalized()
+
+	if Input.is_action_just_pressed("ability2") && not heavy_attack_on:
+		heavy_attack_on = true
+		heavy_attack_time = 0.0
 		var mouse_pos = get_global_mouse_position()
-		dash_direction = (mouse_pos - global_position).normalized()
-		ability2_on = true
+		heavy_attack_direction = (mouse_pos - global_position).normalized()
 
 	move_and_slide()
-
 
 
 func take_damage():
@@ -93,4 +100,4 @@ func _on_ability_1_timer_timeout() -> void:
 
 
 func _on_ability_2_timer_timeout() -> void:
-	ability2_on = false
+	heavy_attack_on = false
