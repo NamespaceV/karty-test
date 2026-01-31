@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://cevqpm4m6rlrk" path="res://audio/Music/boss_end.ogg" id="10_vivmo"]
 [ext_resource type="AudioStream" uid="uid://cxmbdjovic1u6" path="res://audio/Music/Waltz Intro.wav" id="11_efxa6"]
 [ext_resource type="PackedScene" uid="uid://xp40g7j114lm" path="res://Nodes/Boss/boss.tscn" id="14_w48qg"]
+[ext_resource type="Script" uid="uid://b6ff6hfk02l45" path="res://hud.gd" id="15_2cqfq"]
 [ext_resource type="PackedScene" uid="uid://bpml58shwj1wq" path="res://Nodes/Player/player.tscn" id="15_vivmo"]
 [ext_resource type="PackedScene" uid="uid://b7a73wqytukva" path="res://Nodes/Boss/Laser/laser.tscn" id="16_2cqfq"]
 [ext_resource type="Script" uid="uid://1ocmk2pskud1" path="res://camera_2d.gd" id="18_074og"]
@@ -128,6 +129,9 @@ _data = {
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2cqfq"]
 bg_color = Color(0.6, 0.024000013, 0.024000013, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yaehf"]
+bg_color = Color(0.29, 0.29, 0.29, 0.6509804)
+
 [node name="Scene" type="Node2D" unique_id=1460920190]
 script = ExtResource("1_ig7tw")
 orb = ExtResource("2_w48qg")
@@ -172,10 +176,21 @@ libraries/ = SubResource("AnimationLibrary_074og")
 autoplay = &"intro"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1911533937]
+script = ExtResource("15_2cqfq")
 
 [node name="BossHp" type="ProgressBar" parent="CanvasLayer" unique_id=1946581873]
 offset_right = 1919.0
 offset_bottom = 71.0
 theme_override_styles/fill = SubResource("StyleBoxFlat_2cqfq")
 value = 60.0
+show_percentage = false
+
+[node name="Stamina" type="ProgressBar" parent="CanvasLayer" unique_id=2061159507]
+offset_left = 17.0
+offset_top = 154.0
+offset_right = 84.0
+offset_bottom = 1052.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_yaehf")
+value = 60.0
+fill_mode = 3
 show_percentage = false

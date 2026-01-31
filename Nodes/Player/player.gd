@@ -5,14 +5,19 @@ extends CharacterBody2D
 @onready var ability_1_timer: Timer = $ability_1_timer
 @export var player_audiostream: AudioStreamPlayer2D
 
+var stamina = MAX_STAMINA
+const STAMINA_REGEN = 20.0
+const MAX_STAMINA = 100.0
+
 const BASE_SPEED = 600.0
+
 var ability1_on: bool
-var ability1_cooldown = 0.0
-const ABILITY_1_CD = 0.75
+var DASH_STAMINA_COST = 75
 const ABILITY_1_SPEED = 2400
 var dash_direction = Vector2(0,0)
 
-const SHOOT_CD = 0.5
+const SHOOT_STAMINA_COST = 10
+const SHOOT_CD = 0.3
 var shoot_cooldown = 0.0
 
 var heavy_attack_on: bool
@@ -35,7 +40,10 @@ func _ready() -> void:
 	GAME.player = self
 
 func _process(delta: float) -> void:
-	ability1_cooldown -= delta
+	stamina += delta * STAMINA_REGEN
+	if stamina > MAX_STAMINA:
+		stamina = MAX_STAMINA
+
 	shoot_cooldown -= delta
 	invulnerable_time -= delta
 
@@ -53,7 +61,9 @@ func _process(delta: float) -> void:
 		var i = Input.get_vector("left", "right", "up", "down")
 		velocity = i.normalized() * speed
 
-	if Input.is_action_pressed("atack") && shoot_cooldown < 0:
+	if Input.is_action_pressed("atack") && shoot_cooldown < 0\
+			&& stamina >= SHOOT_STAMINA_COST:
+		stamina -= SHOOT_STAMINA_COST
 		shoot_cooldown = SHOOT_CD
 		update_player_audio("dagger")
 		var mosepos = get_global_mouse_position()
@@ -64,9 +74,10 @@ func _process(delta: float) -> void:
 		bullet.set_direction(dir)
 		get_parent().add_child(bullet, true)
 
-	if Input.is_action_just_pressed("ability1") && ability1_cooldown < 0 \
-			&& not velocity.is_zero_approx():
-		ability1_cooldown = ABILITY_1_CD
+	if Input.is_action_just_pressed("ability1") \
+			&& not velocity.is_zero_approx() \
+			&& stamina >= DASH_STAMINA_COST:
+		stamina -= DASH_STAMINA_COST
 		$ability_1_timer.start()
 		ability1_on = true
 		dash_direction = velocity.normalized()
@@ -111,7 +122,7 @@ func _on_ability_1_timer_timeout() -> void:
 
 func _on_ability_2_timer_timeout() -> void:
 	heavy_attack_on = false
-	
+
 func update_player_audio(audio_name: String):
 	if audio_name == "none":
 		player_audiostream.stop()
