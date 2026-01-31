@@ -84,6 +84,7 @@ func pattern1():
 func anim_phase2_transition():
 	var boss = GAME.boss
 	phase2complete = true
+	musicManager.playBGM("transition")
 	$AnimationPlayer.pause()
 	var tween = get_tree().create_tween()
 	var pos = boss.position
@@ -95,6 +96,7 @@ func anim_phase2_transition():
 	await get_tree().create_timer(4).timeout
 	boss.turn_invincible(false)
 	$AnimationPlayer.play()
+	musicManager.playBGM("boss2")
 
 
 func spawn_minions():
