@@ -86,6 +86,7 @@ func _process(delta: float) -> void:
 		stamina -= DASH_STAMINA_COST
 		$ability_1_timer.start()
 		ability1_on = true
+		update_player_audio("dash")
 		dash_direction = velocity.normalized()
 
 	if Input.is_action_just_pressed("ability2") && not heavy_attack_on:

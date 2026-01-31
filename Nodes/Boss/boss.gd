@@ -36,7 +36,7 @@ func take_damage(value : int):
 
 
 func turn_invincible(on:bool):
-	$Sprite2D.modulate =  Color.CYAN  if on else Color.WHITE
+	$Sprite2D.modulate =  Color.WEB_PURPLE  if on else Color.WHITE
 	boss_invincible = on
 	$Phase2TransitionPFX.emitting = on
 
