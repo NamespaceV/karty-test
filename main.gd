@@ -73,7 +73,13 @@ func pattern1():
 
 
 func spawn_minions():
+	print(" - spawn minions ",  float(Time.get_ticks_msec()) / 1000.0)
+
 	for i in 5:
+		spawn_minion(GAME.boss.position + Vector2(-100,0))
+		await get_tree().create_timer(0.1).timeout
+	await get_tree().create_timer(3).timeout
+	for i in 10:
 		spawn_minion(GAME.boss.position + Vector2(-100,0))
 		await get_tree().create_timer(0.1).timeout
 
@@ -84,9 +90,10 @@ func spawn_minion(pos:Vector2):
 
 
 func spawn_orbs():
-	for i in 2:
+	print(" - orbs ",  float(Time.get_ticks_msec()) / 1000.0)
+	for i in 8:
 		spawn_orb(GAME.boss.position)
-		await get_tree().create_timer(0.5).timeout
+		await get_tree().create_timer(0.6).timeout
 
 func spawn_orb(pos:Vector2):
 	var m = orb.instantiate()
@@ -97,6 +104,8 @@ func vrand_box(size:float) -> Vector2:
 	return Vector2(rng.randf_range(-size, size), rng.randf_range(-size, size))
 
 func laser_show1():
+	print(" - laser_show1 ",  float(Time.get_ticks_msec()) / 1000.0)
+
 	var random_laser_position = marker_original_position
 	random_laser_position.x +=  rng.randi_range(-300, 300)
 	for i in 6:
@@ -107,6 +116,8 @@ func laser_show1():
 
 
 func laser_show2():
+	print(" - laser_show2 ",  float(Time.get_ticks_msec()) / 1000.0)
+
 	var random_laser_position = GAME.boss.position
 	random_laser_position.y +=  rng.randi_range(-300, 300)
 	random_laser_position.y += 350.0*6/2
@@ -116,11 +127,15 @@ func laser_show2():
 		await get_tree().create_timer(0.2).timeout
 
 func aoe_show():
+	print(" - aoe_show ",  float(Time.get_ticks_msec()) / 1000.0)
+
 	for i in 3:
 		await musicManager.beatSync(true)
 		spawnAoe(GAME.player.position)
 
 func aoe_show2():
+	print(" - aoe_show2 ",  float(Time.get_ticks_msec()) / 1000.0)
+
 	var spawn_pos = GAME.player.position
 	for i in 6:
 		spawnAoe(spawn_pos + vrand_box(500))
@@ -150,6 +165,8 @@ func spawnLaser(pos:Vector2, dir:Vector2):
 
 
 func boss_pizza():
+	print(" - boss_pizza ",  float(Time.get_ticks_msec()) / 1000.0)
+
 	$AnimationPlayer.pause()
 	#var random_laser_position = marker_original_position
 	#random_laser_position.x +=  rng.randi_range(-300, 300)

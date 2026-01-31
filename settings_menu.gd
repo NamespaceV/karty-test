@@ -7,9 +7,9 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	volume_update()
-	
+
 func volume_update():
 	var master_volume = $master_soundbar
 	AudioGlobal.master_volume = master_volume.value

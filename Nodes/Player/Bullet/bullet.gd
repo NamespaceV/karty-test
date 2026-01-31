@@ -8,13 +8,11 @@ func _ready() -> void:
 func set_direction(dir:Vector2):
 	look_at(position+dir)
 
-
 func _process(delta: float) -> void:
 
 	var collision = move_and_collide(Vector2(1, 0).rotated(rotation) * speed * delta)
 	if collision:
 		var hit = collision.get_collider()
-		print("hit %s" % [hit])
 		queue_free()
 		var boss = hit as Boss
 		if boss:

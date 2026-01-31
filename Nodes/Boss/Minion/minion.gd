@@ -6,8 +6,6 @@ var lifespan = 2.5
 
 
 func _on_body_entered(body: Node2D) -> void:
-	print ("minion hit ", body)
-
 	if body.is_in_group("hero"):
 		var p = body as Player
 		p.take_damage()

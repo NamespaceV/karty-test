@@ -8,17 +8,17 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	update_volume()
 
-func playBGM(name:String):
-	#if name == "boss_intro":
+func playBGM(track_name:String):
+	#if track_name == "boss_intro":
 		#bg_music_player["parameters/switch_to_clip"] = "boss_intro"
 		#bg_music_player.play()
-	if name == "boss1":
+	if track_name == "boss1":
 		bg_music_player["parameters/switch_to_clip"] = "boss_music"
 		bg_music_player.play()
-	elif name == "boss_dead":
+	elif track_name == "boss_dead":
 		bg_music_player["parameters/switch_to_clip"] = "boss_end"
 		bg_music_player.play()
 
