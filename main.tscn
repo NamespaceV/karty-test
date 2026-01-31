@@ -180,6 +180,14 @@ texture = ExtResource("11_2cqfq")
 z_index = 10
 texture = ExtResource("12_cegan")
 
+[node name="StaticBody2D" type="StaticBody2D" parent="Bg" unique_id=1965962355]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bg/StaticBody2D" unique_id=1782419751]
+polygon = PackedVector2Array(-1455, 69, -1405, -499, -1107, -681, -517, -782, 394, -758, 1071, -747, 1432, -524, 1473, -132, 1481, 561, 1911, 586, 1901, -76, 1921, -1087, -1905, -1082, -1910, 106)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Bg/StaticBody2D" unique_id=1582429618]
+polygon = PackedVector2Array(-1455, 69, -1471, 455, -1390, 899, -990, 1061, 955, 1066, 1360, 753, 1400, 652, 1481, 561, 1911, 586, 1916, 879, 1906, 1349, -1941, 1354, -1910, 106)
+
 [node name="boss" parent="." unique_id=1371564772 instance=ExtResource("14_w48qg")]
 position = Vector2(1584, 532)
 
