@@ -18,11 +18,11 @@ var marker_original_position: Vector2
 var rng = RandomNumberGenerator.new()
 
 var effects = [
-	#boss_pizza,
-	#laser_show1,
-	#laser_show2,
-	#aoe_show,
-	#aoe_show2,
+	boss_pizza,
+	laser_show1,
+	laser_show2,
+	aoe_show,
+	aoe_show2,
 	spawn_orbs,
 	spawn_minions,
 ]

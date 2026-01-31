@@ -148,7 +148,8 @@ autoplay = true
 [node name="Ambience" type="AudioStreamPlayer" parent="WorldAudioManager" unique_id=166346246]
 
 [node name="Bg" type="Sprite2D" parent="." unique_id=864595188]
-position = Vector2(892.9999, 483)
+z_index = -1
+position = Vector2(893, 483)
 scale = Vector2(3.4804256, 3.7494006)
 texture = ExtResource("4_cegan")
 
