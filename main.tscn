@@ -154,15 +154,16 @@ autoplay = true
 [node name="Bg" type="Sprite2D" parent="." unique_id=864595188]
 z_index = -1
 position = Vector2(893, 483)
-scale = Vector2(3.4804256, 3.7494006)
+scale = Vector2(3.5, 3.5)
 texture = ExtResource("4_cegan")
 
 [node name="boss" parent="." unique_id=1371564772 instance=ExtResource("14_w48qg")]
 position = Vector2(1584, 532)
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=855566418]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=855566418 node_paths=PackedStringArray("bg")]
 position = Vector2(962, 541)
 script = ExtResource("18_074og")
+bg = NodePath("../Bg")
 
 [node name="Player" parent="." unique_id=239836141 instance=ExtResource("15_vivmo")]
 position = Vector2(151, 592)

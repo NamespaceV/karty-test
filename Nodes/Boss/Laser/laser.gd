@@ -10,7 +10,6 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	pass
 	position += Vector2(1.0, 0.0).rotated(rotation) * speed * delta
 
 

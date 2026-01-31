@@ -4,6 +4,8 @@ var hero_pos: Vector2
 var mouse_pos: Vector2
 var mean_pos: Vector2
 
+@export var bg:Sprite2D
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -14,4 +16,13 @@ func _process(delta: float) -> void:
 	hero_pos = GAME.player.global_position
 	mouse_pos = get_global_mouse_position()
 	mean_pos = (hero_pos + mouse_pos)/2
-	$".".global_position = mean_pos.lerp(hero_pos, 0.02*delta)
+	var pos = mean_pos.lerp(hero_pos, 0.02 * delta)
+	var r = bg.get_rect()
+	r.position += bg.position
+	$".".global_position = clampToRect(pos, r)
+
+func clampToRect(p:Vector2, r:Rect2) -> Vector2:
+	var result = p
+	result.x = clamp(p.x, r.position.x, r.end.x)
+	result.y = clamp(p.y, r.position.y, r.end.y)
+	return result
