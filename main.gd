@@ -113,7 +113,8 @@ func laser_show1():
 	for i in 6:
 		await musicManager.beatSync(false)
 		spawnLaser(random_laser_position, Vector2(0,-1))
-		random_laser_position += laser_offset
+		spawnLaser(random_laser_position, Vector2(0,1))
+		random_laser_position -= laser_offset
 		await get_tree().create_timer(0.2).timeout
 
 

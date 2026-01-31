@@ -201,7 +201,7 @@ bg = NodePath("../Bg")
 position = Vector2(151, 592)
 
 [node name="laserBase" type="Marker2D" parent="." unique_id=794296642]
-position = Vector2(285, 1068)
+position = Vector2(1926, 609)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2047969869]
 libraries/ = SubResource("AnimationLibrary_074og")
