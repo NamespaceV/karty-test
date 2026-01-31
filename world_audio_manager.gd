@@ -17,11 +17,15 @@ func playBGM(track_name:String):
 		#bg_music_player.play()
 	if track_name == "boss1":
 		GAME.boss.update_boss_audio2("boss_scream")
-		bg_music_player["parameters/switch_to_clip"] = "boss_music"
+		bg_music_player["parameters/switch_to_clip"] = "boss1_music"
 		bg_music_player.play()
 	elif track_name == "boss_dead":
-		bg_music_player["parameters/switch_to_clip"] = "boss_end"
+		bg_music_player["parameters/switch_to_clip"] = "boss1_end"
 		bg_music_player.play()
+	elif track_name == "boss_dead":
+		bg_music_player["parameters/switch_to_clip"] = "boss1_end"
+		bg_music_player.play()
+	
 
 
 func beatSync(full = true):
