@@ -2,12 +2,20 @@
 
 [ext_resource type="Script" uid="uid://b8r8sjet1cj4j" path="res://Nodes/Boss/boss.gd" id="1_sk461"]
 [ext_resource type="Texture2D" uid="uid://dv8wevea1jqws" path="res://textures/boss1.png" id="2_aolxj"]
+[ext_resource type="AudioStream" uid="uid://44w0by1rr8to" path="res://audio/boss_dmg.ogg" id="3_38q2p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ycdy4"]
 size = Vector2(150, 300)
 
-[node name="boss" type="AnimatableBody2D" unique_id=40194971]
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_vkx6u"]
+clip_count = 1
+clip_0/name = &"boss_dmg"
+clip_0/stream = ExtResource("3_38q2p")
+clip_0/auto_advance = 0
+
+[node name="boss" type="AnimatableBody2D" unique_id=40194971 node_paths=PackedStringArray("boss_audiostream")]
 script = ExtResource("1_sk461")
+boss_audiostream = NodePath("BossAudio")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=635883827]
 position = Vector2(-2, -2)
@@ -18,3 +26,9 @@ shape = SubResource("RectangleShape2D_ycdy4")
 position = Vector2(-1.9999999, 0)
 scale = Vector2(1.1348314, 1.1348314)
 texture = ExtResource("2_aolxj")
+
+[node name="BossAudio" type="AudioStreamPlayer2D" parent="." unique_id=2134418482]
+stream = SubResource("AudioStreamInteractive_vkx6u")
+max_distance = 2200.0
+attenuation = 1.5691684
+bus = &"SFX"

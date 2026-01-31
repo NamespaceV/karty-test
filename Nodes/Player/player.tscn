@@ -60,4 +60,7 @@ libraries/ = SubResource("AnimationLibrary_sldgk")
 [node name="ability_1_timer" type="Timer" parent="." unique_id=1186711983]
 wait_time = 0.175
 
+[node name="AudioListener2D" type="AudioListener2D" parent="." unique_id=226603849]
+current = true
+
 [connection signal="timeout" from="ability_1_timer" to="." method="_on_ability_1_timer_timeout"]

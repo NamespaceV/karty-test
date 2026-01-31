@@ -48,13 +48,13 @@ func pattern1():
 			await beatSync()
 
 func beatSync(full = true):
-	var pos = $WorldAudioManager/Music.get_playback_position()
+	var pos = $Music.get_playback_position()
 	pos -= 1.0 / 3
 	var time_span = (3.0 if full else 1.0) /3
 
 	var offBeat = time_span - fmod(pos, time_span)
 	await get_tree().create_timer(offBeat).timeout
-	print ("beat sync %f -> %f"%[pos, $WorldAudioManager/Music.get_playback_position()])
+	print ("beat sync %f -> %f"%[pos, $Music.get_playback_position()])
 
 
 func spawn_minions():
