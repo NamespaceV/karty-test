@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dmiiuoufxd16a" path="res://Nodes/Player/player.gd" id="1_us8wf"]
 [ext_resource type="Texture2D" uid="uid://clnhyalshdh8j" path="res://Nodes/Player/hero1.png" id="2_lkjqq"]
 [ext_resource type="Texture2D" uid="uid://bnqeb5j2v5amn" path="res://Nodes/Player/hero2.png" id="3_q1ymb"]
+[ext_resource type="AudioStream" uid="uid://2k1p7wsjdt5c" path="res://audio/dagger.ogg" id="4_q1ymb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_us8wf"]
 size = Vector2(130, 130)
@@ -44,9 +45,16 @@ _data = {
 &"no_mask": SubResource("Animation_60tkp")
 }
 
-[node name="Player" type="CharacterBody2D" unique_id=239836141 groups=["hero"]]
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_sldgk"]
+clip_count = 1
+clip_0/name = &"dagger"
+clip_0/stream = ExtResource("4_q1ymb")
+clip_0/auto_advance = 0
+
+[node name="Player" type="CharacterBody2D" unique_id=239836141 node_paths=PackedStringArray("player_audiostream") groups=["hero"]]
 collision_layer = 2
 script = ExtResource("1_us8wf")
+player_audiostream = NodePath("PlayerAudio")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1745080400]
 shape = SubResource("RectangleShape2D_us8wf")
@@ -62,5 +70,9 @@ wait_time = 0.175
 
 [node name="AudioListener2D" type="AudioListener2D" parent="." unique_id=226603849]
 current = true
+
+[node name="PlayerAudio" type="AudioStreamPlayer2D" parent="." unique_id=1898675348]
+stream = SubResource("AudioStreamInteractive_sldgk")
+bus = &"SFX"
 
 [connection signal="timeout" from="ability_1_timer" to="." method="_on_ability_1_timer_timeout"]

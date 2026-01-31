@@ -2,16 +2,20 @@
 
 [ext_resource type="Script" uid="uid://b8r8sjet1cj4j" path="res://Nodes/Boss/boss.gd" id="1_sk461"]
 [ext_resource type="Texture2D" uid="uid://dv8wevea1jqws" path="res://textures/boss1.png" id="2_aolxj"]
-[ext_resource type="AudioStream" uid="uid://44w0by1rr8to" path="res://audio/boss_dmg.ogg" id="3_38q2p"]
+[ext_resource type="AudioStream" uid="uid://op46bc6q11o" path="res://audio/boss_dmg.ogg" id="3_38q2p"]
+[ext_resource type="AudioStream" uid="uid://c2rwnt6eda6yi" path="res://audio/boss_death.ogg" id="4_vkx6u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ycdy4"]
 size = Vector2(150, 300)
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_vkx6u"]
-clip_count = 1
+clip_count = 2
 clip_0/name = &"boss_dmg"
 clip_0/stream = ExtResource("3_38q2p")
 clip_0/auto_advance = 0
+clip_1/name = &"boss_death"
+clip_1/stream = ExtResource("4_vkx6u")
+clip_1/auto_advance = 0
 
 [node name="boss" type="AnimatableBody2D" unique_id=40194971 node_paths=PackedStringArray("boss_audiostream")]
 script = ExtResource("1_sk461")

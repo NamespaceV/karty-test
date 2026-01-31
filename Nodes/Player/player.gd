@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 @export var speed : float = BASE_SPEED
 @onready var ability_1_timer: Timer = $ability_1_timer
+@export var player_audiostream: AudioStreamPlayer2D
 
 const BASE_SPEED = 600.0
 var ability1_on: bool
@@ -54,6 +55,7 @@ func _process(delta: float) -> void:
 
 	if Input.is_action_pressed("atack") && shoot_cooldown < 0:
 		shoot_cooldown = SHOOT_CD
+		update_player_audio("dagger")
 		var mosepos = get_global_mouse_position()
 		var to_mouse = mosepos - global_position
 		var dir = to_mouse.normalized()
@@ -109,3 +111,12 @@ func _on_ability_1_timer_timeout() -> void:
 
 func _on_ability_2_timer_timeout() -> void:
 	heavy_attack_on = false
+	
+func update_player_audio(audio_name: String):
+	if audio_name == "none":
+		player_audiostream.stop()
+	elif audio_name != player_audiostream["parameters/switch_to_clip"]:
+		player_audiostream["parameters/switch_to_clip"] = audio_name
+		player_audiostream.play()
+	else:
+		player_audiostream.play()

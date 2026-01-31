@@ -19,6 +19,7 @@ func take_damage(value : int):
 	hpBar.value -= value
 	if hpBar.value <= 0:
 		is_dead = true
+		update_boss_audio("boss_death")
 		boss_starts_dying.emit()
 	else:
 		update_boss_audio("boss_dmg")

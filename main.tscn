@@ -136,13 +136,16 @@ aoe = ExtResource("2_82xsv")
 laser = ExtResource("16_2cqfq")
 laser_ind = ExtResource("3_yaehf")
 
-[node name="WorldAudioManager" type="Node" parent="." unique_id=430556068 node_paths=PackedStringArray("bg_music_player")]
+[node name="WorldAudioManager" type="Node" parent="." unique_id=430556068 node_paths=PackedStringArray("bg_music_player", "bg_ambience_player")]
 script = ExtResource("2_ycdy4")
 bg_music_player = NodePath("Music")
+bg_ambience_player = NodePath("Ambience")
 
 [node name="Music" type="AudioStreamPlayer" parent="WorldAudioManager" unique_id=1797558953]
 stream = SubResource("AudioStreamInteractive_ycdy4")
 autoplay = true
+
+[node name="Ambience" type="AudioStreamPlayer" parent="WorldAudioManager" unique_id=166346246]
 
 [node name="Bg" type="Sprite2D" parent="." unique_id=864595188]
 position = Vector2(892.9999, 483)
