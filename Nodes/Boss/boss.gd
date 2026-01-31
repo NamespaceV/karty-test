@@ -7,7 +7,7 @@ signal boss_starts_dying()
 var is_dead = false
 
 var boss_hp = MAX_HP
-const MAX_HP = 10
+const MAX_HP = 100
 
 func _ready() -> void:
 	GAME.boss = self

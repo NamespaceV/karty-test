@@ -30,7 +30,10 @@ var effects = [
 func _ready() -> void:
 	rng.randomize()
 	marker_original_position = laser_1.global_position
+
+	GAME.in_cutscene = true
 	await $AnimationPlayer.animation_finished
+	GAME.in_cutscene = false
 	if $boss.is_dead:
 		boss_killed()
 		return

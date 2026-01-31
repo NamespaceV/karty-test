@@ -3,6 +3,8 @@ extends Node2D
 var player : Player
 var boss : Boss
 
+var in_cutscene = false
+
 func reset_game():
 	call_deferred("reload")
 

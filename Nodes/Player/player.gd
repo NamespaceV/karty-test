@@ -40,6 +40,10 @@ func _ready() -> void:
 	GAME.player = self
 
 func _process(delta: float) -> void:
+
+	if GAME.in_cutscene:
+		return
+
 	stamina += delta * STAMINA_REGEN
 	if stamina > MAX_STAMINA:
 		stamina = MAX_STAMINA
