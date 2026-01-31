@@ -12,6 +12,8 @@ extends Node2D
 @export var laser_ind: PackedScene
 @onready var laser_1: Marker2D = $laserBase
 
+const SKIP_INTRO = true
+
 var laser_offset = Vector2(350,0)
 var laser_ind_array: Array
 var marker_original_position: Vector2
@@ -32,7 +34,8 @@ func _ready() -> void:
 	marker_original_position = laser_1.global_position
 
 	GAME.in_cutscene = true
-	await $AnimationPlayer.animation_finished
+	if not SKIP_INTRO:
+		await $AnimationPlayer.animation_finished
 	GAME.in_cutscene = false
 	if $boss.is_dead:
 		boss_killed()
@@ -71,7 +74,7 @@ func pattern1():
 
 func spawn_minions():
 	for i in 5:
-		spawn_minion(GAME.boss.position)
+		spawn_minion(GAME.boss.position + Vector2(-100,0))
 		await get_tree().create_timer(0.1).timeout
 
 func spawn_minion(pos:Vector2):
@@ -104,10 +107,11 @@ func laser_show1():
 
 
 func laser_show2():
-	var random_laser_position = marker_original_position
+	var random_laser_position = GAME.boss.position
 	random_laser_position.y +=  rng.randi_range(-300, 300)
+	random_laser_position.y += 350.0*6/2
 	for i in 6:
-		spawnLaser(random_laser_position, Vector2(1,0))
+		spawnLaser(random_laser_position, Vector2(-1,0))
 		random_laser_position += Vector2(0,-350)
 		await get_tree().create_timer(0.2).timeout
 

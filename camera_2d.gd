@@ -16,10 +16,10 @@ func _process(delta: float) -> void:
 	hero_pos = GAME.player.global_position
 	mouse_pos = get_global_mouse_position()
 	mean_pos = (hero_pos + mouse_pos)/2
-	var pos = mean_pos.lerp(hero_pos, 0.02 * delta)
 	var r = bg.get_rect()
 	r.position += bg.position
-	$".".global_position = clampToRect(pos, r)
+	var goal_pos = clampToRect(mean_pos, r)
+	$".".global_position = lerp(global_position, goal_pos, 8*delta)
 
 func clampToRect(p:Vector2, r:Rect2) -> Vector2:
 	var result = p
