@@ -18,6 +18,7 @@ var laser_offset = Vector2(350,0)
 var laser_ind_array: Array
 var marker_original_position: Vector2
 var rng = RandomNumberGenerator.new()
+var phase2complete = false
 
 var effects = [
 	boss_pizza,
@@ -77,6 +78,23 @@ func pattern1():
 			await musicManager.beatSync()
 			if $boss.is_dead:
 				return
+			if $boss.phase2 and not phase2complete:
+				await anim_phase2_transition()
+
+func anim_phase2_transition():
+	var boss = GAME.boss
+	phase2complete = true
+	$AnimationPlayer.pause()
+	var tween = get_tree().create_tween()
+	var pos = boss.position
+	tween.tween_property(boss, "position", pos + Vector2(0,-500), 12.0)
+	await get_tree().create_timer(12).timeout
+	boss.get_node("Sprite2D").texture = load("res://Nodes/Boss/boss2.png")
+	tween = get_tree().create_tween()
+	tween.tween_property(boss, "position", pos , 4.0)
+	await get_tree().create_timer(4).timeout
+	boss.turn_invincible(false)
+	$AnimationPlayer.play()
 
 
 func spawn_minions():

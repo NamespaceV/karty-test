@@ -70,6 +70,19 @@ radial_accel_max = 81.99
 scale_amount_max = 9.9
 color = Color(1, 0, 0, 1)
 
+[node name="Phase2TransitionPFX" type="CPUParticles2D" parent="." unique_id=702408099]
+z_index = -1
+position = Vector2(5, -135)
+emitting = false
+amount = 249
+emission_shape = 6
+emission_ring_inner_radius = 200.0
+emission_ring_radius = 200.0
+gravity = Vector2(0, -100)
+radial_accel_max = 81.99
+scale_amount_max = 20.0
+color = Color(0.47108883, 0.4855795, 0.87265146, 1)
+
 [node name="BossAudio2" type="AudioStreamPlayer2D" parent="." unique_id=691300045]
 stream = SubResource("AudioStreamInteractive_snlyt")
 bus = &"SFX"
