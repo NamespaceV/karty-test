@@ -11,7 +11,7 @@ const ABILITY_1_CD = 0.75
 const ABILITY_1_SPEED = 2400
 var dash_direction = Vector2(0,0)
 
-const SHOOT_CD = 0.2
+const SHOOT_CD = 0.5
 var shoot_cooldown = 0.0
 
 var heavy_attack_on: bool

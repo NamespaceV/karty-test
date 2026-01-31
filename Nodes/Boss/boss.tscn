@@ -29,6 +29,6 @@ texture = ExtResource("2_aolxj")
 
 [node name="BossAudio" type="AudioStreamPlayer2D" parent="." unique_id=2134418482]
 stream = SubResource("AudioStreamInteractive_vkx6u")
-max_distance = 2200.0
-attenuation = 1.5691684
+max_distance = 4096.0
+attenuation = 1.3660403
 bus = &"SFX"
