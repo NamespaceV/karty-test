@@ -179,6 +179,7 @@ func spawn_fire_indicator_SFX(pos:Vector2):
 	var sfx = AudioStreamPlayer2D.new()
 	sfx.position = pos
 	sfx.stream = load("res://audio/fire_indicator.ogg")
+	sfx.bus = &"SFX"
 	sfx.finished.connect(func (): sfx.queue_free())
 	add_child(sfx)
 	sfx.play()
@@ -188,6 +189,7 @@ func spawn_fire_spell_SFX(pos:Vector2):
 	sfx.position = pos
 	sfx.stream = load("res://audio/fire_spell.ogg")
 	#sfx.volume_db = 18.1
+	sfx.bus = &"Fire Reverb"
 	sfx.finished.connect(func (): sfx.queue_free())
 	add_child(sfx)
 	sfx.play()

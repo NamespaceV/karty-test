@@ -38,7 +38,7 @@ text = "Music"
 
 [node name="music_soundbar" type="HScrollBar" parent="VBoxContainer" unique_id=176569029]
 layout_mode = 2
-min_value = -40.0
+min_value = -50.0
 max_value = 5.0
 page = 2.0
 value = -10.0
