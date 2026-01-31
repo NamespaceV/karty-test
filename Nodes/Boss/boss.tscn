@@ -5,6 +5,9 @@
 [ext_resource type="AudioStream" uid="uid://dqfebyaw34ai5" path="res://audio/boss_dmg.ogg" id="3_38q2p"]
 [ext_resource type="AudioStream" uid="uid://3cl1drelfn7e" path="res://audio/boss_death.ogg" id="4_vkx6u"]
 [ext_resource type="AudioStream" uid="uid://pi02skty551a" path="res://audio/fire_indicator.ogg" id="5_4shyt"]
+[ext_resource type="AudioStream" uid="uid://cx4dn5wj265p3" path="res://audio/boss_scream.ogg" id="6_5kduh"]
+[ext_resource type="AudioStream" uid="uid://cpob076kr07g3" path="res://audio/boss_cloth1.ogg" id="6_pmwdg"]
+[ext_resource type="AudioStream" uid="uid://drb5iyibaodjr" path="res://audio/boss_cloth2.ogg" id="7_5kduh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ycdy4"]
 size = Vector2(150, 300)
@@ -19,10 +22,20 @@ clip_1/stream = ExtResource("4_vkx6u")
 clip_1/auto_advance = 0
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_snlyt"]
-clip_count = 1
+clip_count = 2
 clip_0/name = &"f_indicator"
 clip_0/stream = ExtResource("5_4shyt")
 clip_0/auto_advance = 0
+clip_1/name = &"boss_scream"
+clip_1/stream = ExtResource("6_5kduh")
+clip_1/auto_advance = 0
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_pmwdg"]
+shuffle = true
+fade_time = 1.0
+stream_count = 2
+stream_0 = ExtResource("6_pmwdg")
+stream_1 = ExtResource("7_5kduh")
 
 [node name="boss" type="AnimatableBody2D" unique_id=40194971 node_paths=PackedStringArray("boss_audiostream1", "boss_audiostream2")]
 script = ExtResource("1_sk461")
@@ -59,4 +72,10 @@ color = Color(1, 0, 0, 1)
 
 [node name="BossAudio2" type="AudioStreamPlayer2D" parent="." unique_id=691300045]
 stream = SubResource("AudioStreamInteractive_snlyt")
+bus = &"SFX"
+
+[node name="BossCloth" type="AudioStreamPlayer2D" parent="." unique_id=2005381841]
+stream = SubResource("AudioStreamPlaylist_pmwdg")
+volume_db = -7.182
+autoplay = true
 bus = &"SFX"
