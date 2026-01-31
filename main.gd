@@ -4,8 +4,6 @@ extends Node2D
 @onready var player: Player = $Player
 
 @onready var musicManager = $WorldAudioManager
-@export var indicator_audiostream: AudioStreamPlayer2D
-@export var attack_audiostream: AudioStreamPlayer2D
 
 @export var orb: PackedScene
 @export var minion: PackedScene
@@ -118,6 +116,7 @@ func laser_show1():
 		await musicManager.beatSync(false)
 		spawnLaser(random_laser_position, Vector2(0,-1))
 		spawnLaser(random_laser_position, Vector2(0,1))
+		spawn_fire_indicator_SFX(random_laser_position)
 		random_laser_position -= laser_offset
 		await get_tree().create_timer(0.2).timeout
 
@@ -131,7 +130,7 @@ func laser_show2():
 	for i in 6:
 		spawnLaser(random_laser_position, Vector2(-1,0))
 		random_laser_position += Vector2(0,-350)
-		update_indicator_audio("f_indicator")
+		spawn_fire_indicator_SFX(random_laser_position)
 		await get_tree().create_timer(0.2).timeout
 
 func aoe_show():
@@ -152,6 +151,7 @@ func spawnAoe(pos:Vector2):
 	var indicator_spawn = laser_ind.instantiate()
 	indicator_spawn.global_position = pos
 	add_child(indicator_spawn)
+	spawn_fire_indicator_SFX(pos)
 	await get_tree().create_timer(1).timeout
 	var laser_spawn = aoe.instantiate() as Node2D
 	laser_spawn.global_position = pos
@@ -164,13 +164,30 @@ func spawnLaser(pos:Vector2, dir:Vector2):
 	indicator_spawn.global_position = pos
 	add_child(indicator_spawn)
 	await get_tree().create_timer(1).timeout
-	update_attack_audio("f_spell")
+	spawn_fire_spell_SFX(GAME.boss.position)
 	var laser_spawn = laser.instantiate() as Node2D
 	laser_spawn.global_position = pos
 	laser_spawn.look_at(pos+dir)
 	add_child(laser_spawn)
 	await get_tree().create_timer(2.6).timeout
 	indicator_spawn.queue_free()
+
+func spawn_fire_indicator_SFX(pos:Vector2):
+	var sfx = AudioStreamPlayer2D.new()
+	sfx.position = pos
+	sfx.stream = load("res://audio/fire_indicator.ogg")
+	sfx.finished.connect(func (): sfx.queue_free())
+	add_child(sfx)
+	sfx.play()
+
+func spawn_fire_spell_SFX(pos:Vector2):
+	var sfx = AudioStreamPlayer2D.new()
+	sfx.position = pos
+	sfx.stream = load("res://audio/fire_spell.ogg")
+	sfx.volume_db = 18.1
+	sfx.finished.connect(func (): sfx.queue_free())
+	add_child(sfx)
+	sfx.play()
 
 
 func boss_pizza():
@@ -188,29 +205,11 @@ func boss_pizza():
 		var offset = (i - 3) * spread
 		var laser_angle = deg_to_rad(angle + offset)
 		var laser_dir = Vector2(cos(laser_angle), sin(laser_angle))
-		GAME.boss.update_boss_audio2("f_indicator")
+		spawn_fire_indicator_SFX(GAME.boss.global_position)
 		spawnLaser(boss_pos, laser_dir)
 		#random_laser_position += laser_offset
 	await get_tree().create_timer(1).timeout
 	$AnimationPlayer.play()
-
-func update_attack_audio(audio_name: String):
-	if audio_name == "none":
-		attack_audiostream.stop()
-	elif audio_name != attack_audiostream["parameters/switch_to_clip"]:
-		attack_audiostream["parameters/switch_to_clip"] = audio_name
-		attack_audiostream.play()
-	else:
-		attack_audiostream.play()
-
-func update_indicator_audio(audio_name: String):
-	if audio_name == "none":
-		indicator_audiostream.stop()
-	elif audio_name != indicator_audiostream["parameters/switch_to_clip"]:
-		indicator_audiostream["parameters/switch_to_clip"] = audio_name
-		indicator_audiostream.play()
-	else:
-		indicator_audiostream.play()
 
 func version():
 	Console.print_info("version 0.1.1")

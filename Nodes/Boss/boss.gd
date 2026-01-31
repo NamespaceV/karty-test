@@ -25,7 +25,7 @@ func take_damage(value : int):
 		boss_starts_dying.emit()
 	else:
 		update_boss_audio1("boss_dmg")
-		if boss_hp < MAX_HP/2:
+		if boss_hp < MAX_HP/2.0:
 			$Sprite2D.texture = load("res://Nodes/Boss/boss2.png")
 			phase2 = true
 

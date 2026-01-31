@@ -16,9 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://bpml58shwj1wq" path="res://Nodes/Player/player.tscn" id="15_vivmo"]
 [ext_resource type="PackedScene" uid="uid://b7a73wqytukva" path="res://Nodes/Boss/Laser/laser.tscn" id="16_2cqfq"]
 [ext_resource type="PackedScene" uid="uid://opyclkwhldgm" path="res://settings_menu.tscn" id="16_yaehf"]
-[ext_resource type="AudioStream" uid="uid://pi02skty551a" path="res://audio/fire_indicator.ogg" id="17_yaehf"]
 [ext_resource type="Script" uid="uid://1ocmk2pskud1" path="res://camera_2d.gd" id="18_074og"]
-[ext_resource type="AudioStream" uid="uid://bn6r220nhfivw" path="res://audio/fire_spell.ogg" id="18_cegan"]
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_ycdy4"]
 clip_count = 3
@@ -136,22 +134,8 @@ bg_color = Color(0.6, 0.024000013, 0.024000013, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yaehf"]
 bg_color = Color(0.29, 0.29, 0.29, 0.6509804)
 
-[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_2cqfq"]
-clip_count = 1
-clip_0/name = &"f_spell"
-clip_0/stream = ExtResource("18_cegan")
-clip_0/auto_advance = 0
-
-[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_074og"]
-clip_count = 1
-clip_0/name = &"f_indicator"
-clip_0/stream = ExtResource("17_yaehf")
-clip_0/auto_advance = 0
-
-[node name="Scene" type="Node2D" unique_id=1460920190 node_paths=PackedStringArray("indicator_audiostream", "attack_audiostream")]
+[node name="Scene" type="Node2D" unique_id=1460920190]
 script = ExtResource("1_ig7tw")
-indicator_audiostream = NodePath("BossIndicators")
-attack_audiostream = NodePath("BossAttacks")
 orb = ExtResource("2_w48qg")
 minion = ExtResource("2_getpj")
 aoe = ExtResource("2_82xsv")
@@ -243,12 +227,5 @@ offset_left = 15.0
 offset_top = 7.0
 offset_right = 15.0
 offset_bottom = 7.0
-
-[node name="BossAttacks" type="AudioStreamPlayer2D" parent="." unique_id=1553785430]
-stream = SubResource("AudioStreamInteractive_2cqfq")
-volume_db = 18.129
-
-[node name="BossIndicators" type="AudioStreamPlayer2D" parent="." unique_id=1359627442]
-stream = SubResource("AudioStreamInteractive_074og")
 
 [connection signal="pressed" from="HUD/SettingsButton" to="HUD" method="_on_settings_button_pressed"]
