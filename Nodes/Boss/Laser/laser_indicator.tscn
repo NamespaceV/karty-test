@@ -12,4 +12,4 @@ gravity = Vector2(0, -400)
 scale_amount_min = 1.15
 scale_amount_max = 17.74
 scale_amount_curve = SubResource("Curve_437ws")
-color = Color(0, 0.8833332, 1, 1)
+color = Color(1, 0, 0.016666412, 1)

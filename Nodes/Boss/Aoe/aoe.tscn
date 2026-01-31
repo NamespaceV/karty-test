@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://vcv5g85f6vge" path="res://Nodes/Boss/Aoe/aoe.gd" id="1_fj81i"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fj81i"]
-radius = 202.80536
+radius = 300.0
 
 [sub_resource type="Animation" id="Animation_fj81i"]
 length = 0.001
@@ -51,7 +51,9 @@ collision_mask = 2
 shape = SubResource("CircleShape2D_fj81i")
 
 [node name="Polygon2D" type="Polygon2D" parent="laser_area" unique_id=955742780]
-color = Color(0, 0.78431374, 1, 1)
+position = Vector2(21, -17)
+scale = Vector2(1.2193897, 1.2193896)
+color = Color(1, 0, 0.016666412, 1)
 polygon = PackedVector2Array(-8, -207, 89, -176, 158, -117, 213, -38, 196, 138, 116, 214, -18, 228, -119, 207, -208, 152, -250, 66, -250, -58, -212, -145, -156, -183, -84, -203)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1055586542]

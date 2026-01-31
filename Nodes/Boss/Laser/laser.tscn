@@ -20,7 +20,7 @@ offset_bottom = 2590.0
 grow_horizontal = 2
 grow_vertical = 2
 rotation = 1.5707964
-color = Color(0, 0.7833333, 1, 1)
+color = Color(1, 0, 0.016666412, 1)
 
 [node name="laser_area" type="Area2D" parent="ColorRect" unique_id=137990365]
 position = Vector2(10, 192.30765)

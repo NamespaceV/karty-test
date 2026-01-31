@@ -17,7 +17,7 @@ shape = SubResource("CircleShape2D_fj81i")
 [node name="Polygon2D" type="Polygon2D" parent="laser_area" unique_id=955742780]
 position = Vector2(4, 0)
 scale = Vector2(0.1678161, 0.16781609)
-color = Color(0, 0.78431374, 1, 1)
+color = Color(1, 0, 0.016666412, 1)
 polygon = PackedVector2Array(-8, -207, 89, -176, 158, -117, 213, -38, 196, 138, 116, 214, -18, 228, -119, 207, -208, 152, -250, 66, -250, -58, -212, -145, -156, -183, -84, -203)
 
 [connection signal="body_entered" from="laser_area" to="." method="_on_laser_area_body_entered"]
