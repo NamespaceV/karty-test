@@ -3,6 +3,9 @@ extends Node2D
 var speed = 1000
 
 func _ready() -> void:
+	var tween = get_tree().create_tween()
+	scale = Vector2(0,1)
+	tween.tween_property($".", "scale", Vector2.ONE, $ColorRect.size.y/speed)
 	pass # Replace with function body.
 
 

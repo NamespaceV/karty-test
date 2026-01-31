@@ -1,6 +1,5 @@
 extends Node2D
 
-
 @onready var boss: Boss = $boss
 @onready var player: Player = $Player
 
@@ -12,6 +11,7 @@ extends Node2D
 @export var laser: PackedScene
 @export var laser_ind: PackedScene
 @onready var laser_1: Marker2D = $laserBase
+
 var laser_offset = Vector2(350,0)
 var laser_ind_array: Array
 var marker_original_position: Vector2
