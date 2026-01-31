@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dv8wevea1jqws" path="res://textures/boss1.png" id="2_aolxj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ycdy4"]
-size = Vector2(78, 154)
+size = Vector2(150, 300)
 
 [node name="boss" type="AnimatableBody2D" unique_id=40194971]
 script = ExtResource("1_sk461")
@@ -16,5 +16,5 @@ shape = SubResource("RectangleShape2D_ycdy4")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=78773292]
 position = Vector2(-1.9999999, 0)
-scale = Vector2(0.5905754, 0.5905754)
+scale = Vector2(1.1348314, 1.1348314)
 texture = ExtResource("2_aolxj")
