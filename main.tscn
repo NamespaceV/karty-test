@@ -11,9 +11,10 @@
 [ext_resource type="AudioStream" uid="uid://hotf1xd3v8e7" path="res://audio/Music/boss_breakdown.ogg" id="9_w48qg"]
 [ext_resource type="AudioStream" uid="uid://cevqpm4m6rlrk" path="res://audio/Music/boss_end.ogg" id="10_vivmo"]
 [ext_resource type="PackedScene" uid="uid://xp40g7j114lm" path="res://Nodes/Boss/boss.tscn" id="14_w48qg"]
-[ext_resource type="Script" uid="uid://b6ff6hfk02l45" path="res://hud.gd" id="15_2cqfq"]
+[ext_resource type="Script" path="res://hud.gd" id="15_2cqfq"]
 [ext_resource type="PackedScene" uid="uid://bpml58shwj1wq" path="res://Nodes/Player/player.tscn" id="15_vivmo"]
 [ext_resource type="PackedScene" uid="uid://b7a73wqytukva" path="res://Nodes/Boss/Laser/laser.tscn" id="16_2cqfq"]
+[ext_resource type="PackedScene" uid="uid://opyclkwhldgm" path="res://settings_menu.tscn" id="16_yaehf"]
 [ext_resource type="Script" uid="uid://1ocmk2pskud1" path="res://camera_2d.gd" id="18_074og"]
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_ycdy4"]
@@ -148,8 +149,10 @@ bg_ambience_player = NodePath("Ambience")
 [node name="Music" type="AudioStreamPlayer" parent="WorldAudioManager" unique_id=1797558953]
 stream = SubResource("AudioStreamInteractive_ycdy4")
 autoplay = true
+bus = &"Music"
 
 [node name="Ambience" type="AudioStreamPlayer" parent="WorldAudioManager" unique_id=166346246]
+bus = &"Ambience"
 
 [node name="Bg" type="Sprite2D" parent="." unique_id=864595188]
 z_index = -1
@@ -194,3 +197,11 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_yaehf")
 value = 60.0
 fill_mode = 3
 show_percentage = false
+
+[node name="Soundbars" type="CanvasLayer" parent="." unique_id=1319936477]
+
+[node name="Settings Menu" parent="Soundbars" unique_id=1617850467 instance=ExtResource("16_yaehf")]
+offset_left = 15.0
+offset_top = 7.0
+offset_right = 15.0
+offset_bottom = 7.0

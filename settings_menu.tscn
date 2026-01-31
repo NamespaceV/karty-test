@@ -40,7 +40,7 @@ offset_left = 34.0
 offset_top = 179.0
 offset_right = 367.0
 offset_bottom = 239.0
-min_value = -25.0
+min_value = -15.0
 max_value = 10.0
 page = 2.0
 
