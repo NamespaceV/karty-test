@@ -11,7 +11,7 @@ const ABILITY_1_CD = 0.75
 const ABILITY_1_SPEED = 2400
 var dash_direction = Vector2(0,0)
 
-const SHOOT_CD = 0.1
+const SHOOT_CD = 0.2
 var shoot_cooldown = 0.0
 
 var heavy_attack_on: bool
@@ -80,6 +80,7 @@ func _process(delta: float) -> void:
 func take_damage():
 	if not hasMask:
 		GAME.reset_game()
+		return
 	hasMask = false
 	$AnimationPlayer.play("no_mask")
 	call_deferred("spawn_mask")
@@ -89,6 +90,7 @@ func spawn_mask():
 	var offset = Vector2(300, 0).rotated(randf() * TAU)
 	mask.global_position = self.global_position + offset
 	get_parent().add_child(mask, true)
+	mask.from_player(global_position)
 
 func wear_mask():
 	hasMask = true
