@@ -58,7 +58,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1584, 532)]
+"values": [Vector2(2111, 523)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -75,7 +75,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_w48qg"]
 resource_name = "boss_dead"
-length = 13.0
+length = 5.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -100,10 +100,10 @@ tracks/0/path = NodePath("boss:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.02, 3.0333333, 4.9666667),
+"times": PackedFloat32Array(0, 1, 3, 5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(1584, 532), Vector2(1774, 801), Vector2(1690, 164), Vector2(1584, 532)]
+"values": [Vector2(2111, 523), Vector2(2056, 898), Vector2(2092, 110), Vector2(2111, 523)]
 }
 
 [sub_resource type="Animation" id="Animation_ycdy4"]
@@ -119,7 +119,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 6.866667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(891, 515), Vector2(1584, 532)]
+"values": [Vector2(891, 515), Vector2(2111, 523)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_074og"]
@@ -189,10 +189,11 @@ polygon = PackedVector2Array(-1455, 69, -1405, -499, -1107, -681, -517, -782, 39
 polygon = PackedVector2Array(-1455, 69, -1471, 455, -1390, 899, -990, 1061, 955, 1066, 1360, 753, 1400, 652, 1481, 561, 1911, 586, 1916, 879, 1906, 1349, -1941, 1354, -1910, 106)
 
 [node name="boss" parent="." unique_id=1371564772 instance=ExtResource("14_w48qg")]
-position = Vector2(1584, 532)
+position = Vector2(2111, 523)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=855566418 node_paths=PackedStringArray("bg")]
 position = Vector2(962, 541)
+zoom = Vector2(0.7, 0.7)
 script = ExtResource("18_074og")
 bg = NodePath("../Bg")
 

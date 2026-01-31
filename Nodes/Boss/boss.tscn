@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://xp40g7j114lm"]
 
 [ext_resource type="Script" uid="uid://b8r8sjet1cj4j" path="res://Nodes/Boss/boss.gd" id="1_sk461"]
-[ext_resource type="Texture2D" uid="uid://dv8wevea1jqws" path="res://textures/boss1.png" id="2_aolxj"]
+[ext_resource type="Texture2D" uid="uid://dv8wevea1jqws" path="res://Nodes/Boss/boss1.png" id="2_aolxj"]
 [ext_resource type="AudioStream" uid="uid://dqfebyaw34ai5" path="res://audio/boss_dmg.ogg" id="3_38q2p"]
 [ext_resource type="AudioStream" uid="uid://3cl1drelfn7e" path="res://audio/boss_death.ogg" id="4_vkx6u"]
 [ext_resource type="AudioStream" uid="uid://pi02skty551a" path="res://audio/fire_indicator.ogg" id="5_4shyt"]
