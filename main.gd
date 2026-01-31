@@ -4,6 +4,7 @@ extends Node2D
 @onready var boss: Boss = $boss
 @onready var player: Player = $Player
 
+@onready var musicManager = $WorldAudioManager
 
 @export var minion: PackedScene
 @export var aoe: PackedScene
@@ -27,34 +28,37 @@ var effects = [
 func _ready() -> void:
 	rng.randomize()
 	marker_original_position = laser_1.global_position
+	await $AnimationPlayer.animation_finished
+	$AnimationPlayer.play("boss_move_1")
+	musicManager.playBGM("boss1")
+	$boss.boss_starts_dying.connect(boss_killed)
 	pattern1()
 	#beat_test()
+
+func boss_killed():
+	musicManager.playBGM("boss_dead")
+	$AnimationPlayer.play("boss_dead")
+	await $AnimationPlayer.animation_finished
+	GAME.boss_defeated()
 
 func beat_test():
 	while true:
 		var indicator_spawn = laser_ind.instantiate()
 		indicator_spawn.global_position = GAME.player.global_position
 		add_child(indicator_spawn)
-		await beatSync(true)
+		await musicManager.beatSync(true)
 		indicator_spawn.queue_free()
 
 func pattern1():
 	$AnimationPlayer.play("boss_move_1")
-	while true:
+	while not $boss.is_dead:
 		effects.shuffle()
 		for e in effects:
 			e.call()
 			await get_tree().create_timer(5).timeout
-			await beatSync()
-
-func beatSync(full = true):
-	var pos = $WorldAudioManager/Music.get_playback_position()
-	pos -= 1.0 / 3
-	var time_span = (3.0 if full else 1.0) /3
-
-	var offBeat = time_span - fmod(pos, time_span)
-	await get_tree().create_timer(offBeat).timeout
-	print ("beat sync %f -> %f"%[pos, $WorldAudioManager/Music.get_playback_position()])
+			await musicManager.beatSync()
+			if $boss.is_dead:
+				return
 
 
 func spawn_minions():
@@ -71,7 +75,7 @@ func laser_show1():
 	var random_laser_position = marker_original_position
 	random_laser_position.x +=  rng.randi_range(-300, 300)
 	for i in 6:
-		await beatSync(false)
+		await musicManager.beatSync(false)
 		spawnLaser(random_laser_position, Vector2(0,-1))
 		random_laser_position += laser_offset
 		await get_tree().create_timer(0.2).timeout
