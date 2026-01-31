@@ -90,6 +90,9 @@ func spawn_orb(pos:Vector2):
 	m.global_position = pos
 	add_child(m)
 
+func vrand_box(size:float) -> Vector2:
+	return Vector2(rng.randf_range(-size, size), rng.randf_range(-size, size))
+
 func laser_show1():
 	var random_laser_position = marker_original_position
 	random_laser_position.x +=  rng.randi_range(-300, 300)
@@ -109,18 +112,14 @@ func laser_show2():
 		await get_tree().create_timer(0.2).timeout
 
 func aoe_show():
-	var spawn_pos = marker_original_position
-	for i in 10:
-		var randv = Vector2(rng.randf_range(-100, 100), rng.randf_range(-100, 100))
-		spawnAoe(spawn_pos + randv)
-		spawn_pos += Vector2(350,-350)
+	for i in 3:
+		await musicManager.beatSync(true)
+		spawnAoe(GAME.player.position)
 
 func aoe_show2():
-	var spawn_pos = marker_original_position + Vector2(350 * 3, 0)
-	for i in 10:
-		var randv = Vector2(rng.randf_range(-100, 100), rng.randf_range(-100, 100))
-		spawnAoe(spawn_pos + randv)
-		spawn_pos += Vector2(-350,-350)
+	var spawn_pos = GAME.player.position
+	for i in 6:
+		spawnAoe(spawn_pos + vrand_box(500))
 
 func spawnAoe(pos:Vector2):
 	var indicator_spawn = laser_ind.instantiate()
