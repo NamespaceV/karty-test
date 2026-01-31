@@ -11,11 +11,14 @@ func _process(_delta: float) -> void:
 	pass
 
 func playBGM(name:String):
+	#if name == "boss_intro":
+		#bg_music_player["parameters/switch_to_clip"] = "boss_intro"
+		#bg_music_player.play()
 	if name == "boss1":
 		bg_music_player["parameters/switch_to_clip"] = "boss_music"
 		bg_music_player.play()
 	elif name == "boss_dead":
-		bg_music_player["parameters/switch_to_clip"] = "boss_music_end"
+		bg_music_player["parameters/switch_to_clip"] = "boss_end"
 		bg_music_player.play()
 
 

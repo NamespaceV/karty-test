@@ -7,9 +7,9 @@
 [ext_resource type="Script" uid="uid://gcpmgnm51wki" path="res://world_audio_manager.gd" id="2_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://d05380phvgsek" path="res://Nodes/Boss/Laser/laser_indicator.tscn" id="3_yaehf"]
 [ext_resource type="Texture2D" uid="uid://cjftg5rxollan" path="res://bg.png" id="4_cegan"]
-[ext_resource type="AudioStream" uid="uid://b4fsoxhgnj3p0" path="res://audio/Music/Waltz Breakdown.wav" id="8_ycdy4"]
+[ext_resource type="AudioStream" uid="uid://hotf1xd3v8e7" path="res://audio/Music/boss_breakdown.ogg" id="9_w48qg"]
+[ext_resource type="AudioStream" uid="uid://cevqpm4m6rlrk" path="res://audio/Music/boss_end.ogg" id="10_vivmo"]
 [ext_resource type="AudioStream" uid="uid://cxmbdjovic1u6" path="res://audio/Music/Waltz Intro.wav" id="11_efxa6"]
-[ext_resource type="AudioStream" uid="uid://utfjgof2pnj2" path="res://audio/Music/Waltz End.wav" id="13_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://xp40g7j114lm" path="res://Nodes/Boss/boss.tscn" id="14_w48qg"]
 [ext_resource type="PackedScene" uid="uid://bpml58shwj1wq" path="res://Nodes/Player/player.tscn" id="15_vivmo"]
 [ext_resource type="PackedScene" uid="uid://b7a73wqytukva" path="res://Nodes/Boss/Laser/laser.tscn" id="16_2cqfq"]
@@ -21,28 +21,22 @@ clip_0/name = &"boss_intro"
 clip_0/stream = ExtResource("11_efxa6")
 clip_0/auto_advance = 0
 clip_1/name = &"boss_music"
-clip_1/stream = ExtResource("8_ycdy4")
+clip_1/stream = ExtResource("9_w48qg")
 clip_1/auto_advance = 0
-clip_2/name = &"boss_music_end"
-clip_2/stream = ExtResource("13_ycdy4")
+clip_2/name = &"boss_end"
+clip_2/stream = ExtResource("10_vivmo")
 clip_2/auto_advance = 0
 _transitions = {
-Vector2i(0, 1): {
-"fade_beats": 1.0,
-"fade_mode": 4,
-"from_time": 0,
-"to_time": 1
-},
 Vector2i(1, 2): {
-"fade_beats": 1.0,
+"fade_beats": 0.0,
 "fade_mode": 4,
-"from_time": 0,
+"from_time": 3,
 "to_time": 1
 },
 Vector2i(2, 1): {
-"fade_beats": 1.0,
+"fade_beats": 0.0,
 "fade_mode": 4,
-"from_time": 0,
+"from_time": 3,
 "to_time": 1
 }
 }
