@@ -1,23 +1,23 @@
 class_name Boss
 extends AnimatableBody2D
 
-@export var hpBar : ProgressBar
 @export var boss_audiostream: AudioStreamPlayer2D
 
 signal boss_starts_dying()
 var is_dead = false
 
+var boss_hp = MAX_HP
+const MAX_HP = 10
+
 func _ready() -> void:
-	hpBar.max_value = 10
-	hpBar.value = 10
 	GAME.boss = self
 	boss_audiostream.finished.connect(func(): update_boss_audio("none"))
 
 func take_damage(value : int):
 	if is_dead:
 		return
-	hpBar.value -= value
-	if hpBar.value <= 0:
+	boss_hp -= value
+	if boss_hp <= 0:
 		is_dead = true
 		update_boss_audio("boss_death")
 		boss_starts_dying.emit()
