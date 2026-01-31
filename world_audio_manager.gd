@@ -37,7 +37,7 @@ func update_volume():
 	var music_bus = AudioServer.get_bus_index("Music")
 	var sfx_bus = AudioServer.get_bus_index("SFX")
 	var ambience_bus = AudioServer.get_bus_index("Ambience")
-	
+
 	AudioServer.set_bus_volume_db(master_bus, AudioGlobal.master_volume)
 	AudioServer.set_bus_volume_db(music_bus, AudioGlobal.music_volume)
 	AudioServer.set_bus_volume_db(sfx_bus, AudioGlobal.sfx_volume)
