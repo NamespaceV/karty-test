@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ch2j4uayjxcee"
-path="res://.godot/imported/p diagonal top.png-28df06093e6b76792b14190c9814de04.ctex"
+uid="uid://bfgbtmi36q63k"
+path="res://.godot/imported/p_base_down.png-fcb14defeae754068bd7b26398fd9aa5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/p diagonal top.png"
-dest_files=["res://.godot/imported/p diagonal top.png-28df06093e6b76792b14190c9814de04.ctex"]
+source_file="res://Nodes/Player/art/p_base_down.png"
+dest_files=["res://.godot/imported/p_base_down.png-fcb14defeae754068bd7b26398fd9aa5.ctex"]
 
 [params]
 

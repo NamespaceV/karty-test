@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btbjodj2e5j2t"
-path="res://.godot/imported/p mask throw.png-39ecf10cdedd7753e8fd435347f63d9a.ctex"
+uid="uid://r3ddmyrbltab"
+path="res://.godot/imported/p throw mask.png-9dac1b758984d959a606ab9eb34d8bf3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/p mask throw.png"
-dest_files=["res://.godot/imported/p mask throw.png-39ecf10cdedd7753e8fd435347f63d9a.ctex"]
+source_file="res://Nodes/Player/art/p throw mask.png"
+dest_files=["res://.godot/imported/p throw mask.png-9dac1b758984d959a606ab9eb34d8bf3.ctex"]
 
 [params]
 

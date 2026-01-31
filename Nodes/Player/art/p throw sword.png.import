@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cis04oepr5yxc"
-path="res://.godot/imported/p diagonal bot.png-8405604e7cd95ef4a2fea987a36f1214.ctex"
+uid="uid://dxkfwiygr6jd7"
+path="res://.godot/imported/p throw sword.png-9b714fed145396c5787476a84170ddef.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/p diagonal bot.png"
-dest_files=["res://.godot/imported/p diagonal bot.png-8405604e7cd95ef4a2fea987a36f1214.ctex"]
+source_file="res://Nodes/Player/art/p throw sword.png"
+dest_files=["res://.godot/imported/p throw sword.png-9b714fed145396c5787476a84170ddef.ctex"]
 
 [params]
 

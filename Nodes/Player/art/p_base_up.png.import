@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxkfwiygr6jd7"
-path="res://.godot/imported/p throw sword.png-876e8202647c09424b5e13ec0c2c43de.ctex"
+uid="uid://dgv7baeontafg"
+path="res://.godot/imported/p_base_up.png-e2431f086e48998ab3a7454e1eb6ddf2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/p throw sword.png"
-dest_files=["res://.godot/imported/p throw sword.png-876e8202647c09424b5e13ec0c2c43de.ctex"]
+source_file="res://Nodes/Player/art/p_base_up.png"
+dest_files=["res://.godot/imported/p_base_up.png-e2431f086e48998ab3a7454e1eb6ddf2.ctex"]
 
 [params]
 
