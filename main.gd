@@ -29,6 +29,9 @@ func _ready() -> void:
 	rng.randomize()
 	marker_original_position = laser_1.global_position
 	await $AnimationPlayer.animation_finished
+	if $boss.is_dead:
+		boss_killed()
+		return
 	$AnimationPlayer.play("boss_move_1")
 	musicManager.playBGM("boss1")
 	$boss.boss_starts_dying.connect(boss_killed)
