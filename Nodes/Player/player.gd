@@ -126,7 +126,6 @@ func _process(delta: float) -> void:
 
 
 
-
 func take_damage():
 	if invulnerable_time > 0:
 		return
@@ -158,17 +157,17 @@ func _on_ability_1_timer_timeout() -> void:
 
 func _on_ability_2_timer_timeout() -> void:
 	heavy_attack_on = false
-	
+
 func spawn_mask_SFX(pos:Vector2):
 	var sfx = AudioStreamPlayer2D.new()
 	sfx.position = pos
 	sfx.stream = load("res://audio/mask_drop.ogg")
-	#sfx.volume_db = 18.1
+	sfx.volume_db = 10
 	sfx.bus = &"SFX"
 	sfx.finished.connect(func (): sfx.queue_free())
 	add_child(sfx)
 	sfx.play()
-	
+
 func update_player_audio(audio_name: String):
 	if audio_name == "none":
 		player_audiostream.stop()
