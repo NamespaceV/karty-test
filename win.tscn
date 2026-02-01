@@ -17,3 +17,4 @@ texture = ExtResource("1_wao2c")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1296458946]
 stream = ExtResource("2_hgi8f")
 autoplay = true
+bus = &"Music"
