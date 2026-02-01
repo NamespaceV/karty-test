@@ -100,7 +100,7 @@ func _process(delta: float) -> void:
 		mask.set_direction(dir)
 		get_parent().add_child(mask, true)
 		hasMask = false
-		update_player_audio("dagger")
+		update_player_audio("mask_throw")
 		stamina = MAX_STAMINA
 	update_animation_state()
 

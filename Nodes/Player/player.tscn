@@ -16,6 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://h4qm3nphrgu2" path="res://audio/player_footstep2.ogg" id="8_7hu6s"]
 [ext_resource type="AudioStream" uid="uid://st6osahmgxgc" path="res://audio/player_footstep3.ogg" id="9_50h10"]
 [ext_resource type="AudioStream" uid="uid://8t76sf08aolj" path="res://audio/player_footstep4.ogg" id="10_y4jjx"]
+[ext_resource type="AudioStream" uid="uid://b7msrk1upujqj" path="res://audio/mask_throw.ogg" id="13_6gkbq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_us8wf"]
 size = Vector2(130, 130)
@@ -383,7 +384,7 @@ _data = {
 }
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_sldgk"]
-clip_count = 3
+clip_count = 4
 clip_0/name = &"dagger"
 clip_0/stream = ExtResource("4_q1ymb")
 clip_0/auto_advance = 0
@@ -393,6 +394,9 @@ clip_1/auto_advance = 0
 clip_2/name = &"no_dash"
 clip_2/stream = ExtResource("6_e0yf7")
 clip_2/auto_advance = 0
+clip_3/name = &"mask_throw"
+clip_3/stream = ExtResource("13_6gkbq")
+clip_3/auto_advance = 0
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_50h10"]
 shuffle = true

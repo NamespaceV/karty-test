@@ -26,3 +26,14 @@ func onHit(body: Node) -> void:
 	var m = body as Minon
 	if m:
 		m._on_body_entered(self)
+		
+func mask_hit_SFX(pos:Vector2):
+	var sfx = AudioStreamPlayer2D.new()
+	sfx.position = pos
+	sfx.stream = load("res://audio/mask_hit.ogg")
+	sfx.max_distance = 2000
+	sfx.attenuation = 1.36
+	sfx.bus = &"SFX"
+	sfx.finished.connect(func (): sfx.queue_free())
+	add_child(sfx)
+	sfx.play()
