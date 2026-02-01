@@ -222,7 +222,7 @@ func spawn_fire_orb_SFX(pos:Vector2):
 	sfx.volume_db = 5
 	sfx.max_distance = 4000
 	sfx.attenuation = 1.36
-	sfx.bus = &"Fire Reverb"
+	sfx.bus = &"Orb Reverb"
 	sfx.finished.connect(func (): sfx.queue_free())
 	add_child(sfx)
 	sfx.play()
