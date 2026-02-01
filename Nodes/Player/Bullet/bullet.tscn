@@ -21,7 +21,6 @@ texture = ExtResource("2_u5u0j")
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1427279268]
 amount = 21
 lifetime = 0.4
-explosiveness = 0.76
 lifetime_randomness = 1.0
 emission_shape = 3
 emission_rect_extents = Vector2(12.48, 1)
