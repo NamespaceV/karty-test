@@ -183,7 +183,8 @@ func spawn_mask():
 func wear_mask():
 	hasMask = true
 	stamina = MAX_STAMINA
-
+	update_player_audio("mask_wear")
+	
 func turn_on_god_mode():
 	god_mode = true
 
