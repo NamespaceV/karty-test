@@ -143,12 +143,12 @@ func update_animation_state():
 			dash_on = true
 			update_player_audio("dash")
 			dash_direction = velocity.normalized()
-
-	if Input.is_action_just_pressed("ability2") && not heavy_attack_on:
-		heavy_attack_on = true
-		heavy_attack_time = 0.0
-		var mouse_pos = get_global_mouse_position()
-		heavy_attack_direction = (mouse_pos - global_position).normalized()
+#
+	#if Input.is_action_just_pressed("ability2") && not heavy_attack_on:
+		#heavy_attack_on = true
+		#heavy_attack_time = 0.0
+		#var mouse_pos = get_global_mouse_position()
+		#heavy_attack_direction = (mouse_pos - global_position).normalized()
 
 	move_and_slide()
 
@@ -184,7 +184,7 @@ func wear_mask():
 	hasMask = true
 	stamina = MAX_STAMINA
 	update_player_audio("mask_wear")
-	
+
 func turn_on_god_mode():
 	god_mode = true
 
