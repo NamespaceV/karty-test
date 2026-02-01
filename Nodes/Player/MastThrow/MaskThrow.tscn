@@ -68,4 +68,13 @@ shape = SubResource("CircleShape2D_woplj")
 libraries/ = SubResource("AnimationLibrary_d0028")
 autoplay = &"idle"
 
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=114845786]
+amount = 21
+lifetime = 0.4
+lifetime_randomness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(12.48, 1)
+gravity = Vector2(0, 0)
+scale_amount_max = 7.05
+
 [connection signal="body_entered" from="." to="." method="onHit"]
