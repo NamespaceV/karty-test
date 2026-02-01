@@ -12,7 +12,7 @@ var phase2 = false
 var transformation_complete = false
 
 var boss_hp = MAX_HP
-const MAX_HP = 10
+const MAX_HP = 150
 
 var boss_invincible = false
 
