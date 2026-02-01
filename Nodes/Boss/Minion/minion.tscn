@@ -34,6 +34,44 @@ clip_3/name = &"minion_death"
 clip_3/stream = ExtResource("7_afons")
 clip_3/auto_advance = 0
 
+[sub_resource type="Animation" id="Animation_hnihk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Minion:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, -3)]
+}
+
+[sub_resource type="Animation" id="Animation_ryvwl"]
+resource_name = "run"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Minion:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.26666668),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -20), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x4s7a"]
+_data = {
+&"RESET": SubResource("Animation_hnihk"),
+&"run": SubResource("Animation_ryvwl")
+}
+
 [node name="minion" type="CharacterBody2D" unique_id=1995131825 node_paths=PackedStringArray("minion_audiostream")]
 collision_mask = 3
 script = ExtResource("1_uf0e5")
@@ -57,3 +95,7 @@ bus = &"SFX"
 [node name="MinionAudio" type="AudioStreamPlayer2D" parent="." unique_id=169051243]
 stream = SubResource("AudioStreamInteractive_hnihk")
 bus = &"SFX"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=113443787]
+libraries/ = SubResource("AnimationLibrary_x4s7a")
+autoplay = &"run"
