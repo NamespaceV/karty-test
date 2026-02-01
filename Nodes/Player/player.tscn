@@ -8,8 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://n0opgibquhd1" path="res://Nodes/Player/art/p_base_down_no_mask.png" id="4_y4jjx"]
 [ext_resource type="AudioStream" uid="uid://8daoxwcdo7pl" path="res://audio/dash.ogg" id="5_sldgk"]
 [ext_resource type="AudioStream" uid="uid://lsovbwvmyefa" path="res://audio/no_dash.ogg" id="6_e0yf7"]
-[ext_resource type="AudioStream" uid="uid://ccjc2ixcnqrwj" path="res://audio/player_footstep1.ogg" id="7_ripo5"]
-[ext_resource type="AudioStream" uid="uid://bokb5o8pym4ld" path="res://audio/player_footstep2.ogg" id="8_7hu6s"]
+[ext_resource type="AudioStream" uid="uid://dr2w7jxrt5fvp" path="res://audio/player_footstep1.ogg" id="7_ripo5"]
+[ext_resource type="AudioStream" uid="uid://h4qm3nphrgu2" path="res://audio/player_footstep2.ogg" id="8_7hu6s"]
+[ext_resource type="AudioStream" uid="uid://st6osahmgxgc" path="res://audio/player_footstep3.ogg" id="9_50h10"]
+[ext_resource type="AudioStream" uid="uid://8t76sf08aolj" path="res://audio/player_footstep4.ogg" id="10_y4jjx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_us8wf"]
 size = Vector2(130, 130)
@@ -114,9 +116,12 @@ clip_2/auto_advance = 0
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_50h10"]
 shuffle = true
-stream_count = 2
+fade_time = 0.5
+stream_count = 4
 stream_0 = ExtResource("7_ripo5")
 stream_1 = ExtResource("8_7hu6s")
+stream_2 = ExtResource("9_50h10")
+stream_3 = ExtResource("10_y4jjx")
 
 [node name="Player" type="CharacterBody2D" unique_id=239836141 node_paths=PackedStringArray("player_audiostream") groups=["hero"]]
 collision_layer = 2
