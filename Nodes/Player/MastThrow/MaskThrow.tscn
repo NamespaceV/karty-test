@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://2wy0bxk8gmgm"]
+
+[ext_resource type="Script" uid="uid://day5cqjr4g7e" path="res://Nodes/Player/MastThrow/maskthrow.gd" id="1_kvl5e"]
+[ext_resource type="Texture2D" uid="uid://4asd3qqnkcic" path="res://Nodes/Player/MastThrow/mask.png" id="2_3owm7"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_o03tq"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_woplj"]
+radius = 45.044422
+
+[sub_resource type="Animation" id="Animation_o03tq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-4.1381755]
+}
+
+[sub_resource type="Animation" id="Animation_clofi"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 3.141592653589793, 6.283185307179586]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_d0028"]
+_data = {
+&"RESET": SubResource("Animation_o03tq"),
+&"idle": SubResource("Animation_clofi")
+}
+
+[node name="Mask" type="RigidBody2D" unique_id=1427316287]
+collision_mask = 3
+physics_material_override = SubResource("PhysicsMaterial_o03tq")
+gravity_scale = 0.0
+script = ExtResource("1_kvl5e")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1884976807]
+z_index = 100
+rotation = -4.1381755
+texture = ExtResource("2_3owm7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1477292022]
+shape = SubResource("CircleShape2D_woplj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=218765691]
+libraries/ = SubResource("AnimationLibrary_d0028")
+autoplay = &"idle"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]

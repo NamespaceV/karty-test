@@ -35,6 +35,7 @@ var hasMask:bool = true
 
 var bulletScene : PackedScene = load("res://Nodes/Player/Bullet/bullet.tscn")
 var maskScene : PackedScene = load("res://Nodes/Player/Mask/Mask.tscn")
+var maskthrowScene : PackedScene = load("res://Nodes/Player/MastThrow/MaskThrow.tscn")
 
 func _ready() -> void:
 	ability1_on = false
@@ -80,6 +81,18 @@ func _process(delta: float) -> void:
 		bullet.set_direction(dir)
 		get_parent().add_child(bullet, true)
 
+	if Input.is_action_just_pressed("throw_mask") and hasMask:
+		var mosepos = get_global_mouse_position()
+		var to_mouse = mosepos - global_position
+		var dir = to_mouse.normalized()
+		var mask : Node2D = maskthrowScene.instantiate()
+		mask.global_position = self.global_position + dir * 200
+		mask.set_direction(dir)
+		get_parent().add_child(mask, true)
+		hasMask = false
+		$AnimationPlayer.play("no_mask")
+
+
 	if Input.is_action_just_pressed("ability1") \
 			&& not velocity.is_zero_approx() \
 			&& stamina >= DASH_STAMINA_COST:
@@ -98,6 +111,14 @@ func _process(delta: float) -> void:
 
 	move_and_slide()
 	$Sprite2D.flip_h = velocity.x < 0
+
+	for i in get_slide_collision_count():
+		var col = get_slide_collision(i)
+		var m = col.get_collider() as MaskThrow
+		if m:
+			m.queue_free()
+			wear_mask()
+
 
 
 
