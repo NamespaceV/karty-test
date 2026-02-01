@@ -47,6 +47,10 @@ _data = {
 &"idle": SubResource("Animation_clofi")
 }
 
+[sub_resource type="Curve" id="Curve_o03tq"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.74161077, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
 [node name="Mask" type="RigidBody2D" unique_id=1427316287]
 collision_mask = 3
 physics_material_override = SubResource("PhysicsMaterial_o03tq")
@@ -69,12 +73,14 @@ libraries/ = SubResource("AnimationLibrary_d0028")
 autoplay = &"idle"
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=114845786]
-amount = 21
+rotation = 1.5707964
+amount = 40
 lifetime = 0.4
 lifetime_randomness = 1.0
 emission_shape = 3
-emission_rect_extents = Vector2(12.48, 1)
+emission_rect_extents = Vector2(13.195, 1)
 gravity = Vector2(0, 0)
-scale_amount_max = 7.05
+scale_amount_max = 10.0
+scale_amount_curve = SubResource("Curve_o03tq")
 
 [connection signal="body_entered" from="." to="." method="onHit"]
