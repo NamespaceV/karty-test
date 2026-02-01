@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://drxn1mrmf1brl"]
+
+[ext_resource type="Texture2D" uid="uid://c7x8xfsa84bmv" path="res://Nodes/Boss/bossShadow.png" id="1_i0bmy"]
+
+[node name="BossShadow" type="Node2D" unique_id=2074821158]
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=760874844]
+position = Vector2(3, 62.000008)
+scale = Vector2(0.83, 0.83)
+texture = ExtResource("1_i0bmy")

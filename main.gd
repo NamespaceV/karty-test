@@ -86,10 +86,18 @@ func anim_phase2_transition():
 	var tween = get_tree().create_tween()
 	var pos = boss.position
 	tween.tween_property(boss, "position", pos + Vector2(0,-500), 12.0)
+	var shadow = load("res://Nodes/Boss/BossShadow.tscn").instantiate()
+	shadow.position = boss.position
+	shadow.modulate = Color.TRANSPARENT
+	add_child(shadow)
+	tween = get_tree().create_tween()
+	tween.tween_property(shadow, "modulate", Color.WHITE, 12.0)
 	await get_tree().create_timer(12).timeout
 	boss.get_node("Sprite2D").texture = load("res://Nodes/Boss/boss2.png")
 	tween = get_tree().create_tween()
 	tween.tween_property(boss, "position", pos , 4.0)
+	tween = get_tree().create_tween()
+	tween.tween_property(shadow, "modulate", Color.TRANSPARENT, 4.0)
 	await get_tree().create_timer(4).timeout
 	boss.turn_invincible(false)
 	$AnimationPlayer.play()
