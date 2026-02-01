@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://ck3fylt8md4sb"]
+
+[node name="Phase2TransitionPFX" type="CPUParticles2D" unique_id=1025369288]
+z_index = -1
+emitting = false
+amount = 249
+lifetime = 0.22
+one_shot = true
+preprocess = 0.1
+emission_shape = 6
+emission_ring_inner_radius = 100.0
+emission_ring_radius = 200.0
+gravity = Vector2(0, -100)
+radial_accel_max = 81.99
+scale_amount_max = 20.0

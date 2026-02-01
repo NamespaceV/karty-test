@@ -12,11 +12,12 @@ func _on_body_entered(body: Node2D) -> void:
 	var mask = body as MaskThrow
 	if mask:
 		queue_free()
-		kill_all_around()
+		kill_all_around(mask)
 		GAME.player.wear_mask()
 		GAME.player.global_position = global_position
 
-func kill_all_around():
+func kill_all_around(mask):
+	mask.play_hit_particle()
 	var space_state = get_world_2d().direct_space_state
 	var params = PhysicsShapeQueryParameters2D.new()
 	var shape = CircleShape2D.new()
