@@ -65,9 +65,10 @@ func beat_test():
 func pattern1():
 	$AnimationPlayer.play("boss_move_1")
 	var wait = 0
-	while not $boss.is_dead:
+	while not GAME.boss.is_dead:
 		effects.shuffle()
 		for e in effects:
+			GAME.boss.anim_action()
 			e.call()
 			wait += 2 if not GAME.boss.phase2 else 1
 			if wait >= 2:
@@ -100,7 +101,7 @@ func anim_phase2_transition():
 	tween = get_tree().create_tween()
 	tween.tween_property(shadow, "modulate", Color.WHITE, LIFT_TIME)
 	await get_tree().create_timer(LIFT_TIME).timeout
-	boss.get_node("Sprite2D").texture = load("res://Nodes/Boss/boss2.png")
+	boss.change_phase()
 	tween = get_tree().create_tween()
 	tween.tween_property(boss, "position", pos , FALL_TIME)
 	tween = get_tree().create_tween()
@@ -120,6 +121,7 @@ func spawn_minions():
 		spawn_minion(GAME.boss.position + Vector2(-100,0))
 		await get_tree().create_timer(0.1).timeout
 	await get_tree().create_timer(3).timeout
+	GAME.boss.anim_action()
 	for i in 10:
 		spawn_minion(GAME.boss.position + Vector2(-100,0))
 		await get_tree().create_timer(0.1).timeout
@@ -133,7 +135,7 @@ func spawn_minion(pos:Vector2):
 func spawn_orbs():
 	print(" - orbs ",  float(Time.get_ticks_msec()) / 1000.0)
 	for i in 8:
-		spawn_orb(GAME.boss.position)
+		spawn_orb(GAME.boss.position+Vector2(-100, 0))
 		await get_tree().create_timer(0.6).timeout
 
 func spawn_orb(pos:Vector2):
@@ -277,7 +279,7 @@ func boss_pizza():
 	#var random_laser_position = marker_original_position
 	#random_laser_position.x +=  rng.randi_range(-300, 300)
 	for i in 6:
-		var boss_pos = GAME.boss.global_position
+		var boss_pos = GAME.boss.global_position + Vector2(-100, 0)
 		var dir = GAME.player.global_position - boss_pos
 		var angle = rad_to_deg(dir.angle())
 		var spread = 10.0

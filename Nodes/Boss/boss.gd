@@ -9,6 +9,7 @@ signal phase2_start()
 
 var is_dead = false
 var phase2 = false
+var transformation_complete = false
 
 var boss_hp = MAX_HP
 const MAX_HP = 150
@@ -18,6 +19,21 @@ var boss_invincible = false
 func _ready() -> void:
 	GAME.boss = self
 	#boss_audiostream1.finished.connect(func(): update_boss_audio2("cloth"))
+
+func anim_action():
+	if transformation_complete:
+		$"Sprite2D".texture = load("res://Nodes/Boss/boss2_hand.png")
+	else:
+		$"Sprite2D".texture = load("res://Nodes/Boss/boss1_hand.png")
+	await get_tree().create_timer(0.5).timeout
+	if transformation_complete:
+		$"Sprite2D".texture = load("res://Nodes/Boss/boss2.png")
+	else:
+		$"Sprite2D".texture = load("res://Nodes/Boss/boss1.png")
+
+func change_phase():
+	$"Sprite2D".texture = load("res://Nodes/Boss/boss2.png")
+	transformation_complete = true
 
 func take_damage(value : int):
 	if is_dead or boss_invincible:
@@ -33,7 +49,6 @@ func take_damage(value : int):
 			phase2 = true
 			phase2_start.emit()
 			turn_invincible(true)
-
 
 func turn_invincible(on:bool):
 	$Sprite2D.modulate =  Color.WEB_PURPLE  if on else Color.WHITE

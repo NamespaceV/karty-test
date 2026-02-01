@@ -60,7 +60,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label2" type="Label" parent="." unique_id=273063589]
-modulate = Color(1, 1, 1, 0.59676564)
+modulate = Color(1, 1, 1, 0.6109688)
 offset_left = 8.0
 offset_top = 691.0
 offset_right = 1924.0
