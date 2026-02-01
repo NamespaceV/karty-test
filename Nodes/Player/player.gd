@@ -92,6 +92,7 @@ func _process(delta: float) -> void:
 		hasMask = false
 		$AnimationPlayer.play("no_mask")
 		update_player_audio("dagger")
+		stamina = MAX_STAMINA
 
 
 
