@@ -231,7 +231,6 @@ func boss_pizza():
 		var dir = GAME.player.global_position - boss_pos
 		var angle = rad_to_deg(dir.angle())
 		var spread = 10.0
-		print(angle)
 		var offset = (i - 3) * spread
 		var laser_angle = deg_to_rad(angle + offset)
 		var laser_dir = Vector2(cos(laser_angle), sin(laser_angle))
