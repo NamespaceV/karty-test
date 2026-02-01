@@ -26,7 +26,10 @@ func onHit(body: Node) -> void:
 	var m = body as Minon
 	if m:
 		m._on_body_entered(self)
-		
+
+	if not b and not m:
+		mask_hit_SFX(global_position)
+
 func mask_hit_SFX(pos:Vector2):
 	var sfx = AudioStreamPlayer2D.new()
 	sfx.position = pos
