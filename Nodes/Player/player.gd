@@ -44,9 +44,11 @@ func _ready() -> void:
 	heavy_attack_on = false
 	GAME.player = self
 
+
 func _process(delta: float) -> void:
 
 	if GAME.in_cutscene:
+		footstepSFX.stream_paused = true
 		return
 
 	stamina += delta * STAMINA_REGEN
