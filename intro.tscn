@@ -2,6 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://c4mpund1xpu6g" path="res://ui/splash.png" id="1_ayt76"]
 [ext_resource type="Texture2D" uid="uid://88j1uiyd6lxu" path="res://ui/intro.png" id="1_s2ta7"]
+[ext_resource type="Texture2D" uid="uid://dhuvwo0g4ibpa" path="res://ui/intro1.png" id="2_ayt76"]
+[ext_resource type="Texture2D" uid="uid://bly28q1isnbnm" path="res://ui/intro2.png" id="3_0a7ni"]
 
 [sub_resource type="GDScript" id="GDScript_g4887"]
 script/source = "extends Node2D
@@ -57,26 +59,38 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Intro:visible")
+tracks/0/path = NodePath("Intro:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Intro:modulate")
+tracks/1/path = NodePath("Intro2:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Intro3:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_ayt76"]
@@ -85,26 +99,38 @@ length = 5.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Intro:visible")
+tracks/0/path = NodePath("Intro:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Intro:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(-0.033333335, 0.6, 5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Intro2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 1.6333333, 2.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Intro3:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3.1333334, 3.4666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7a8ye"]
@@ -138,7 +164,19 @@ text = "click to start"
 horizontal_alignment = 1
 
 [node name="Intro" type="Sprite2D" parent="." unique_id=772672015]
-visible = false
+modulate = Color(1, 1, 1, 0)
+position = Vector2(964, 539)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_ayt76")
+
+[node name="Intro2" type="Sprite2D" parent="." unique_id=655120133]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(964, 539)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0a7ni")
+
+[node name="Intro3" type="Sprite2D" parent="." unique_id=1285030524]
+modulate = Color(1, 1, 1, 0)
 position = Vector2(964, 539)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_s2ta7")
