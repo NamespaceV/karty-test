@@ -12,7 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://dct8qgffssvmr" path="res://audio/Music/waltz_main_end.ogg" id="10_82xsv"]
 [ext_resource type="AudioStream" uid="uid://cevqpm4m6rlrk" path="res://audio/Music/boss_end.ogg" id="10_vivmo"]
 [ext_resource type="Texture2D" uid="uid://ch30su1d2s0rc" path="res://bg2.png" id="11_2cqfq"]
-[ext_resource type="AudioStream" uid="uid://bnmj61qbf2khy" path="res://audio/Music/waltz_solo.ogg" id="11_82xsv"]
+[ext_resource type="AudioStream" uid="uid://bg4p88cwo2ooo" path="res://audio/Music/waltz_solo.ogg" id="11_82xsv"]
 [ext_resource type="Texture2D" uid="uid://nwils47i6ctw" path="res://bg2_top.png" id="12_cegan"]
 [ext_resource type="PackedScene" uid="uid://xp40g7j114lm" path="res://Nodes/Boss/boss.tscn" id="14_w48qg"]
 [ext_resource type="Script" uid="uid://b6ff6hfk02l45" path="res://hud.gd" id="15_2cqfq"]

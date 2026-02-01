@@ -1,6 +1,8 @@
 class_name Minon
 extends CharacterBody2D
 
+@export var minion_audiostream: AudioStreamPlayer2D
+
 var speed = 300
 var lifespan = 2.5
 
@@ -44,3 +46,12 @@ func _physics_process(_delta: float) -> void:
 		var collision = get_slide_collision(i)
 		var collider = collision.get_collider()
 		_on_body_entered(collider)
+
+func update_minion_audio(audio_name: String):
+	if audio_name == "none":
+		minion_audiostream.stop()
+	elif audio_name != minion_audiostream["parameters/switch_to_clip"]:
+		minion_audiostream["parameters/switch_to_clip"] = audio_name
+		minion_audiostream.play()
+	else:
+		minion_audiostream.play()

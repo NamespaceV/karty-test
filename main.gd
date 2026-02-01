@@ -105,6 +105,7 @@ func anim_phase2_transition():
 	tween.tween_property(boss, "position", pos , FALL_TIME)
 	tween = get_tree().create_tween()
 	tween.tween_property(shadow, "modulate", Color.TRANSPARENT, FALL_TIME)
+	boss_impact_SFX(pos)
 	await get_tree().create_timer(FALL_TIME).timeout
 	boss.turn_invincible(false)
 	$AnimationPlayer.play()
@@ -127,8 +128,8 @@ func spawn_minion(pos:Vector2):
 	var m = minion.instantiate()
 	m.global_position = pos
 	add_child(m, true)
-
-
+	spawn_minion_SFX(pos)
+	
 func spawn_orbs():
 	print(" - orbs ",  float(Time.get_ticks_msec()) / 1000.0)
 	for i in 8:
@@ -220,6 +221,30 @@ func spawn_fire_indicator_SFX(pos:Vector2):
 	add_child(sfx)
 	sfx.play()
 	
+func boss_impact_SFX(pos:Vector2):
+	var sfx = AudioStreamPlayer2D.new()
+	sfx.position = pos
+	sfx.stream = load("res://audio/boss_impact.ogg")
+	sfx.volume_db = 0
+	sfx.max_distance = 4000
+	sfx.attenuation = 1.36
+	sfx.bus = &"SFX"
+	sfx.finished.connect(func (): sfx.queue_free())
+	add_child(sfx)
+	sfx.play()	
+	
+func spawn_minion_SFX(pos:Vector2):
+	var sfx = AudioStreamPlayer2D.new()
+	sfx.position = pos
+	sfx.stream = load("res://audio/monster_spawn.ogg")
+	sfx.volume_db = 0
+	sfx.max_distance = 2000
+	sfx.attenuation = 0.225
+	sfx.bus = &"SFX"
+	sfx.finished.connect(func (): sfx.queue_free())
+	add_child(sfx)
+	sfx.play()	
+
 func spawn_fire_orb_SFX(pos:Vector2):
 	var sfx = AudioStreamPlayer2D.new()
 	sfx.position = pos

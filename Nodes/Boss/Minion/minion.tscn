@@ -2,13 +2,42 @@
 
 [ext_resource type="Script" uid="uid://j744p8kprwnf" path="res://Nodes/Boss/Minion/minion.gd" id="1_uf0e5"]
 [ext_resource type="Texture2D" uid="uid://bdb06hfh0c8ck" path="res://Nodes/Boss/Minion/minion.png" id="2_yv6c0"]
+[ext_resource type="AudioStream" uid="uid://06bswh7qjape" path="res://audio/monster_footstep1.ogg" id="3_g15e0"]
+[ext_resource type="AudioStream" uid="uid://c0tric2iwko1" path="res://audio/monster_footstep2.ogg" id="4_dqohk"]
+[ext_resource type="AudioStream" uid="uid://cdyt3bn3sli1c" path="res://audio/monster_spawn.ogg" id="5_omtvp"]
+[ext_resource type="AudioStream" uid="uid://dfgvxaf2drm3h" path="res://audio/monster_attack.ogg" id="6_afons"]
+[ext_resource type="AudioStream" uid="uid://bxiq07gebey11" path="res://audio/monster_dmg.ogg" id="6_hnihk"]
+[ext_resource type="AudioStream" uid="uid://bcp1p1c101sdf" path="res://audio/monster_death.ogg" id="7_afons"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fj81i"]
 radius = 43.011627
 
-[node name="minion" type="CharacterBody2D" unique_id=1995131825]
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_omtvp"]
+shuffle = true
+fade_time = 0.58
+stream_count = 2
+stream_0 = ExtResource("3_g15e0")
+stream_1 = ExtResource("4_dqohk")
+
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_hnihk"]
+clip_count = 4
+clip_0/name = &"minion_spawn"
+clip_0/stream = ExtResource("5_omtvp")
+clip_0/auto_advance = 0
+clip_1/name = &"minion_dmg"
+clip_1/stream = ExtResource("6_hnihk")
+clip_1/auto_advance = 0
+clip_2/name = &"minion_attack"
+clip_2/stream = ExtResource("6_afons")
+clip_2/auto_advance = 0
+clip_3/name = &"minion_death"
+clip_3/stream = ExtResource("7_afons")
+clip_3/auto_advance = 0
+
+[node name="minion" type="CharacterBody2D" unique_id=1995131825 node_paths=PackedStringArray("minion_audiostream")]
 collision_mask = 3
 script = ExtResource("1_uf0e5")
+minion_audiostream = NodePath("MinionAudio")
 
 [node name="Minion" type="Sprite2D" parent="." unique_id=1916373238]
 position = Vector2(-1, -3)
@@ -18,3 +47,11 @@ flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=621500635]
 shape = SubResource("CircleShape2D_fj81i")
+
+[node name="Minion Footsteps" type="AudioStreamPlayer2D" parent="." unique_id=1309309610]
+stream = SubResource("AudioStreamPlaylist_omtvp")
+autoplay = true
+attenuation = 0.21763752
+
+[node name="MinionAudio" type="AudioStreamPlayer2D" parent="." unique_id=169051243]
+stream = SubResource("AudioStreamInteractive_hnihk")
