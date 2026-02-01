@@ -11,3 +11,4 @@ func _process(_delta: float) -> void:
 func _on_settings_button_pressed() -> void:
 	$"Settings Menu".visible = not $"Settings Menu".visible
 	get_tree().paused = $"Settings Menu".visible
+	get_viewport().gui_release_focus()
