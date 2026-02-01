@@ -1,11 +1,17 @@
 [gd_scene format=3 uid="uid://bf823up7p3clk"]
 
+[ext_resource type="Texture2D" uid="uid://c4mpund1xpu6g" path="res://ui/splash.png" id="1_ayt76"]
+[ext_resource type="Texture2D" uid="uid://88j1uiyd6lxu" path="res://ui/intro.png" id="1_s2ta7"]
+
 [sub_resource type="GDScript" id="GDScript_g4887"]
 script/source = "extends Node2D
 
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed(\"atack\"):
+		$Label2.hide()
+		$IntroAnim.play(\"intro\")
+		await $IntroAnim.animation_finished
 		GAME.reload()
 "
 
@@ -46,28 +52,93 @@ _data = {
 &"blink": SubResource("Animation_s2ta7")
 }
 
+[sub_resource type="Animation" id="Animation_7a8ye"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Intro:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Intro:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ayt76"]
+resource_name = "intro"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Intro:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Intro:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(-0.033333335, 0.6, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7a8ye"]
+_data = {
+&"RESET": SubResource("Animation_7a8ye"),
+&"intro": SubResource("Animation_ayt76")
+}
+
 [node name="Intro" type="Node2D" unique_id=1255240749]
 script = SubResource("GDScript_g4887")
 
-[node name="Label" type="Label" parent="." unique_id=478639049]
-offset_left = 5.0
-offset_top = 363.0
-offset_right = 1919.0
-offset_bottom = 430.0
-theme_override_font_sizes/font_size = 200
-text = "UNMASKED"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Blink" type="AnimationPlayer" parent="." unique_id=1657873109]
+libraries/ = SubResource("AnimationLibrary_ayt76")
+autoplay = &"blink"
+
+[node name="IntroAnim" type="AnimationPlayer" parent="." unique_id=1153021292]
+libraries/ = SubResource("AnimationLibrary_7a8ye")
+
+[node name="Splash" type="Sprite2D" parent="." unique_id=1254384117]
+position = Vector2(960, 540)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_ayt76")
 
 [node name="Label2" type="Label" parent="." unique_id=273063589]
 modulate = Color(1, 1, 1, 0.25620633)
-offset_left = 8.0
-offset_top = 691.0
-offset_right = 1924.0
-offset_bottom = 758.0
+offset_left = 2.0
+offset_top = 785.0
+offset_right = 1918.0
+offset_bottom = 852.0
 text = "click to start"
 horizontal_alignment = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1657873109]
-libraries/ = SubResource("AnimationLibrary_ayt76")
-autoplay = &"blink"
+[node name="Intro" type="Sprite2D" parent="." unique_id=772672015]
+visible = false
+position = Vector2(964, 539)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_s2ta7")
