@@ -80,10 +80,13 @@ func pattern1():
 				await anim_phase2_transition()
 
 func anim_phase2_transition():
+	
 	const LIFT_TIME = 20.0
 	const FALL_TIME = 1.0
+	
 
 	var boss = GAME.boss
+	(boss.get_node("BossCloth") as AudioStreamPlayer2D).stream_paused = true
 	phase2complete = true
 	musicManager.playBGM("transition")
 	$AnimationPlayer.pause()
@@ -105,6 +108,7 @@ func anim_phase2_transition():
 	await get_tree().create_timer(FALL_TIME).timeout
 	boss.turn_invincible(false)
 	$AnimationPlayer.play()
+	(boss.get_node("BossCloth") as AudioStreamPlayer2D).stream_paused = false
 	musicManager.playBGM("boss2")
 
 

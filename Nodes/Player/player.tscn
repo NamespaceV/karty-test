@@ -6,6 +6,8 @@
 [ext_resource type="AudioStream" uid="uid://2k1p7wsjdt5c" path="res://audio/dagger.ogg" id="4_q1ymb"]
 [ext_resource type="AudioStream" uid="uid://8daoxwcdo7pl" path="res://audio/dash.ogg" id="5_sldgk"]
 [ext_resource type="AudioStream" uid="uid://lsovbwvmyefa" path="res://audio/no_dash.ogg" id="6_e0yf7"]
+[ext_resource type="AudioStream" uid="uid://ccjc2ixcnqrwj" path="res://audio/player_footstep1.ogg" id="7_ripo5"]
+[ext_resource type="AudioStream" uid="uid://bokb5o8pym4ld" path="res://audio/player_footstep2.ogg" id="8_7hu6s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_us8wf"]
 size = Vector2(130, 130)
@@ -59,6 +61,12 @@ clip_2/name = &"no_dash"
 clip_2/stream = ExtResource("6_e0yf7")
 clip_2/auto_advance = 0
 
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_50h10"]
+shuffle = true
+stream_count = 2
+stream_0 = ExtResource("7_ripo5")
+stream_1 = ExtResource("8_7hu6s")
+
 [node name="Player" type="CharacterBody2D" unique_id=239836141 node_paths=PackedStringArray("player_audiostream") groups=["hero"]]
 collision_layer = 2
 script = ExtResource("1_us8wf")
@@ -79,3 +87,6 @@ current = true
 [node name="PlayerAudio" type="AudioStreamPlayer2D" parent="." unique_id=1898675348]
 stream = SubResource("AudioStreamInteractive_sldgk")
 bus = &"SFX"
+
+[node name="FootstepAudio" type="AudioStreamPlayer2D" parent="." unique_id=2007024252]
+stream = SubResource("AudioStreamPlaylist_50h10")
