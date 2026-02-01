@@ -85,6 +85,7 @@ color = Color(0.6339702, 0.0018268508, 0.82323176, 1)
 
 [node name="BossAudio2" type="AudioStreamPlayer2D" parent="." unique_id=691300045]
 stream = SubResource("AudioStreamInteractive_snlyt")
+attenuation = 1.3660403
 bus = &"SFX"
 
 [node name="BossCloth" type="AudioStreamPlayer2D" parent="." unique_id=2005381841]
