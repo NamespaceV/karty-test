@@ -135,6 +135,7 @@ func spawn_orb(pos:Vector2):
 	var m = orb.instantiate()
 	m.global_position = pos
 	add_child(m)
+	spawn_fire_orb_SFX(pos)
 
 func vrand_box(size:float) -> Vector2:
 	return Vector2(rng.randf_range(-size, size), rng.randf_range(-size, size))
@@ -208,7 +209,21 @@ func spawn_fire_indicator_SFX(pos:Vector2):
 	var sfx = AudioStreamPlayer2D.new()
 	sfx.position = pos
 	sfx.stream = load("res://audio/fire_indicator.ogg")
+	sfx.max_distance = 4000
+	sfx.attenuation = 1.36
 	sfx.bus = &"SFX"
+	sfx.finished.connect(func (): sfx.queue_free())
+	add_child(sfx)
+	sfx.play()
+	
+func spawn_fire_orb_SFX(pos:Vector2):
+	var sfx = AudioStreamPlayer2D.new()
+	sfx.position = pos
+	sfx.stream = load("res://audio/orb_fire.ogg")
+	sfx.volume_db = 5
+	sfx.max_distance = 4000
+	sfx.attenuation = 1.36
+	sfx.bus = &"Orb Reverb"
 	sfx.finished.connect(func (): sfx.queue_free())
 	add_child(sfx)
 	sfx.play()
@@ -217,7 +232,9 @@ func spawn_fire_spell_SFX(pos:Vector2):
 	var sfx = AudioStreamPlayer2D.new()
 	sfx.position = pos
 	sfx.stream = load("res://audio/fire_spell.ogg")
-	#sfx.volume_db = 18.1
+	sfx.volume_db = -5
+	sfx.max_distance = 4000
+	sfx.attenuation = 1.36
 	sfx.bus = &"Fire Reverb"
 	sfx.finished.connect(func (): sfx.queue_free())
 	add_child(sfx)
