@@ -51,6 +51,7 @@ _data = {
 collision_mask = 3
 physics_material_override = SubResource("PhysicsMaterial_o03tq")
 gravity_scale = 0.0
+continuous_cd = 2
 script = ExtResource("1_kvl5e")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1884976807]

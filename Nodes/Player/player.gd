@@ -11,7 +11,7 @@ const MAX_STAMINA = 100.0
 const BASE_SPEED = 600.0
 
 var dash_on: bool
-var DASH_STAMINA_COST = 75
+var DASH_STAMINA_COST = 45
 const DASH_DURATION = 0.175
 const ABILITY_1_SPEED = 2400
 var dash_direction = Vector2(0,0)

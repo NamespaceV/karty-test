@@ -4,7 +4,6 @@ extends CharacterBody2D
 var speed = 300
 var lifespan = 2.5
 
-
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("hero"):
 		var p = body as Player
