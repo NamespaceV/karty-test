@@ -6,7 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://c40tj3db4p4ei" path="res://Nodes/Player/art/p_base_right_no_mask.png" id="3_sldgk"]
 [ext_resource type="AudioStream" uid="uid://2k1p7wsjdt5c" path="res://audio/dagger.ogg" id="4_q1ymb"]
 [ext_resource type="Texture2D" uid="uid://n0opgibquhd1" path="res://Nodes/Player/art/p_base_down_no_mask.png" id="4_y4jjx"]
+[ext_resource type="Texture2D" uid="uid://cis04oepr5yxc" path="res://Nodes/Player/art/p_base_right_down.png" id="5_bnxn6"]
 [ext_resource type="AudioStream" uid="uid://8daoxwcdo7pl" path="res://audio/dash.ogg" id="5_sldgk"]
+[ext_resource type="Texture2D" uid="uid://bt0v0ckctab7n" path="res://Nodes/Player/art/p_base_right_down_no_mask.png" id="6_7km3q"]
 [ext_resource type="AudioStream" uid="uid://lsovbwvmyefa" path="res://audio/no_dash.ogg" id="6_e0yf7"]
 [ext_resource type="AudioStream" uid="uid://dr2w7jxrt5fvp" path="res://audio/player_footstep1.ogg" id="7_ripo5"]
 [ext_resource type="AudioStream" uid="uid://h4qm3nphrgu2" path="res://audio/player_footstep2.ogg" id="8_7hu6s"]
@@ -77,6 +79,38 @@ tracks/0/keys = {
 "values": [ExtResource("2_q1ymb")]
 }
 
+[sub_resource type="Animation" id="Animation_vooq2"]
+resource_name = "right_down"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_bnxn6")]
+}
+
+[sub_resource type="Animation" id="Animation_6gkbq"]
+resource_name = "right_down_no_mask"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_7km3q")]
+}
+
 [sub_resource type="Animation" id="Animation_60tkp"]
 resource_name = "right_no_mask"
 loop_mode = 1
@@ -99,6 +133,8 @@ _data = {
 &"go_down": SubResource("Animation_ripo5"),
 &"go_down_no_mask": SubResource("Animation_7hu6s"),
 &"right": SubResource("Animation_50h10"),
+&"right_down": SubResource("Animation_vooq2"),
+&"right_down_no_mask": SubResource("Animation_6gkbq"),
 &"right_no_mask": SubResource("Animation_60tkp")
 }
 
