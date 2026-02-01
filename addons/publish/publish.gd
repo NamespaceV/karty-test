@@ -20,7 +20,7 @@ func _exit_tree():
 	remove_tool_menu_item(ACTION_NAME)
 
 const godot_exe = "Godot_v4.6-stable_win64.exe"
-const itch_project = "namespacev/test-p2026"
+const itch_project = "namespacev/unmasked"
 
 func build_and_publish():
 
