@@ -23,6 +23,8 @@ func playAMB(track_name:String):
 		bg_ambience_player.play()
 
 func playBGM(track_name:String):
+	print("playBGM ", track_name)
+
 	if track_name == "transition":
 		bg_music_player["parameters/switch_to_clip"] = "boss1_end"
 		bg_music_player.play()
