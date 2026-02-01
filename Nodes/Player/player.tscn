@@ -17,7 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://st6osahmgxgc" path="res://audio/player_footstep3.ogg" id="9_50h10"]
 [ext_resource type="AudioStream" uid="uid://8t76sf08aolj" path="res://audio/player_footstep4.ogg" id="10_y4jjx"]
 [ext_resource type="AudioStream" uid="uid://b7msrk1upujqj" path="res://audio/mask_throw.ogg" id="13_6gkbq"]
-[ext_resource type="AudioStream" uid="uid://335barrbv8ln" path="res://audio/mask_wear.ogg" id="14_oh6yy"]
+[ext_resource type="AudioStream" uid="uid://btbr5nm7xrgre" path="res://audio/mask_wear.ogg" id="14_oh6yy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_us8wf"]
 size = Vector2(130, 130)
