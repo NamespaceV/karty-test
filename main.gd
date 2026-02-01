@@ -33,6 +33,7 @@ func _ready() -> void:
 
 	GAME.in_cutscene = true
 	if not SKIP_INTRO:
+		musicManager.playBGM("intro")
 		await $AnimationPlayer.animation_finished
 	GAME.in_cutscene = false
 	if $boss.is_dead:

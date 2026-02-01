@@ -24,16 +24,15 @@ func playAMB(track_name:String):
 
 func playBGM(track_name:String):
 	print("playBGM ", track_name)
-
-	if track_name == "transition":
-		bg_music_player["parameters/switch_to_clip"] = "boss1_end"
+	if track_name == "intro":
+		bg_music_player["parameters/switch_to_clip"] = "boss_intro"
 		bg_music_player.play()
-	#if track_name == "boss_intro":
-		#bg_music_player["parameters/switch_to_clip"] = "boss_intro"
-		#bg_music_player.play()
 	if track_name == "boss1":
 		GAME.boss.update_boss_audio2("boss_scream")
 		bg_music_player["parameters/switch_to_clip"] = "boss1_music"
+		bg_music_player.play()
+	if track_name == "transition":
+		bg_music_player["parameters/switch_to_clip"] = "boss1_end"
 		bg_music_player.play()
 	elif track_name == "boss2":
 		GAME.boss.update_boss_audio2("boss_scream")

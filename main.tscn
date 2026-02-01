@@ -44,6 +44,7 @@ clip_3/auto_advance = 0
 clip_4/name = &"boss2_end"
 clip_4/stream = ExtResource("10_vivmo")
 clip_4/auto_advance = 0
+initial_clip = 2
 _transitions = {
 Vector2i(0, 1): {
 "fade_beats": 1.0,
@@ -176,7 +177,6 @@ bg_ambience_player = NodePath("Ambience")
 
 [node name="Music" type="AudioStreamPlayer" parent="WorldAudioManager" unique_id=1797558953]
 stream = SubResource("AudioStreamInteractive_ycdy4")
-autoplay = true
 bus = &"Music"
 
 [node name="Ambience" type="AudioStreamPlayer" parent="WorldAudioManager" unique_id=166346246]
