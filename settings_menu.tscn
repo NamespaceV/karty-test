@@ -52,10 +52,10 @@ text = "Master Volume"
 
 [node name="master_soundbar" type="HScrollBar" parent="VBoxContainer" unique_id=1749537691]
 layout_mode = 2
-min_value = -20.0
-max_value = 0.0
-page = 2.0
-value = -5.0
+min_value = -120.0
+max_value = 10.0
+page = 10.0
+value = -10.0
 
 [node name="Label2" type="Label" parent="VBoxContainer" unique_id=920266736]
 layout_mode = 2
@@ -63,10 +63,9 @@ text = "Music"
 
 [node name="music_soundbar" type="HScrollBar" parent="VBoxContainer" unique_id=176569029]
 layout_mode = 2
-min_value = -100.0
-max_value = 5.0
-page = 2.0
-value = -10.0
+min_value = -120.0
+max_value = 20.0
+page = 10.0
 
 [node name="Label3" type="Label" parent="VBoxContainer" unique_id=1807376355]
 layout_mode = 2
@@ -74,9 +73,9 @@ text = "Sfx"
 
 [node name="sfx_soundbar" type="HScrollBar" parent="VBoxContainer" unique_id=2144428998]
 layout_mode = 2
-min_value = -15.0
-max_value = 10.0
-page = 2.0
+min_value = -120.0
+max_value = 20.0
+page = 10.0
 
 [node name="Label4" type="Label" parent="VBoxContainer" unique_id=558302612]
 layout_mode = 2
@@ -84,6 +83,6 @@ text = "Ambient"
 
 [node name="ambience_soundbar" type="HScrollBar" parent="VBoxContainer" unique_id=854057443]
 layout_mode = 2
-min_value = -25.0
-max_value = 10.0
-page = 2.0
+min_value = -120.0
+max_value = 20.0
+page = 10.0

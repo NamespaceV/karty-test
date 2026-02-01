@@ -436,3 +436,4 @@ bus = &"SFX"
 [node name="FootstepAudio" type="AudioStreamPlayer2D" parent="." unique_id=2007024252]
 stream = SubResource("AudioStreamPlaylist_50h10")
 autoplay = true
+bus = &"SFX"
