@@ -10,10 +10,10 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("hero"):
 		var p = body as Player
 		p.take_damage()
-		queue_free()
+		self_sacrifice()
 	var mask = body as MaskThrow
 	if mask:
-		queue_free()
+		killed()
 		kill_all_around(mask)
 		GAME.player.wear_mask()
 		GAME.player.global_position = global_position
@@ -32,9 +32,17 @@ func kill_all_around(mask):
 	for r in results:
 		var m = r["collider"] as Minon
 		if m:
-			m.queue_free()
+			m.killed()
 
 func take_dmage(_dmg:float):
+	killed()
+
+func self_sacrifice():
+	GAME.spawn_SFX(global_position, load("res://audio/monster_attack.ogg"))
+	queue_free()
+
+func killed():
+	GAME.spawn_SFX(global_position, load("res://audio/monster_death.ogg"))
 	queue_free()
 
 func _physics_process(_delta: float) -> void:

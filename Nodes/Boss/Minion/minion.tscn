@@ -52,6 +52,8 @@ shape = SubResource("CircleShape2D_fj81i")
 stream = SubResource("AudioStreamPlaylist_omtvp")
 autoplay = true
 attenuation = 0.21763752
+bus = &"SFX"
 
 [node name="MinionAudio" type="AudioStreamPlayer2D" parent="." unique_id=169051243]
 stream = SubResource("AudioStreamInteractive_hnihk")
+bus = &"SFX"

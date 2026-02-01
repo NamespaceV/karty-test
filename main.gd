@@ -80,10 +80,10 @@ func pattern1():
 				await anim_phase2_transition()
 
 func anim_phase2_transition():
-	
+
 	const LIFT_TIME = 20.0
 	const FALL_TIME = 1.0
-	
+
 
 	var boss = GAME.boss
 	(boss.get_node("BossCloth") as AudioStreamPlayer2D).stream_paused = true
@@ -129,7 +129,7 @@ func spawn_minion(pos:Vector2):
 	m.global_position = pos
 	add_child(m, true)
 	spawn_minion_SFX(pos)
-	
+
 func spawn_orbs():
 	print(" - orbs ",  float(Time.get_ticks_msec()) / 1000.0)
 	for i in 8:
@@ -220,7 +220,7 @@ func spawn_fire_indicator_SFX(pos:Vector2):
 	sfx.finished.connect(func (): sfx.queue_free())
 	add_child(sfx)
 	sfx.play()
-	
+
 func boss_impact_SFX(pos:Vector2):
 	var sfx = AudioStreamPlayer2D.new()
 	sfx.position = pos
@@ -231,8 +231,8 @@ func boss_impact_SFX(pos:Vector2):
 	sfx.bus = &"SFX"
 	sfx.finished.connect(func (): sfx.queue_free())
 	add_child(sfx)
-	sfx.play()	
-	
+	sfx.play()
+
 func spawn_minion_SFX(pos:Vector2):
 	var sfx = AudioStreamPlayer2D.new()
 	sfx.position = pos
@@ -243,7 +243,7 @@ func spawn_minion_SFX(pos:Vector2):
 	sfx.bus = &"SFX"
 	sfx.finished.connect(func (): sfx.queue_free())
 	add_child(sfx)
-	sfx.play()	
+	sfx.play()
 
 func spawn_fire_orb_SFX(pos:Vector2):
 	var sfx = AudioStreamPlayer2D.new()
