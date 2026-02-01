@@ -79,26 +79,29 @@ func pattern1():
 				await anim_phase2_transition()
 
 func anim_phase2_transition():
+	const LIFT_TIME = 20.0
+	const FALL_TIME = 1.0
+
 	var boss = GAME.boss
 	phase2complete = true
 	musicManager.playBGM("transition")
 	$AnimationPlayer.pause()
 	var tween = get_tree().create_tween()
 	var pos = boss.position
-	tween.tween_property(boss, "position", pos + Vector2(0,-500), 16.0)
+	tween.tween_property(boss, "position", pos + Vector2(0,-500), LIFT_TIME)
 	var shadow = load("res://Nodes/Boss/BossShadow.tscn").instantiate()
 	shadow.position = boss.position
 	shadow.modulate = Color.TRANSPARENT
 	add_child(shadow)
 	tween = get_tree().create_tween()
-	tween.tween_property(shadow, "modulate", Color.WHITE, 16.0)
-	await get_tree().create_timer(16).timeout
+	tween.tween_property(shadow, "modulate", Color.WHITE, LIFT_TIME)
+	await get_tree().create_timer(LIFT_TIME).timeout
 	boss.get_node("Sprite2D").texture = load("res://Nodes/Boss/boss2.png")
 	tween = get_tree().create_tween()
-	tween.tween_property(boss, "position", pos , 8.0)
+	tween.tween_property(boss, "position", pos , FALL_TIME)
 	tween = get_tree().create_tween()
-	tween.tween_property(shadow, "modulate", Color.TRANSPARENT, 8.0)
-	await get_tree().create_timer(4).timeout
+	tween.tween_property(shadow, "modulate", Color.TRANSPARENT, FALL_TIME)
+	await get_tree().create_timer(FALL_TIME).timeout
 	boss.turn_invincible(false)
 	$AnimationPlayer.play()
 	musicManager.playBGM("boss2")
