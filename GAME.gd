@@ -8,6 +8,8 @@ var in_cutscene = false
 func player_died():
 	var tree = get_tree()
 	get_tree().paused = true
+	var sfx = spawn_SFX(player.position, load("res://audio/monster_death.ogg"))
+	sfx.process_mode = Node.PROCESS_MODE_ALWAYS
 	get_tree().create_timer(2).timeout.connect(func ():
 		tree.paused = false
 		call_deferred("reload")
@@ -19,7 +21,7 @@ func reload():
 func boss_defeated():
 	get_tree().change_scene_to_file("res://win.tscn")
 
-func spawn_SFX(pos:Vector2, stream: AudioStream):
+func spawn_SFX(pos:Vector2, stream: AudioStream) -> AudioStreamPlayer2D:
 	var sfx = AudioStreamPlayer2D.new()
 	sfx.global_position = pos
 	sfx.stream = stream
@@ -30,3 +32,4 @@ func spawn_SFX(pos:Vector2, stream: AudioStream):
 	sfx.finished.connect(func (): sfx.queue_free())
 	get_tree().current_scene.add_child(sfx)
 	sfx.play()
+	return sfx
