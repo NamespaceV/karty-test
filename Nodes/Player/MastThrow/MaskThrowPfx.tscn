@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://ck3fylt8md4sb"]
+[gd_scene format=3 uid="uid://cv6t13pj150aj"]
 
 [node name="Phase2TransitionPFX" type="CPUParticles2D" unique_id=1025369288]
 z_index = -1
