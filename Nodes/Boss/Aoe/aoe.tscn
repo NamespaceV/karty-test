@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cho732lpla0kc"]
 
 [ext_resource type="Script" uid="uid://vcv5g85f6vge" path="res://Nodes/Boss/Aoe/aoe.gd" id="1_fj81i"]
-[ext_resource type="Texture2D" uid="uid://cwbcunbdvjdnw" path="res://Nodes/Boss/Orb/orb.png" id="2_quomi"]
+[ext_resource type="Texture2D" uid="uid://dy28pdag0rfoo" path="res://Nodes/Boss/Aoe/boss_atk_2.png" id="2_quomi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fj81i"]
 radius = 300.0
@@ -69,8 +69,8 @@ color = Color(1, 0, 0, 1)
 
 [node name="Orb" type="Sprite2D" parent="." unique_id=1955178432]
 modulate = Color(1, 0, 0, 1)
-position = Vector2(-1, 0)
-scale = Vector2(25, 25)
+position = Vector2(-3.9999962, 0.49999428)
+scale = Vector2(1.7035178, 2.429054)
 texture = ExtResource("2_quomi")
 
 [connection signal="body_entered" from="laser_area" to="." method="_on_laser_area_body_entered"]

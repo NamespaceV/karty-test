@@ -1,10 +1,47 @@
 [gd_scene format=3 uid="uid://564yql88lgec"]
 
 [ext_resource type="Script" uid="uid://boeiil08o3wuh" path="res://Nodes/Boss/Orb/orb.gd" id="1_nb6w4"]
-[ext_resource type="Texture2D" uid="uid://cwbcunbdvjdnw" path="res://Nodes/Boss/Orb/orb.png" id="2_kqk72"]
+[ext_resource type="Texture2D" uid="uid://bhyoqta3jkwfy" path="res://Nodes/Boss/Aoe/boss_atk_1.png" id="2_kqk72"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fj81i"]
 radius = 43.011627
+
+[sub_resource type="Animation" id="Animation_kqk72"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_h6udh"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 3.141592653589793, 6.283185307179586]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k3tpg"]
+_data = {
+&"RESET": SubResource("Animation_kqk72"),
+&"idle": SubResource("Animation_h6udh")
+}
 
 [node name="orb" type="Node2D" unique_id=1217057897]
 script = ExtResource("1_nb6w4")
@@ -19,18 +56,23 @@ shape = SubResource("CircleShape2D_fj81i")
 z_index = -1
 position = Vector2(-2, 2)
 amount = 249
-emission_shape = 1
-emission_sphere_radius = 50.0
+emission_shape = 6
+emission_ring_inner_radius = 40.0
+emission_ring_radius = 50.0
 gravity = Vector2(0, -100)
 radial_accel_max = 81.99
-scale_amount_max = 9.9
+scale_amount_max = 4.0
 color = Color(1, 0, 0, 1)
 
 [node name="Orb" type="Sprite2D" parent="." unique_id=1572201195]
 modulate = Color(1, 0, 0, 1)
-position = Vector2(-1, 0)
-scale = Vector2(2, 2)
+position = Vector2(-0.5000025, -0.5000003)
+scale = Vector2(0.24371858, 0.3277027)
 texture = ExtResource("2_kqk72")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1604537489]
+libraries/ = SubResource("AnimationLibrary_k3tpg")
+autoplay = &"idle"
 
 [connection signal="body_entered" from="laser_area" to="." method="_on_laser_area_body_entered"]
 [connection signal="body_exited" from="laser_area" to="." method="_on_laser_area_body_exited"]
