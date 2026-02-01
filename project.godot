@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Karty test"
-run/main_scene="uid://dxa5ccd40isk5"
+run/main_scene="uid://bf823up7p3clk"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 

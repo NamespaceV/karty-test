@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bf823up7p3clk"]
+
+[sub_resource type="GDScript" id="GDScript_g4887"]
+script/source = "extends Node2D
+
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed(\"atack\"):
+		GAME.reload()
+"
+
+[node name="Intro" type="Node2D" unique_id=1255240749]
+script = SubResource("GDScript_g4887")
+
+[node name="Label" type="Label" parent="." unique_id=478639049]
+offset_left = 741.0
+offset_top = 363.0
+offset_right = 1009.0
+offset_bottom = 430.0
+text = "UNMASKED"
+
+[node name="Label2" type="Label" parent="." unique_id=273063589]
+offset_left = 644.0
+offset_top = 691.0
+offset_right = 1154.0
+offset_bottom = 758.0
+text = "press any key to start"
