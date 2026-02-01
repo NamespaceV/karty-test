@@ -88,6 +88,7 @@ func _process(delta: float) -> void:
 		ability1_on = true
 		update_player_audio("dash")
 		dash_direction = velocity.normalized()
+		#update_player_audio("no_dash")
 
 	if Input.is_action_just_pressed("ability2") && not heavy_attack_on:
 		heavy_attack_on = true

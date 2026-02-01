@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c40tj3db4p4ei" path="res://Nodes/Player/art/p_base_right_no_mask.png" id="3_sldgk"]
 [ext_resource type="AudioStream" uid="uid://2k1p7wsjdt5c" path="res://audio/dagger.ogg" id="4_q1ymb"]
 [ext_resource type="AudioStream" uid="uid://8daoxwcdo7pl" path="res://audio/dash.ogg" id="5_sldgk"]
+[ext_resource type="AudioStream" uid="uid://lsovbwvmyefa" path="res://audio/no_dash.ogg" id="6_e0yf7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_us8wf"]
 size = Vector2(130, 130)
@@ -47,13 +48,16 @@ _data = {
 }
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_sldgk"]
-clip_count = 2
+clip_count = 3
 clip_0/name = &"dagger"
 clip_0/stream = ExtResource("4_q1ymb")
 clip_0/auto_advance = 0
 clip_1/name = &"dash"
 clip_1/stream = ExtResource("5_sldgk")
 clip_1/auto_advance = 0
+clip_2/name = &"no_dash"
+clip_2/stream = ExtResource("6_e0yf7")
+clip_2/auto_advance = 0
 
 [node name="Player" type="CharacterBody2D" unique_id=239836141 node_paths=PackedStringArray("player_audiostream") groups=["hero"]]
 collision_layer = 2
