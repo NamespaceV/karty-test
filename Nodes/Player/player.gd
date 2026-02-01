@@ -108,13 +108,17 @@ func update_animation_state():
 	$Sprite2D.flip_h = false
 	var mask_str = "" if hasMask else "_no_mask"
 	if velocity.y > 10:
-		if velocity.x > 10:
-			$AnimationPlayer.play("right_down"+mask_str)
-		elif velocity.x < -10:
+		if abs(velocity.x) > 10:
 			$AnimationPlayer.play("right_down"+mask_str)
 			$Sprite2D.flip_h = velocity.x < 0
 		else:
 			$AnimationPlayer.play("go_down"+mask_str)
+	elif velocity.y < -10:
+		if abs(velocity.x) > 10:
+			$AnimationPlayer.play("go_right_up"+mask_str)
+			$Sprite2D.flip_h = velocity.x < 0
+		else:
+			$AnimationPlayer.play("go_up"+mask_str)
 	else:
 		$AnimationPlayer.play("right"+mask_str)
 		$Sprite2D.flip_h = velocity.x < 0
