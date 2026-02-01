@@ -37,14 +37,18 @@ var bulletScene : PackedScene = load("res://Nodes/Player/Bullet/bullet.tscn")
 var maskScene : PackedScene = load("res://Nodes/Player/Mask/Mask.tscn")
 var maskthrowScene : PackedScene = load("res://Nodes/Player/MastThrow/MaskThrow.tscn")
 
+@onready var footstepSFX : AudioStreamPlayer2D = $FootstepAudio
+
 func _ready() -> void:
 	dash_on = false
 	heavy_attack_on = false
 	GAME.player = self
 
+
 func _process(delta: float) -> void:
 
 	if GAME.in_cutscene:
+		footstepSFX.stream_paused = true
 		return
 
 	stamina += delta * STAMINA_REGEN
@@ -63,10 +67,16 @@ func _process(delta: float) -> void:
 	elif dash_on:
 		speed = ABILITY_1_SPEED
 		velocity = dash_direction * speed
+		footstepSFX.stream_paused = true
 	else:
 		speed = BASE_SPEED
 		var i = Input.get_vector("left", "right", "up", "down")
 		velocity = i.normalized() * speed
+		if i.is_zero_approx():
+			footstepSFX.stream_paused = true
+		else:
+			footstepSFX.stream_paused = false
+			#print("footstep")
 
 	if Input.is_action_pressed("atack") && shoot_cooldown < 0\
 			&& stamina >= SHOOT_STAMINA_COST:
