@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cftn18lnij2rh"]
 
 [ext_resource type="Texture2D" uid="uid://cfjdgl3kou5vj" path="res://Nodes/Boss/Minion/minion_dead1.png" id="1_cdqx7"]
+[ext_resource type="PackedScene" uid="uid://v2xiqcdi803u" path="res://Nodes/Boss/Minion/minion_blood_pfx.tscn" id="2_c3cjm"]
 
 [sub_resource type="GDScript" id="GDScript_c3cjm"]
 script/source = "extends Node2D
@@ -59,3 +60,10 @@ texture = ExtResource("1_cdqx7")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1833109488]
 libraries/ = SubResource("AnimationLibrary_mmclc")
 autoplay = &"idle"
+
+[node name="minion_blood_pfx" parent="." unique_id=1508652169 instance=ExtResource("2_c3cjm")]
+position = Vector2(0, -25)
+amount = 40
+emission_sphere_radius = 35.0
+scale_amount_min = 5.0
+color = Color(0.59, 0, 0, 1)

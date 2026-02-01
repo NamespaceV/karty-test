@@ -8,6 +8,7 @@ extends Node2D
 @export var laser: PackedScene
 @export var laser_ind: PackedScene
 @onready var laser_1: Marker2D = $laserBase
+@export var minion_blood: PackedScene
 
 const SKIP_INTRO = false
 
