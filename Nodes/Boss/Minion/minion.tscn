@@ -72,7 +72,7 @@ _data = {
 &"run": SubResource("Animation_ryvwl")
 }
 
-[node name="minion" type="CharacterBody2D" unique_id=1995131825 node_paths=PackedStringArray("minion_audiostream")]
+[node name="minion" type="CharacterBody2D" unique_id=1995131825 node_paths=PackedStringArray("minion_audiostream") groups=["minion"]]
 collision_mask = 3
 script = ExtResource("1_uf0e5")
 minion_audiostream = NodePath("MinionAudio")

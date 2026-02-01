@@ -45,6 +45,7 @@ enabled=PackedStringArray("res://addons/console/plugin.cfg", "res://addons/publi
 [global_group]
 
 hero=""
+minion=""
 
 [gui]
 
