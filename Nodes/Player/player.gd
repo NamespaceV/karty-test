@@ -165,8 +165,7 @@ func take_damage():
 		return
 	invulnerable_time = INVULNERABLE_AFTER_LOSING_MASK
 	if not hasMask:
-
-		GAME.reset_game()
+		GAME.player_died()
 		return
 	hasMask = false
 	call_deferred("spawn_mask")

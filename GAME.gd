@@ -5,8 +5,13 @@ var boss : Boss
 
 var in_cutscene = false
 
-func reset_game():
-	call_deferred("reload")
+func player_died():
+	var tree = get_tree()
+	get_tree().paused = true
+	get_tree().create_timer(2).timeout.connect(func ():
+		tree.paused = false
+		call_deferred("reload")
+	)
 
 func reload():
 	get_tree().change_scene_to_file("res://main.tscn")
