@@ -7,6 +7,7 @@ var in_cutscene = false
 
 func player_died():
 	var tree = get_tree()
+	tree.current_scene.get_node("HUD").show_death()
 	get_tree().paused = true
 	var sfx = spawn_SFX(player.position, load("res://audio/monster_death.ogg"))
 	sfx.process_mode = Node.PROCESS_MODE_ALWAYS

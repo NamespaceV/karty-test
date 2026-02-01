@@ -1,18 +1,13 @@
 [gd_scene format=3 uid="uid://c4qo41xx8r4wk"]
 
+[ext_resource type="Texture2D" uid="uid://c3ppgngflwodt" path="res://ui/win.png" id="1_wao2c"]
+
 [node name="Win" type="Node2D" unique_id=275284512]
 
-[node name="Label" type="Label" parent="." unique_id=789183509]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -2.0
-offset_top = 1.0
-offset_right = 1925.0
+[node name="ColorRect" type="ColorRect" parent="." unique_id=383648729]
+offset_right = 1917.0
 offset_bottom = 1082.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 200
-text = "You WIN"
-horizontal_alignment = 1
-vertical_alignment = 1
+
+[node name="Win" type="Sprite2D" parent="." unique_id=1645160480]
+position = Vector2(959, 540)
+texture = ExtResource("1_wao2c")

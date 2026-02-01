@@ -1,6 +1,9 @@
 extends CanvasLayer
 
 
+func show_death():
+	$DeathSplash.show()
+
 func _process(_delta: float) -> void:
 	$Stamina.max_value = GAME.player.MAX_STAMINA
 	$Stamina.value = GAME.player.stamina

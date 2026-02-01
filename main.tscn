@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://b7a73wqytukva" path="res://Nodes/Boss/Laser/laser.tscn" id="16_2cqfq"]
 [ext_resource type="PackedScene" uid="uid://opyclkwhldgm" path="res://settings_menu.tscn" id="16_yaehf"]
 [ext_resource type="Script" uid="uid://1ocmk2pskud1" path="res://camera_2d.gd" id="18_074og"]
+[ext_resource type="Texture2D" uid="uid://dexmrhnwnlo8i" path="res://ui/loss.png" id="21_getpj"]
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_getpj"]
 loop = false
@@ -254,5 +255,10 @@ offset_left = 15.0
 offset_top = 7.0
 offset_right = 15.0
 offset_bottom = 7.0
+
+[node name="DeathSplash" type="Sprite2D" parent="HUD" unique_id=335712227]
+visible = false
+position = Vector2(959, 573)
+texture = ExtResource("21_getpj")
 
 [connection signal="pressed" from="HUD/SettingsButton" to="HUD" method="_on_settings_button_pressed"]
