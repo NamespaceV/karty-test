@@ -100,9 +100,27 @@ func _process(delta: float) -> void:
 		mask.set_direction(dir)
 		get_parent().add_child(mask, true)
 		hasMask = false
-		$AnimationPlayer.play("no_mask")
 		update_player_audio("dagger")
 		stamina = MAX_STAMINA
+	update_animation_state()
+
+func update_animation_state():
+	$Sprite2D.flip_h = false
+	if hasMask:
+		if velocity.y > 10:
+			$AnimationPlayer.play("go_down")
+		else:
+			$AnimationPlayer.play("right")
+			$Sprite2D.flip_h = velocity.x < 0
+	else:
+		if velocity.y > 10:
+			$AnimationPlayer.play("go_down_no_mask")
+		else:
+			$AnimationPlayer.play("right_no_mask")
+			$Sprite2D.flip_h = velocity.x < 0
+
+
+
 
 
 
@@ -126,7 +144,6 @@ func _process(delta: float) -> void:
 		heavy_attack_direction = (mouse_pos - global_position).normalized()
 
 	move_and_slide()
-	$Sprite2D.flip_h = velocity.x < 0
 
 	for i in get_slide_collision_count():
 		var col = get_slide_collision(i)
@@ -146,7 +163,6 @@ func take_damage():
 		GAME.reset_game()
 		return
 	hasMask = false
-	$AnimationPlayer.play("no_mask")
 	call_deferred("spawn_mask")
 
 func spawn_mask():
@@ -160,7 +176,6 @@ func spawn_mask():
 func wear_mask():
 	hasMask = true
 	stamina = MAX_STAMINA
-	$AnimationPlayer.play("RESET")
 
 
 func _on_ability_1_timer_timeout() -> void:

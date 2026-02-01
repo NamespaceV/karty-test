@@ -2,8 +2,10 @@
 
 [ext_resource type="Script" uid="uid://dmiiuoufxd16a" path="res://Nodes/Player/player.gd" id="1_us8wf"]
 [ext_resource type="Texture2D" uid="uid://dfqkcqrw4q0fc" path="res://Nodes/Player/art/p_base_right.png" id="2_q1ymb"]
+[ext_resource type="Texture2D" uid="uid://bfgbtmi36q63k" path="res://Nodes/Player/art/p_base_down.png" id="3_50h10"]
 [ext_resource type="Texture2D" uid="uid://c40tj3db4p4ei" path="res://Nodes/Player/art/p_base_right_no_mask.png" id="3_sldgk"]
 [ext_resource type="AudioStream" uid="uid://2k1p7wsjdt5c" path="res://audio/dagger.ogg" id="4_q1ymb"]
+[ext_resource type="Texture2D" uid="uid://n0opgibquhd1" path="res://Nodes/Player/art/p_base_down_no_mask.png" id="4_y4jjx"]
 [ext_resource type="AudioStream" uid="uid://8daoxwcdo7pl" path="res://audio/dash.ogg" id="5_sldgk"]
 [ext_resource type="AudioStream" uid="uid://lsovbwvmyefa" path="res://audio/no_dash.ogg" id="6_e0yf7"]
 [ext_resource type="AudioStream" uid="uid://ccjc2ixcnqrwj" path="res://audio/player_footstep1.ogg" id="7_ripo5"]
@@ -27,8 +29,54 @@ tracks/0/keys = {
 "values": [ExtResource("2_q1ymb")]
 }
 
+[sub_resource type="Animation" id="Animation_ripo5"]
+resource_name = "go_down"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_50h10")]
+}
+
+[sub_resource type="Animation" id="Animation_7hu6s"]
+resource_name = "go_down_no_mask"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_y4jjx")]
+}
+
+[sub_resource type="Animation" id="Animation_50h10"]
+resource_name = "right"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_q1ymb")]
+}
+
 [sub_resource type="Animation" id="Animation_60tkp"]
-resource_name = "no_mask"
+resource_name = "right_no_mask"
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -46,7 +94,10 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sldgk"]
 _data = {
 &"RESET": SubResource("Animation_b3fa6"),
-&"no_mask": SubResource("Animation_60tkp")
+&"go_down": SubResource("Animation_ripo5"),
+&"go_down_no_mask": SubResource("Animation_7hu6s"),
+&"right": SubResource("Animation_50h10"),
+&"right_no_mask": SubResource("Animation_60tkp")
 }
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_sldgk"]
