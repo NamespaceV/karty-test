@@ -148,6 +148,7 @@ func spawn_mask():
 
 func wear_mask():
 	hasMask = true
+	stamina = MAX_STAMINA
 	$AnimationPlayer.play("RESET")
 
 
