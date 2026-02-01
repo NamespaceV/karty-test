@@ -2,7 +2,6 @@ class_name Player
 extends CharacterBody2D
 
 @export var speed : float = BASE_SPEED
-@onready var ability_1_timer: Timer = $ability_1_timer
 @export var player_audiostream: AudioStreamPlayer2D
 
 var stamina = MAX_STAMINA
@@ -11,8 +10,9 @@ const MAX_STAMINA = 100.0
 
 const BASE_SPEED = 600.0
 
-var ability1_on: bool
+var dash_on: bool
 var DASH_STAMINA_COST = 75
+const DASH_DURATION = 0.175
 const ABILITY_1_SPEED = 2400
 var dash_direction = Vector2(0,0)
 
@@ -38,7 +38,7 @@ var maskScene : PackedScene = load("res://Nodes/Player/Mask/Mask.tscn")
 var maskthrowScene : PackedScene = load("res://Nodes/Player/MastThrow/MaskThrow.tscn")
 
 func _ready() -> void:
-	ability1_on = false
+	dash_on = false
 	heavy_attack_on = false
 	GAME.player = self
 
@@ -60,7 +60,7 @@ func _process(delta: float) -> void:
 			heavy_attack_direction * HEAVY_ATTACK_SPEED
 		if heavy_attack_time > HEAVY_ATTACK_DELAY+HEAVY_ATTACK_DURATION:
 			heavy_attack_on = false
-	elif ability1_on:
+	elif dash_on:
 		speed = ABILITY_1_SPEED
 		velocity = dash_direction * speed
 	else:
@@ -91,17 +91,22 @@ func _process(delta: float) -> void:
 		get_parent().add_child(mask, true)
 		hasMask = false
 		$AnimationPlayer.play("no_mask")
+		update_player_audio("dagger")
 
 
-	if Input.is_action_just_pressed("ability1") \
-			&& not velocity.is_zero_approx() \
-			&& stamina >= DASH_STAMINA_COST:
-		stamina -= DASH_STAMINA_COST
-		$ability_1_timer.start()
-		ability1_on = true
-		update_player_audio("dash")
-		dash_direction = velocity.normalized()
-		#update_player_audio("no_dash")
+
+	if Input.is_action_just_pressed("dash") \
+			&& not velocity.is_zero_approx():
+		if stamina < DASH_STAMINA_COST:
+			update_player_audio("no_dash")
+		else:
+			stamina -= DASH_STAMINA_COST
+			get_tree().create_timer(DASH_DURATION).timeout.connect(
+				func (): dash_on = false
+			)
+			dash_on = true
+			update_player_audio("dash")
+			dash_direction = velocity.normalized()
 
 	if Input.is_action_just_pressed("ability2") && not heavy_attack_on:
 		heavy_attack_on = true
@@ -146,7 +151,7 @@ func wear_mask():
 
 
 func _on_ability_1_timer_timeout() -> void:
-	ability1_on = false
+	dash_on = false
 
 
 func _on_ability_2_timer_timeout() -> void:

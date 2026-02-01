@@ -1,8 +1,5 @@
 extends Node2D
 
-@onready var boss: Boss = $boss
-@onready var player: Player = $Player
-
 @onready var musicManager = $WorldAudioManager
 
 @export var orb: PackedScene
