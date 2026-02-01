@@ -27,6 +27,8 @@ func spawn_SFX(pos:Vector2, stream: AudioStream) -> AudioStreamPlayer2D:
 	sfx.stream = stream
 	sfx.volume_db = 0
 	sfx.max_distance = 2000
+	if stream == load("res://audio/monster_death.ogg"):
+		sfx.pitch_scale = randf_range(0.8, 1.2)
 	sfx.attenuation = 0.225
 	sfx.bus = &"SFX"
 	sfx.finished.connect(func (): sfx.queue_free())
