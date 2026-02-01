@@ -32,6 +32,7 @@ const INVULNERABLE_AFTER_LOSING_MASK = 0.1
 var invulnerable_time = 0
 
 var hasMask:bool = true
+var god_mode = false
 
 var bulletScene : PackedScene = load("res://Nodes/Player/Bullet/bullet.tscn")
 var maskScene : PackedScene = load("res://Nodes/Player/Mask/Mask.tscn")
@@ -165,7 +166,8 @@ func take_damage():
 		return
 	invulnerable_time = INVULNERABLE_AFTER_LOSING_MASK
 	if not hasMask:
-		GAME.player_died()
+		if not god_mode:
+			GAME.player_died()
 		return
 	hasMask = false
 	call_deferred("spawn_mask")
@@ -182,6 +184,8 @@ func wear_mask():
 	hasMask = true
 	stamina = MAX_STAMINA
 
+func turn_on_god_mode():
+	god_mode = true
 
 func _on_ability_1_timer_timeout() -> void:
 	dash_on = false

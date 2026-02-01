@@ -5,6 +5,16 @@ var boss : Boss
 
 var in_cutscene = false
 
+func _ready() -> void:
+	Console.add_command("god", god_mode)
+	Console.add_command("mask", return_mask)
+
+func god_mode():
+	player.turn_on_god_mode()
+
+func return_mask():
+	player.wear_mask()
+
 func player_died():
 	var tree = get_tree()
 	tree.current_scene.get_node("HUD").show_death()
