@@ -61,7 +61,7 @@ max_contacts_reported = 32
 script = ExtResource("1_kvl5e")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1884976807]
-z_index = 100
+z_index = 8
 rotation = -4.1381755
 texture = ExtResource("2_3owm7")
 
