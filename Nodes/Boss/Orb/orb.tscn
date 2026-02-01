@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://564yql88lgec"]
 
 [ext_resource type="Script" uid="uid://boeiil08o3wuh" path="res://Nodes/Boss/Orb/orb.gd" id="1_nb6w4"]
+[ext_resource type="Texture2D" uid="uid://cwbcunbdvjdnw" path="res://Nodes/Boss/Orb/orb.png" id="2_kqk72"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fj81i"]
 radius = 43.011627
@@ -14,11 +15,22 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="laser_area" unique_id=621500635]
 shape = SubResource("CircleShape2D_fj81i")
 
-[node name="Polygon2D" type="Polygon2D" parent="laser_area" unique_id=955742780]
-position = Vector2(4, 0)
-scale = Vector2(0.1678161, 0.16781609)
-color = Color(1, 0, 0.016666412, 1)
-polygon = PackedVector2Array(-8, -207, 89, -176, 158, -117, 213, -38, 196, 138, 116, 214, -18, 228, -119, 207, -208, 152, -250, 66, -250, -58, -212, -145, -156, -183, -84, -203)
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=2033331358]
+z_index = -1
+position = Vector2(-2, 2)
+amount = 249
+emission_shape = 1
+emission_sphere_radius = 50.0
+gravity = Vector2(0, -100)
+radial_accel_max = 81.99
+scale_amount_max = 9.9
+color = Color(1, 0, 0, 1)
+
+[node name="Orb" type="Sprite2D" parent="." unique_id=1572201195]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(-1, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("2_kqk72")
 
 [connection signal="body_entered" from="laser_area" to="." method="_on_laser_area_body_entered"]
 [connection signal="body_exited" from="laser_area" to="." method="_on_laser_area_body_exited"]

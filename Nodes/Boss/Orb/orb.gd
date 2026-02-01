@@ -1,6 +1,6 @@
 extends Node2D
 
-var speed = 300
+const BASE_SPEED = 300.0
 var lifespan = 2.5
 
 func _on_laser_area_body_entered(body: Node2D) -> void:
@@ -10,6 +10,9 @@ func _on_laser_area_body_entered(body: Node2D) -> void:
 
 func _process(delta: float) -> void:
 	var to_player = GAME.player.global_position - global_position
+	var speed = BASE_SPEED
+	if to_player.length() > 400:
+		speed *= 2
 	var move = to_player.normalized() * speed * delta
 	position += move
 
