@@ -11,7 +11,7 @@ var is_dead = false
 var phase2 = false
 
 var boss_hp = MAX_HP
-const MAX_HP = 100
+const MAX_HP = 10
 
 var boss_invincible = false
 
