@@ -9,7 +9,7 @@ extends Node2D
 @export var laser_ind: PackedScene
 @onready var laser_1: Marker2D = $laserBase
 
-const SKIP_INTRO = false
+const SKIP_INTRO = true
 
 var laser_offset = Vector2(350,0)
 var laser_ind_array: Array
