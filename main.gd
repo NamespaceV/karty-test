@@ -87,8 +87,8 @@ func anim_phase2_transition():
 
 
 	var boss = GAME.boss
-	(boss.get_node("BossCloth") as AudioStreamPlayer2D).stream_paused = true
 	phase2complete = true
+	boss.ascend_start()
 	musicManager.playBGM("transition")
 	$AnimationPlayer.pause()
 	var tween = get_tree().create_tween()
@@ -110,7 +110,7 @@ func anim_phase2_transition():
 	await get_tree().create_timer(FALL_TIME).timeout
 	boss.turn_invincible(false)
 	$AnimationPlayer.play()
-	(boss.get_node("BossCloth") as AudioStreamPlayer2D).stream_paused = false
+	boss.ascend_finished()
 	musicManager.playBGM("boss2")
 
 

@@ -26,14 +26,28 @@ func anim_action():
 	else:
 		$"Sprite2D".texture = load("res://Nodes/Boss/boss1_hand.png")
 	await get_tree().create_timer(0.5).timeout
+	if is_dead:
+		return
 	if transformation_complete:
 		$"Sprite2D".texture = load("res://Nodes/Boss/boss2.png")
 	else:
 		$"Sprite2D".texture = load("res://Nodes/Boss/boss1.png")
 
+
+func ascend_start():
+	$"BossCloth".stream_paused = true
+	$"Sprite2D".texture = load("res://Nodes/Boss/boss1_ascend.png")
+
+
 func change_phase():
-	$"Sprite2D".texture = load("res://Nodes/Boss/boss2.png")
+	$"Sprite2D".texture = load("res://Nodes/Boss/boss2_fall.png")
 	transformation_complete = true
+
+func ascend_finished():
+	$"BossCloth".stream_paused = false
+
+
+
 
 func take_damage(value : int):
 	if is_dead or boss_invincible:
@@ -42,6 +56,7 @@ func take_damage(value : int):
 	if boss_hp <= 0:
 		is_dead = true
 		update_boss_audio1("boss_death")
+		$"Sprite2D".texture = load("res://Nodes/Boss/boss2_dead.png")
 		boss_starts_dying.emit()
 	else:
 		update_boss_audio1("boss_dmg")
