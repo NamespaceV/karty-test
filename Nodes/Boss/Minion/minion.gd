@@ -3,6 +3,8 @@ extends CharacterBody2D
 
 @export var minion_audiostream: AudioStreamPlayer2D
 
+var minion_dead_scene = load ("res://Nodes/Boss/Minion/minion_dead.tscn")
+
 var speed = 300
 var lifespan = 2.5
 
@@ -39,11 +41,18 @@ func take_dmage(_dmg:float):
 
 func self_sacrifice():
 	GAME.spawn_SFX(global_position, load("res://audio/monster_attack.ogg"))
+	spawn_body()
 	queue_free()
 
 func killed():
 	GAME.spawn_SFX(global_position, load("res://audio/monster_death.ogg"))
+	spawn_body()
 	queue_free()
+
+func spawn_body():
+	var b = minion_dead_scene.instantiate()
+	b.global_position = global_position
+	get_parent().add_child(b)
 
 func _physics_process(_delta: float) -> void:
 	var to_player = GAME.player.global_position - global_position

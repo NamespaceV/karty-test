@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://cftn18lnij2rh"]
+
+[ext_resource type="Texture2D" uid="uid://cfjdgl3kou5vj" path="res://Nodes/Boss/Minion/minion_dead1.png" id="1_cdqx7"]
+
+[sub_resource type="GDScript" id="GDScript_c3cjm"]
+script/source = "extends Node2D
+
+func _ready() -> void:
+	if randi_range(0,1)==1:
+		$sprite.texture = load(\"res://Nodes/Boss/Minion/minion_dead2.png\")
+	$AnimationPlayer.animation_finished.connect(func (_anim_name): queue_free())
+"
+
+[sub_resource type="Animation" id="Animation_cdqx7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_c3cjm"]
+resource_name = "idle"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.033333335, 0.3, 9, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(0.3, 0.3, 0.3, 1), Color(0.3, 0.3, 0.3, 1), Color(0.3, 0.3, 0.3, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mmclc"]
+_data = {
+&"RESET": SubResource("Animation_cdqx7"),
+&"idle": SubResource("Animation_c3cjm")
+}
+
+[node name="MinionDead" type="Node2D" unique_id=87749030]
+script = SubResource("GDScript_c3cjm")
+
+[node name="sprite" type="Sprite2D" parent="." unique_id=443583659]
+z_index = -1
+z_as_relative = false
+texture = ExtResource("1_cdqx7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1833109488]
+libraries/ = SubResource("AnimationLibrary_mmclc")
+autoplay = &"idle"
