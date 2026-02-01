@@ -69,6 +69,7 @@ stream_1 = ExtResource("8_7hu6s")
 
 [node name="Player" type="CharacterBody2D" unique_id=239836141 node_paths=PackedStringArray("player_audiostream") groups=["hero"]]
 collision_layer = 2
+motion_mode = 1
 script = ExtResource("1_us8wf")
 player_audiostream = NodePath("PlayerAudio")
 
