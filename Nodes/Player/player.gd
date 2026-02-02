@@ -127,10 +127,6 @@ func update_animation_state():
 		$AnimationPlayer.play("RESET"+mask_str)
 
 
-
-
-
-
 	if Input.is_action_just_pressed("dash") \
 			&& not velocity.is_zero_approx():
 		if stamina < DASH_STAMINA_COST:

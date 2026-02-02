@@ -8,16 +8,32 @@
 [ext_resource type="Texture2D" uid="uid://n0opgibquhd1" path="res://Nodes/Player/art/p_base_down_no_mask.png" id="4_y4jjx"]
 [ext_resource type="Texture2D" uid="uid://dgv7baeontafg" path="res://Nodes/Player/art/p_base_up.png" id="5_7km3q"]
 [ext_resource type="Texture2D" uid="uid://cis04oepr5yxc" path="res://Nodes/Player/art/p_base_right_down.png" id="5_bnxn6"]
+[ext_resource type="Texture2D" uid="uid://xg2klqfkih8v" path="res://Nodes/Player/art/p_base_down_2.png" id="5_mrjgt"]
 [ext_resource type="AudioStream" uid="uid://8daoxwcdo7pl" path="res://audio/dash.ogg" id="5_sldgk"]
 [ext_resource type="Texture2D" uid="uid://ch2j4uayjxcee" path="res://Nodes/Player/art/p_base_right_up.png" id="5_vooq2"]
+[ext_resource type="Texture2D" uid="uid://b0mlipp65kf46" path="res://Nodes/Player/art/p_base_down_3.png" id="6_3jhvm"]
 [ext_resource type="Texture2D" uid="uid://bt0v0ckctab7n" path="res://Nodes/Player/art/p_base_right_down_no_mask.png" id="6_7km3q"]
 [ext_resource type="AudioStream" uid="uid://lsovbwvmyefa" path="res://audio/no_dash.ogg" id="6_e0yf7"]
 [ext_resource type="AudioStream" uid="uid://dr2w7jxrt5fvp" path="res://audio/player_footstep1.ogg" id="7_ripo5"]
 [ext_resource type="AudioStream" uid="uid://h4qm3nphrgu2" path="res://audio/player_footstep2.ogg" id="8_7hu6s"]
+[ext_resource type="Texture2D" uid="uid://crlhhpdr7qrrl" path="res://Nodes/Player/art/p_base_right_2.png" id="8_ncvkw"]
+[ext_resource type="Texture2D" uid="uid://ckgjasdigphjy" path="res://Nodes/Player/art/p_base_down_no_mask_2.png" id="8_telnj"]
+[ext_resource type="Texture2D" uid="uid://dl5typtluh86a" path="res://Nodes/Player/art/p_base_right_3.png" id="9_08mni"]
 [ext_resource type="AudioStream" uid="uid://st6osahmgxgc" path="res://audio/player_footstep3.ogg" id="9_50h10"]
+[ext_resource type="Texture2D" uid="uid://cat26112uw2ci" path="res://Nodes/Player/art/p_base_down_no_mask_3.png" id="9_uk6c8"]
 [ext_resource type="AudioStream" uid="uid://8t76sf08aolj" path="res://audio/player_footstep4.ogg" id="10_y4jjx"]
+[ext_resource type="Texture2D" uid="uid://y8m5x7d85btx" path="res://Nodes/Player/art/p_base_right_down_2.png" id="11_fetqx"]
+[ext_resource type="Texture2D" uid="uid://vltaja04nj65" path="res://Nodes/Player/art/p_base_right_down_3.png" id="12_jospr"]
 [ext_resource type="AudioStream" uid="uid://b7msrk1upujqj" path="res://audio/mask_throw.ogg" id="13_6gkbq"]
 [ext_resource type="AudioStream" uid="uid://btbr5nm7xrgre" path="res://audio/mask_wear.ogg" id="14_oh6yy"]
+[ext_resource type="Texture2D" uid="uid://bsix3e0y6e5uj" path="res://Nodes/Player/art/p_base_right_down_no_mask_2.png" id="15_l15v1"]
+[ext_resource type="Texture2D" uid="uid://bdkhin4juhbsq" path="res://Nodes/Player/art/p_base_right_up_2.png" id="15_owx2l"]
+[ext_resource type="Texture2D" uid="uid://bnfo8oofegk4j" path="res://Nodes/Player/art/p_base_right_down_no_mask_3.png" id="16_482wx"]
+[ext_resource type="Texture2D" uid="uid://ucvvw7wx71l8" path="res://Nodes/Player/art/p_base_right_up_3.png" id="16_cr8vb"]
+[ext_resource type="Texture2D" uid="uid://bu02qqcrgagrx" path="res://Nodes/Player/art/p_base_right_no_mask_2.png" id="16_l15v1"]
+[ext_resource type="Texture2D" uid="uid://bpfb37mr7fxjl" path="res://Nodes/Player/art/p_base_right_no_mask_3.png" id="17_482wx"]
+[ext_resource type="Texture2D" uid="uid://bgdolav7jc6lg" path="res://Nodes/Player/art/p_base_up_2.png" id="18_wfvtl"]
+[ext_resource type="Texture2D" uid="uid://dif76sfy088l5" path="res://Nodes/Player/art/p_base_up_3.png" id="19_1ay8i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_us8wf"]
 size = Vector2(130, 130)
@@ -89,10 +105,10 @@ tracks/0/path = NodePath("Sprite2D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.13333334),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [ExtResource("3_50h10"), ExtResource("3_50h10")]
+"values": [ExtResource("3_50h10"), ExtResource("5_mrjgt"), ExtResource("6_3jhvm")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -118,10 +134,10 @@ tracks/0/path = NodePath("Sprite2D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.16666667, 0.31666666),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [ExtResource("4_y4jjx")]
+"values": [ExtResource("4_y4jjx"), ExtResource("8_telnj"), ExtResource("9_uk6c8")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -147,10 +163,10 @@ tracks/0/path = NodePath("Sprite2D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.15000002, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [ExtResource("2_q1ymb")]
+"values": [ExtResource("2_q1ymb"), ExtResource("8_ncvkw"), ExtResource("9_08mni")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -176,10 +192,10 @@ tracks/0/path = NodePath("Sprite2D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.15000002, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [ExtResource("5_bnxn6")]
+"values": [ExtResource("5_bnxn6"), ExtResource("11_fetqx"), ExtResource("12_jospr")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -205,10 +221,10 @@ tracks/0/path = NodePath("Sprite2D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.16666667, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [ExtResource("6_7km3q")]
+"values": [ExtResource("6_7km3q"), ExtResource("15_l15v1"), ExtResource("16_482wx")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -234,10 +250,10 @@ tracks/0/path = NodePath("Sprite2D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.16666667, 0.31666666),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [ExtResource("3_sldgk")]
+"values": [ExtResource("3_sldgk"), ExtResource("16_l15v1"), ExtResource("17_482wx")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -263,10 +279,10 @@ tracks/0/path = NodePath("Sprite2D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [ExtResource("5_vooq2")]
+"values": [ExtResource("5_vooq2"), ExtResource("15_owx2l"), ExtResource("16_cr8vb")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -292,10 +308,10 @@ tracks/0/path = NodePath("Sprite2D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [ExtResource("5_vooq2")]
+"values": [ExtResource("5_vooq2"), ExtResource("15_owx2l"), ExtResource("16_cr8vb")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -321,10 +337,10 @@ tracks/0/path = NodePath("Sprite2D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [ExtResource("5_7km3q")]
+"values": [ExtResource("5_7km3q"), ExtResource("18_wfvtl"), ExtResource("19_1ay8i")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -350,10 +366,10 @@ tracks/0/path = NodePath("Sprite2D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [ExtResource("5_7km3q")]
+"values": [ExtResource("5_7km3q"), ExtResource("18_wfvtl"), ExtResource("19_1ay8i")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
