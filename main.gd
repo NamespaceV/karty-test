@@ -292,6 +292,3 @@ func boss_pizza():
 		#random_laser_position += laser_offset
 	await get_tree().create_timer(1).timeout
 	$AnimationPlayer.play()
-
-func version():
-	Console.print_info("version 0.1.1")

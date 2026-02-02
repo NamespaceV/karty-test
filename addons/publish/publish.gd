@@ -43,7 +43,7 @@ func build_and_publish():
 	commands = [
 		"/c",
 		"cd \"%s\"" % [project_path],
-		"&& 7z a export/web.zip export/web/*"
+		"&& 7z a export/web.zip ./export/web/*"
 	]
 	await get_tree().create_timer(0.1).timeout
 	OS.execute("cmd",commands,out)
@@ -62,7 +62,7 @@ func build_and_publish():
 	commands = [
 		"/c",
 		"cd \"%s\"" % [project_path],
-		"&&  "+godot_exe+" --headless --export-debug \"Win\" export/win/game.exe"
+		"&&  "+godot_exe+" --headless --export-debug \"Win\" export/win/unmasked.exe"
 	]
 	await get_tree().create_timer(0.1).timeout
 	OS.execute("cmd",commands,out)
@@ -71,7 +71,7 @@ func build_and_publish():
 	commands = [
 		"/c",
 		"cd \"%s\"" % [project_path],
-		"&& 7z a export/win.zip export/win/*"
+		"&& 7z a export/win.zip ./export/win/*"
 	]
 	await get_tree().create_timer(0.1).timeout
 	OS.execute("cmd",commands,out)
