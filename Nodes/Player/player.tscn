@@ -34,6 +34,7 @@
 [ext_resource type="Texture2D" uid="uid://bpfb37mr7fxjl" path="res://Nodes/Player/art/p_base_right_no_mask_3.png" id="17_482wx"]
 [ext_resource type="Texture2D" uid="uid://bgdolav7jc6lg" path="res://Nodes/Player/art/p_base_up_2.png" id="18_wfvtl"]
 [ext_resource type="Texture2D" uid="uid://dif76sfy088l5" path="res://Nodes/Player/art/p_base_up_3.png" id="19_1ay8i"]
+[ext_resource type="PackedScene" uid="uid://v2xiqcdi803u" path="res://Nodes/Boss/Minion/minion_blood_pfx.tscn" id="35_482wx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_us8wf"]
 size = Vector2(130, 130)
@@ -427,6 +428,9 @@ stream_1 = ExtResource("8_7hu6s")
 stream_2 = ExtResource("9_50h10")
 stream_3 = ExtResource("10_y4jjx")
 
+[sub_resource type="Gradient" id="Gradient_gcfxi"]
+colors = PackedColorArray(0.80049086, 0.80049074, 0.80049074, 1, 1, 1, 1, 1)
+
 [node name="Player" type="CharacterBody2D" unique_id=239836141 node_paths=PackedStringArray("player_audiostream") groups=["hero"]]
 collision_layer = 2
 motion_mode = 1
@@ -453,3 +457,16 @@ bus = &"SFX"
 stream = SubResource("AudioStreamPlaylist_50h10")
 autoplay = true
 bus = &"SFX"
+
+[node name="dash_pfx" parent="." unique_id=1508652169 instance=ExtResource("35_482wx")]
+position = Vector2(0, -13)
+amount = 200
+lifetime = 0.2
+explosiveness = 0.0
+lifetime_randomness = 1.0
+emission_sphere_radius = 62.16
+gravity = Vector2(0, 0)
+initial_velocity_max = 70.04
+scale_amount_min = 5.0
+color = Color(1, 1, 1, 1)
+color_initial_ramp = SubResource("Gradient_gcfxi")

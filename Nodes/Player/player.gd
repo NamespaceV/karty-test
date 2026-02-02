@@ -15,6 +15,8 @@ var DASH_STAMINA_COST = 45
 const DASH_DURATION = 0.175
 const ABILITY_1_SPEED = 2400
 var dash_direction = Vector2(0,0)
+@onready var dash_pfx: CPUParticles2D = $dash_pfx
+
 
 const SHOOT_STAMINA_COST = 10
 const SHOOT_CD = 0.3
@@ -139,6 +141,7 @@ func update_animation_state():
 			dash_on = true
 			update_player_audio("dash")
 			dash_direction = velocity.normalized()
+			$dash_pfx.emitting = true
 #
 	#if Input.is_action_just_pressed("ability2") && not heavy_attack_on:
 		#heavy_attack_on = true
