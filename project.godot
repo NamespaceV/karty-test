@@ -31,7 +31,7 @@ buses/default_bus_layout="uid://klifure4ko51"
 
 Console="*uid://ouiu5xh1cs8n"
 GAME="*uid://cfxeqnehq4hsq"
-AudioGlobal="*uid://e2j8gyw610u8"
+AUDIO_GLOBAL="*uid://e2j8gyw610u8"
 
 [display]
 

@@ -39,10 +39,10 @@ func player_died():
 	)
 
 func reload():
-	get_tree().change_scene_to_file("res://main.tscn")
+	get_tree().change_scene_to_file("res://levels/main/main.tscn")
 
 func boss_defeated():
-	get_tree().change_scene_to_file("res://win.tscn")
+	get_tree().change_scene_to_file("res://levels/win/win.tscn")
 
 func spawn_SFX(pos:Vector2, stream: AudioStream) -> AudioStreamPlayer2D:
 	var sfx = AudioStreamPlayer2D.new()

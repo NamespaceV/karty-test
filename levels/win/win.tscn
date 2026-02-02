@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c4qo41xx8r4wk"]
 
-[ext_resource type="Texture2D" uid="uid://c3ppgngflwodt" path="res://ui/win.png" id="1_wao2c"]
-[ext_resource type="AudioStream" uid="uid://cvkrd1txl4o8r" path="res://audio/Music/win_music.wav" id="2_hgi8f"]
+[ext_resource type="Texture2D" uid="uid://c3ppgngflwodt" path="res://levels/win/win.png" id="1_e7rh2"]
+[ext_resource type="AudioStream" uid="uid://cvkrd1txl4o8r" path="res://audio/Music/win_music.wav" id="2_dwayr"]
 
 [node name="Win" type="Node2D" unique_id=275284512]
 
@@ -12,9 +12,9 @@ color = Color(0.22628197, 0.19916031, 0.20058551, 1)
 
 [node name="Win" type="Sprite2D" parent="." unique_id=1645160480]
 position = Vector2(959, 540)
-texture = ExtResource("1_wao2c")
+texture = ExtResource("1_e7rh2")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1296458946]
-stream = ExtResource("2_hgi8f")
+stream = ExtResource("2_dwayr")
 autoplay = true
 bus = &"Music"

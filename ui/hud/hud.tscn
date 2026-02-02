@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://bby8eg154c3v1"]
+
+[ext_resource type="Script" uid="uid://b6ff6hfk02l45" path="res://ui/hud/hud.gd" id="1_e0nub"]
+[ext_resource type="PackedScene" uid="uid://opyclkwhldgm" path="res://ui/hud/settings_menu/settings_menu.tscn" id="2_w75iv"]
+[ext_resource type="Texture2D" uid="uid://dexmrhnwnlo8i" path="res://ui/hud/loss.png" id="3_imuuq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2cqfq"]
+bg_color = Color(0.6, 0.024000013, 0.024000013, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yaehf"]
+bg_color = Color(0.29, 0.29, 0.29, 0.6509804)
+
+[node name="HUD" type="CanvasLayer" unique_id=1035164527]
+process_mode = 3
+script = ExtResource("1_e0nub")
+
+[node name="SettingsButton" type="Button" parent="." unique_id=1453977492]
+offset_left = 13.0
+offset_top = 8.0
+offset_right = 207.0
+offset_bottom = 83.0
+text = "Settings"
+
+[node name="BossHp" type="ProgressBar" parent="." unique_id=1706261747]
+offset_left = 224.0
+offset_top = 8.0
+offset_right = 1913.0
+offset_bottom = 82.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_2cqfq")
+value = 60.0
+show_percentage = false
+
+[node name="Stamina" type="ProgressBar" parent="." unique_id=1417682899]
+offset_left = 17.0
+offset_top = 154.0
+offset_right = 84.0
+offset_bottom = 1052.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_yaehf")
+value = 60.0
+fill_mode = 3
+show_percentage = false
+
+[node name="Settings Menu" parent="." unique_id=1617850467 instance=ExtResource("2_w75iv")]
+visible = false
+offset_left = 15.0
+offset_top = 7.0
+offset_right = 15.0
+offset_bottom = 7.0
+
+[node name="DeathSplash" type="Sprite2D" parent="." unique_id=1681812168]
+visible = false
+position = Vector2(959, 573)
+texture = ExtResource("3_imuuq")
+
+[connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_pressed"]

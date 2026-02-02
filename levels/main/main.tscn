@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dxa5ccd40isk5"]
 
-[ext_resource type="Script" uid="uid://p2goto8d7ooy" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://p2goto8d7ooy" path="res://levels/main/main.gd" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://cho732lpla0kc" path="res://Nodes/Boss/Aoe/aoe.tscn" id="2_82xsv"]
 [ext_resource type="PackedScene" uid="uid://d2ax1g2nquiex" path="res://Nodes/Boss/Minion/minion.tscn" id="2_getpj"]
 [ext_resource type="PackedScene" uid="uid://564yql88lgec" path="res://Nodes/Boss/Orb/orb.tscn" id="2_w48qg"]
@@ -12,16 +12,14 @@
 [ext_resource type="AudioStream" uid="uid://hotf1xd3v8e7" path="res://audio/Music/boss_breakdown.ogg" id="9_w48qg"]
 [ext_resource type="AudioStream" uid="uid://dct8qgffssvmr" path="res://audio/Music/waltz_main_end.ogg" id="10_82xsv"]
 [ext_resource type="AudioStream" uid="uid://cevqpm4m6rlrk" path="res://audio/Music/boss_end.ogg" id="10_vivmo"]
-[ext_resource type="Texture2D" uid="uid://ch30su1d2s0rc" path="res://bg2.png" id="11_2cqfq"]
+[ext_resource type="Texture2D" uid="uid://ch30su1d2s0rc" path="res://levels/main/bg2.png" id="11_2cqfq"]
 [ext_resource type="AudioStream" uid="uid://bg4p88cwo2ooo" path="res://audio/Music/waltz_solo.ogg" id="11_82xsv"]
-[ext_resource type="Texture2D" uid="uid://nwils47i6ctw" path="res://bg2_top.png" id="12_cegan"]
+[ext_resource type="Texture2D" uid="uid://nwils47i6ctw" path="res://levels/main/bg2_top.png" id="12_cegan"]
 [ext_resource type="PackedScene" uid="uid://xp40g7j114lm" path="res://Nodes/Boss/boss.tscn" id="14_w48qg"]
-[ext_resource type="Script" uid="uid://b6ff6hfk02l45" path="res://hud.gd" id="15_2cqfq"]
 [ext_resource type="PackedScene" uid="uid://bpml58shwj1wq" path="res://Nodes/Player/player.tscn" id="15_vivmo"]
 [ext_resource type="PackedScene" uid="uid://b7a73wqytukva" path="res://Nodes/Boss/Laser/laser.tscn" id="16_2cqfq"]
-[ext_resource type="PackedScene" uid="uid://opyclkwhldgm" path="res://settings_menu.tscn" id="16_yaehf"]
-[ext_resource type="Script" uid="uid://1ocmk2pskud1" path="res://camera_2d.gd" id="18_074og"]
-[ext_resource type="Texture2D" uid="uid://dexmrhnwnlo8i" path="res://ui/loss.png" id="21_getpj"]
+[ext_resource type="Script" uid="uid://1ocmk2pskud1" path="res://levels/main/camera_2d.gd" id="18_074og"]
+[ext_resource type="PackedScene" uid="uid://bby8eg154c3v1" path="res://ui/hud/hud.tscn" id="20_82xsv"]
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_getpj"]
 loop = false
@@ -158,12 +156,6 @@ _data = {
 &"intro": SubResource("Animation_ycdy4")
 }
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2cqfq"]
-bg_color = Color(0.6, 0.024000013, 0.024000013, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yaehf"]
-bg_color = Color(0.29, 0.29, 0.29, 0.6509804)
-
 [node name="Scene" type="Node2D" unique_id=1460920190]
 script = ExtResource("1_ig7tw")
 orb = ExtResource("2_w48qg")
@@ -221,46 +213,4 @@ position = Vector2(1926, 609)
 libraries/ = SubResource("AnimationLibrary_074og")
 autoplay = &"intro"
 
-[node name="HUD" type="CanvasLayer" parent="." unique_id=1911533937]
-process_mode = 3
-script = ExtResource("15_2cqfq")
-
-[node name="SettingsButton" type="Button" parent="HUD" unique_id=302820558]
-offset_left = 13.0
-offset_top = 8.0
-offset_right = 207.0
-offset_bottom = 83.0
-text = "Settings"
-
-[node name="BossHp" type="ProgressBar" parent="HUD" unique_id=1946581873]
-offset_left = 224.0
-offset_top = 8.0
-offset_right = 1913.0
-offset_bottom = 82.0
-theme_override_styles/fill = SubResource("StyleBoxFlat_2cqfq")
-value = 60.0
-show_percentage = false
-
-[node name="Stamina" type="ProgressBar" parent="HUD" unique_id=2061159507]
-offset_left = 17.0
-offset_top = 154.0
-offset_right = 84.0
-offset_bottom = 1052.0
-theme_override_styles/fill = SubResource("StyleBoxFlat_yaehf")
-value = 60.0
-fill_mode = 3
-show_percentage = false
-
-[node name="Settings Menu" parent="HUD" unique_id=1617850467 instance=ExtResource("16_yaehf")]
-visible = false
-offset_left = 15.0
-offset_top = 7.0
-offset_right = 15.0
-offset_bottom = 7.0
-
-[node name="DeathSplash" type="Sprite2D" parent="HUD" unique_id=335712227]
-visible = false
-position = Vector2(959, 573)
-texture = ExtResource("21_getpj")
-
-[connection signal="pressed" from="HUD/SettingsButton" to="HUD" method="_on_settings_button_pressed"]
+[node name="HUD" parent="." unique_id=1035164527 instance=ExtResource("20_82xsv")]
