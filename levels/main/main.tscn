@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cho732lpla0kc" path="res://Nodes/Boss/Aoe/aoe.tscn" id="2_82xsv"]
 [ext_resource type="PackedScene" uid="uid://d2ax1g2nquiex" path="res://Nodes/Boss/Minion/minion.tscn" id="2_getpj"]
 [ext_resource type="PackedScene" uid="uid://564yql88lgec" path="res://Nodes/Boss/Orb/orb.tscn" id="2_w48qg"]
-[ext_resource type="Script" uid="uid://gcpmgnm51wki" path="res://world_audio_manager.gd" id="2_ycdy4"]
+[ext_resource type="Script" uid="uid://gcpmgnm51wki" path="res://levels/main/world_audio_manager.gd" id="2_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://d05380phvgsek" path="res://Nodes/Boss/Laser/laser_indicator.tscn" id="3_yaehf"]
 [ext_resource type="PackedScene" uid="uid://v2xiqcdi803u" path="res://Nodes/Boss/Minion/minion_blood_pfx.tscn" id="7_getpj"]
 [ext_resource type="AudioStream" uid="uid://br18jifda2p5x" path="res://audio/Music/boss_intro.ogg" id="8_vivmo"]
